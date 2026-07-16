@@ -4,6 +4,7 @@ import { ArrowRight, MessageCircle, Code, ShieldCheck, Cpu } from 'lucide-react'
 import TestimonialsSection from '../components/TestimonialsSection';
 import ServicesSection from '../components/ServicesSection';
 import StatsSection from '../components/StatsSection';
+import SoftwareShowcase from '../components/SoftwareShowcase';
 
 const Home: React.FC = () => {
   return (
@@ -93,7 +94,8 @@ const Home: React.FC = () => {
       {/* 4. Stats Counters */}
       <StatsSection />
 
-
+      {/* 5. Software Products Showcase */}
+      <SoftwareShowcase />
 
       {/* 6. Client Testimonials */}
       <TestimonialsSection />
