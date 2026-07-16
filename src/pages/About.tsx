@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Target, Eye, Heart, Zap, Award, Users, MessageCircle } from 'lucide-react';
-import CEOSection from '../components/CEOSection';
+
 
 const teamMembers = [
-  { name: 'Hassan Saeed', role: 'Founder & CEO', avatar: 'HS', color: 'from-primary to-blue-600', bio: 'Visionary leader driving Mactis forward with a passion for tech and innovation.' },
   { name: 'Ali Raza', role: 'Chief Technology Officer', avatar: 'AR', color: 'from-purple-500 to-purple-700', bio: 'Full-stack architect with 8+ years building scalable enterprise software.' },
   { name: 'Sara Khan', role: 'Head of Business Development', avatar: 'SK', color: 'from-amber-500 to-amber-700', bio: 'Client relationships expert ensuring successful project delivery.' },
   { name: 'Usman Tariq', role: 'Lead Developer', avatar: 'UT', color: 'from-green-500 to-green-700', bio: 'Dedicated engineer specializing in React, Laravel, and modern cloud architecture.' },
@@ -87,8 +86,7 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* CEO Section */}
-      <CEOSection />
+
 
       {/* Team */}
       <section className="py-20 bg-dark">
@@ -98,7 +96,7 @@ const About: React.FC = () => {
             <h2 className="text-3xl md:text-5xl font-bold text-white">Meet Our Team</h2>
             <p className="text-slate-400 mt-4 max-w-xl mx-auto">The engineering and business specialists dedicated to bringing your projects to life.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member) => (
               <div key={member.name} className="glass-card p-8 rounded-3xl border border-white/5 hover:border-white/10 transition-all duration-300 hover:-translate-y-2 text-center group">
                 <div className={`h-24 w-24 rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center mx-auto mb-6 text-white font-black text-2xl shadow-2xl group-hover:scale-105 transition-transform`}>

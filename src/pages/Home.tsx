@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle, Code, ShieldCheck, Cpu } from 'lucide-react';
+import TestimonialsSection from '../components/TestimonialsSection';
 import ServicesSection from '../components/ServicesSection';
 import StatsSection from '../components/StatsSection';
-import CEOSection from '../components/CEOSection';
-import TestimonialsSection from '../components/TestimonialsSection';
 
 const Home: React.FC = () => {
   return (
@@ -94,8 +93,7 @@ const Home: React.FC = () => {
       {/* 4. Stats Counters */}
       <StatsSection />
 
-      {/* 5. CEO Perspective */}
-      <CEOSection />
+
 
       {/* 6. Client Testimonials */}
       <TestimonialsSection />
