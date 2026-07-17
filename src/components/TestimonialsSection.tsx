@@ -58,11 +58,11 @@ const TestimonialsSection: React.FC = () => {
   const getCard = (offset: number) => testimonials[(activeIndex + offset + testimonials.length) % testimonials.length];
 
   return (
-    <section className="py-20 bg-dark overflow-hidden">
+    <section className="py-20 bg-slate-100 dark:bg-dark overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Testimonials</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white">What Our Clients Say</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white">What Our Clients Say</h2>
           <p className="text-slate-400 mt-4 max-w-xl mx-auto">Reviews from organizations across Pakistan who trust Mactis for their enterprise software needs.</p>
         </div>
 
@@ -93,7 +93,7 @@ const TestimonialsSection: React.FC = () => {
                     {t.avatar}
                   </div>
                   <div>
-                    <p className="font-bold text-white">{t.name}</p>
+                    <p className="font-bold text-slate-900 dark:text-white">{t.name}</p>
                     <p className="text-xs text-slate-500">{t.role} • {t.location}</p>
                   </div>
                 </div>
@@ -116,7 +116,7 @@ const TestimonialsSection: React.FC = () => {
               {testimonials[activeIndex].avatar}
             </div>
             <div>
-              <p className="font-bold text-white">{testimonials[activeIndex].name}</p>
+              <p className="font-bold text-slate-900 dark:text-white">{testimonials[activeIndex].name}</p>
               <p className="text-xs text-slate-500">{testimonials[activeIndex].role} • {testimonials[activeIndex].location}</p>
             </div>
           </div>

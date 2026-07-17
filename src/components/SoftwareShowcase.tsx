@@ -54,7 +54,7 @@ const products = [
 
 const SoftwareShowcase: React.FC = () => {
   return (
-    <section className="py-24 bg-dark-lighter relative overflow-hidden">
+    <section className="py-24 bg-white dark:bg-dark-lighter relative overflow-hidden">
       {/* Background glow highlights */}
       <div className="absolute top-1/2 left-1/4 w-[300px] h-[300px] bg-primary/5 blur-[120px] rounded-full" />
       <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-blue-500/5 blur-[120px] rounded-full" />
@@ -64,7 +64,7 @@ const SoftwareShowcase: React.FC = () => {
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider mb-4">
             Our Software Products
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
             Featured Software & <br />
             <span className="text-gradient">Ready-to-Deploy Solutions</span>
           </h2>
@@ -89,11 +89,11 @@ const SoftwareShowcase: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors">
                   {product.title}
                 </h3>
                 
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
                   {product.description}
                 </p>
 
@@ -123,8 +123,8 @@ const SoftwareShowcase: React.FC = () => {
           {/* Contact Card for custom setups */}
           <div className="glass p-8 rounded-3xl border border-dashed border-white/10 flex flex-col justify-between text-center items-center bg-white/[0.01]">
             <div className="my-auto space-y-6">
-              <h3 className="text-xl font-bold text-white">Need a Custom Software Solution?</h3>
-              <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white">Need a Custom Software Solution?</h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-xs">
                 Have specific database or flow requirements? Our development team can engineer tailored platforms to fit your processes.
               </p>
               <Link 

@@ -39,11 +39,11 @@ const services = [
 
 const ServicesSection: React.FC = () => {
   return (
-    <section className="py-20 bg-dark-lighter">
+    <section className="py-20 bg-slate-100 dark:bg-dark-lighter">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-20 max-w-2xl mx-auto">
           <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Our Expertise</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Expert IT Services</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">Expert IT Services</h2>
           <p className="text-slate-400 text-lg">
             Mactis provides professional software and IT solutions to help businesses scale in the digital era.
           </p>
@@ -61,11 +61,11 @@ const ServicesSection: React.FC = () => {
                 {service.icon}
               </div>
               
-              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-primary transition-colors">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
               
-              <p className="text-slate-400 mb-8 leading-relaxed">
+              <p className="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">
                 {service.description}
               </p>
               
@@ -81,7 +81,7 @@ const ServicesSection: React.FC = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <Link to="/services" className="btn-outline border-white/20 text-white hover:bg-white hover:text-dark">
+          <Link to="/services" className="btn-outline">
             View All Services
           </Link>
         </div>

@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-dark-lighter border-t border-white/5 pt-12 pb-8">
+    <footer className="bg-slate-100 dark:bg-dark-lighter border-t border-slate-200 dark:border-white/5 pt-12 pb-8">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
@@ -17,16 +17,16 @@ const Footer: React.FC = () => {
               Mactis is a premium software development and IT consulting agency in Pakistan. We deliver high-performance web applications, cross-platform mobile apps, and custom AI/ML integrations.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="p-2 bg-dark-card rounded-full text-slate-400 hover:text-primary transition-colors">
+              <a href="#" className="p-2 bg-slate-200 dark:bg-dark-card rounded-full text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
                 FB
               </a>
-              <a href="#" className="p-2 bg-dark-card rounded-full text-slate-400 hover:text-primary transition-colors">
+              <a href="#" className="p-2 bg-slate-200 dark:bg-dark-card rounded-full text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
                 LN
               </a>
-              <a href="#" className="p-2 bg-dark-card rounded-full text-slate-400 hover:text-primary transition-colors">
+              <a href="#" className="p-2 bg-slate-200 dark:bg-dark-card rounded-full text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
                 IG
               </a>
-              <a href="#" className="p-2 bg-dark-card rounded-full text-slate-400 hover:text-primary transition-colors">
+              <a href="#" className="p-2 bg-slate-200 dark:bg-dark-card rounded-full text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
                 GH
               </a>
             </div>
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-6 text-slate-900 dark:text-white">Quick Links</h3>
             <ul className="space-y-4">
               <li><Link to="/" className="text-slate-400 hover:text-primary transition-colors">Home</Link></li>
               <li><Link to="/services" className="text-slate-400 hover:text-primary transition-colors">Our Services</Link></li>
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
 
           {/* IT Services */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">IT Services</h3>
+            <h3 className="text-lg font-bold mb-6 text-slate-900 dark:text-white">IT Services</h3>
             <ul className="space-y-4">
               <li><Link to="/services" className="text-slate-400 hover:text-primary transition-colors">Web Development</Link></li>
               <li><Link to="/services" className="text-slate-400 hover:text-primary transition-colors">App Development</Link></li>
@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">Get in Touch</h3>
+            <h3 className="text-lg font-bold mb-6 text-slate-900 dark:text-white">Get in Touch</h3>
             <ul className="space-y-4">
               <li className="flex items-start space-x-3 text-slate-400">
                 <MapPin className="h-5 w-5 text-primary mt-1 shrink-0" />
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+        <div className="border-t border-slate-200 dark:border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
           <p>&copy; {new Date().getFullYear()} Mactis IT. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>

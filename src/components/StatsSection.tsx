@@ -58,12 +58,12 @@ const StatsSection: React.FC = () => {
   }, []);
 
   return (
-    <section ref={ref} className="py-20 bg-dark relative overflow-hidden">
+    <section ref={ref} className="py-20 bg-white dark:bg-dark relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-blue-500/5" />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-14">
           <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Our Impact</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white">Delivering Software Excellence</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white">Delivering Software Excellence</h2>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat) => (

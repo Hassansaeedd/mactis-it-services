@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   return (
     <div className="animate-fade-in">
       {/* 1. Hero Section */}
-      <section className="relative py-32 md:py-48 bg-dark overflow-hidden">
+      <section className="relative py-32 md:py-48 bg-slate-900 dark:bg-dark overflow-hidden">
         {/* Animated background blobs */}
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary/10 blur-[150px] rounded-full animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-blue-500/10 blur-[150px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
@@ -52,35 +52,35 @@ const Home: React.FC = () => {
       </section>
 
       {/* 2. Value Proposition Grid */}
-      <section className="py-20 bg-dark-lighter border-y border-white/5">
+      <section className="py-20 bg-slate-100 dark:bg-dark-lighter border-y border-slate-200 dark:border-white/5">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="glass p-8 rounded-3xl border border-white/5 flex flex-col items-center text-center">
+            <div className="glass p-8 rounded-3xl flex flex-col items-center text-center">
               <div className="p-4 bg-primary/10 rounded-2xl text-primary mb-6">
                 <Code className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Enterprise Engineering</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Enterprise Engineering</h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                 Clean, maintainable, and type-safe code written with modern technologies (React, Next.js, Node.js, and Laravel).
               </p>
             </div>
             
-            <div className="glass p-8 rounded-3xl border border-white/5 flex flex-col items-center text-center">
-              <div className="p-4 bg-indigo-500/10 rounded-2xl text-indigo-400 mb-6">
+            <div className="glass p-8 rounded-3xl flex flex-col items-center text-center">
+              <div className="p-4 bg-indigo-500/10 rounded-2xl text-indigo-500 dark:text-indigo-400 mb-6">
                 <Cpu className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">AI & ML Automations</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">AI & ML Automations</h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                 Streamline workflows, automate manual work, and integrate generative AI agents to supercharge operations.
               </p>
             </div>
 
-            <div className="glass p-8 rounded-3xl border border-white/5 flex flex-col items-center text-center">
-              <div className="p-4 bg-green-500/10 rounded-2xl text-green-400 mb-6">
+            <div className="glass p-8 rounded-3xl flex flex-col items-center text-center">
+              <div className="p-4 bg-green-500/10 rounded-2xl text-green-600 dark:text-green-400 mb-6">
                 <ShieldCheck className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Secure & Scalable</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Secure & Scalable</h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                 Optimized database systems, penetration-tested APIs, and secure cloud setups hosted on AWS & DigitalOcean.
               </p>
             </div>
@@ -101,10 +101,10 @@ const Home: React.FC = () => {
       <TestimonialsSection />
 
       {/* 7. Conversion CTA Banner */}
-      <section className="py-24 bg-gradient-to-br from-primary/15 via-dark-lighter to-blue-500/10 border-t border-white/5">
+      <section className="py-24 bg-gradient-to-br from-primary/15 via-slate-100 dark:via-dark-lighter to-blue-500/10 border-t border-slate-200 dark:border-white/5">
         <div className="container mx-auto px-4 md:px-6 text-center max-w-3xl">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6">Ready to Build Your Custom Software?</h2>
-          <p className="text-slate-400 text-lg mb-10 leading-relaxed">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6">Ready to Build Your Custom Software?</h2>
+          <p className="text-slate-500 dark:text-slate-400 text-lg mb-10 leading-relaxed">
             Partner with Pakistan's leading software architects and developers. Tell us about your project requirements and get a detailed proposal within 24 hours.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -119,7 +119,7 @@ const Home: React.FC = () => {
             </a>
             <Link 
               to="/contact" 
-              className="btn-outline border-white/20 text-white hover:bg-white hover:text-dark text-lg px-8 py-4"
+              className="btn-outline text-lg px-8 py-4"
             >
               Submit Project Details
             </Link>
