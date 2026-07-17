@@ -8,7 +8,6 @@ const contactInfo = [
   { icon: Clock, title: 'Consultation Hours', detail: 'Mon–Sat: 10am – 7pm', color: 'text-amber-400' },
 ];
 
-// Replace this with the Web3Forms access key sent to hschatthi@gmail.com
 const WEB3FORMS_ACCESS_KEY: string = "0d9997d3-2f7c-4982-9099-26c52d99b858";
 
 const Contact: React.FC = () => {
@@ -63,7 +62,7 @@ const Contact: React.FC = () => {
   return (
     <div className="animate-fade-in">
       {/* Hero */}
-      <section className="relative py-24 bg-dark overflow-hidden">
+      <section className="relative py-24 bg-slate-900 dark:bg-dark overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-primary/10" />
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-2xl mx-auto">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider mb-6">
@@ -78,17 +77,17 @@ const Contact: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-dark-lighter">
+      <section className="py-16 bg-slate-100 dark:bg-dark-lighter">
         <div className="container mx-auto px-4 md:px-6">
           {/* Contact Info Cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {contactInfo.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.title} className="glass-card p-6 rounded-3xl border border-white/5 text-center hover:border-white/10 transition-all duration-300 hover:-translate-y-1 group">
+                <div key={item.title} className="glass-card p-6 rounded-3xl text-center hover:border-white/10 transition-all duration-300 hover:-translate-y-1 group">
                   <Icon className={`h-8 w-8 ${item.color} mx-auto mb-4 group-hover:scale-110 transition-transform`} />
                   <p className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-2">{item.title}</p>
-                  <p className="text-white font-bold text-sm">{item.detail}</p>
+                  <p className="text-slate-900 dark:text-white font-bold text-sm">{item.detail}</p>
                 </div>
               );
             })}
@@ -96,16 +95,16 @@ const Contact: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="glass-card p-10 rounded-3xl border border-white/5">
-              <h2 className="text-2xl font-bold text-white mb-8">Request a Free Quote</h2>
+            <div className="glass-card p-10 rounded-3xl">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">Request a Free Quote</h2>
 
               {submitted ? (
                 <div className="text-center py-12">
                   <div className="mx-auto bg-green-500/10 text-green-400 h-20 w-20 rounded-full flex items-center justify-center mb-6">
                     <CheckCircle size={40} />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">Project Details Received!</h3>
-                  <p className="text-slate-400">Thank you. An IT solution architect will review your requirements and reach out within 24 hours.</p>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Project Details Received!</h3>
+                  <p className="text-slate-500 dark:text-slate-400">Thank you. An IT solution architect will review your requirements and reach out within 24 hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -114,7 +113,7 @@ const Contact: React.FC = () => {
                       <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Full Name *</label>
                       <input
                         required name="name" type="text" value={formData.name} onChange={handleChange}
-                        className="w-full bg-dark border border-white/10 rounded-xl py-3 px-4 text-white focus:ring-2 focus:ring-primary/50 outline-none transition-all"
+                        className="w-full bg-white dark:bg-dark border border-slate-200 dark:border-white/10 rounded-xl py-3 px-4 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-primary/50 outline-none transition-all"
                         placeholder="John Doe"
                       />
                     </div>
@@ -122,7 +121,7 @@ const Contact: React.FC = () => {
                       <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Email Address *</label>
                       <input
                         required name="email" type="email" value={formData.email} onChange={handleChange}
-                        className="w-full bg-dark border border-white/10 rounded-xl py-3 px-4 text-white focus:ring-2 focus:ring-primary/50 outline-none transition-all"
+                        className="w-full bg-white dark:bg-dark border border-slate-200 dark:border-white/10 rounded-xl py-3 px-4 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-primary/50 outline-none transition-all"
                         placeholder="you@email.com"
                       />
                     </div>
@@ -131,7 +130,7 @@ const Contact: React.FC = () => {
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Project Type *</label>
                     <select
                       required name="subject" value={formData.subject} onChange={handleChange}
-                      className="w-full bg-dark border border-white/10 rounded-xl py-3 px-4 text-white focus:ring-2 focus:ring-primary/50 outline-none"
+                      className="w-full bg-white dark:bg-dark border border-slate-200 dark:border-white/10 rounded-xl py-3 px-4 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/50 outline-none"
                     >
                       <option value="">Select an option...</option>
                       <option value="web-dev">Web Application Development</option>
@@ -146,7 +145,7 @@ const Contact: React.FC = () => {
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Project Requirements *</label>
                     <textarea
                       required name="message" rows={5} value={formData.message} onChange={handleChange}
-                      className="w-full bg-dark border border-white/10 rounded-xl py-3 px-4 text-white focus:ring-2 focus:ring-primary/50 outline-none resize-none transition-all"
+                      className="w-full bg-white dark:bg-dark border border-slate-200 dark:border-white/10 rounded-xl py-3 px-4 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-primary/50 outline-none resize-none transition-all"
                       placeholder="Describe your goals, features, and timeline requirements..."
                     />
                   </div>
@@ -167,8 +166,8 @@ const Contact: React.FC = () => {
                     <MessageCircle className="h-8 w-8 text-green-400" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-white text-xl mb-2">Prefer WhatsApp?</h3>
-                    <p className="text-slate-400 mb-5 text-sm">Get instant responses from a solution expert on WhatsApp. Online Mon–Sat, 10am–7pm.</p>
+                    <h3 className="font-bold text-slate-900 dark:text-white text-xl mb-2">Prefer WhatsApp?</h3>
+                    <p className="text-slate-500 dark:text-slate-400 mb-5 text-sm">Get instant responses from a solution expert on WhatsApp. Online Mon–Sat, 10am–7pm.</p>
                     <a
                       href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! Can I get more info on this?')}`}
                       target="_blank"
@@ -186,12 +185,12 @@ const Contact: React.FC = () => {
               </div>
 
               {/* Map Embed */}
-              <div className="rounded-3xl overflow-hidden border border-white/5 h-72">
+              <div className="rounded-3xl overflow-hidden border border-slate-200 dark:border-white/5 h-72">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54445.99498879888!2d74.27483694999999!3d31.516564350000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe9765878e0!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1715000000000!5m2!1sen!2s"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)' }}
+                  style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   title="Mactis Office Location"

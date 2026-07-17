@@ -61,7 +61,7 @@ const ServicesPage: React.FC = () => {
   return (
     <div className="animate-fade-in">
       {/* Hero */}
-      <section className="relative py-28 bg-dark overflow-hidden">
+      <section className="relative py-28 bg-slate-900 dark:bg-dark overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-blue-500/10" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full" />
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-3xl mx-auto">
@@ -85,7 +85,7 @@ const ServicesPage: React.FC = () => {
               <MessageCircle className="mr-2 h-5 w-5" />
               Get a Free Quote
             </a>
-            <Link to="/contact" className="btn-outline border-white/20 text-white hover:bg-white hover:text-dark">
+            <Link to="/contact" className="btn-outline border-white/30 text-white hover:bg-white hover:text-slate-900">
               Contact Our Team
             </Link>
           </div>
@@ -93,11 +93,11 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 bg-dark-lighter">
+      <section className="py-24 bg-slate-100 dark:bg-dark-lighter">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">What We Offer</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-white">Our Core Services</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white">Our Core Services</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => {
@@ -105,17 +105,17 @@ const ServicesPage: React.FC = () => {
               return (
                 <div
                   key={service.title}
-                  className="glass-card p-8 rounded-3xl group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 border border-white/5 hover:border-white/10"
+                  className="glass-card p-8 rounded-3xl group relative overflow-hidden transition-all duration-300 hover:-translate-y-2"
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-x-16 -translate-y-16 blur-2xl group-hover:bg-primary/10 transition-all" />
                   <div className={`mb-6 p-4 rounded-2xl w-fit ${service.color}/20 border border-white/10`}>
                     <Icon className={`h-8 w-8 ${service.color.replace('bg-', 'text-')}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-                  <p className="text-slate-400 leading-relaxed mb-6 text-sm">{service.description}</p>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
+                  <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-6 text-sm">{service.description}</p>
                   <ul className="space-y-2">
                     {service.features.map((f) => (
-                      <li key={f} className="flex items-center space-x-2 text-sm text-slate-300">
+                      <li key={f} className="flex items-center space-x-2 text-sm text-slate-600 dark:text-slate-300">
                         <CheckCircle size={14} className="text-primary shrink-0" />
                         <span>{f}</span>
                       </li>
@@ -129,12 +129,12 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* Process */}
-      <section className="py-24 bg-dark">
+      <section className="py-24 bg-white dark:bg-dark">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">How We Work</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-white">Our Process</h2>
-            <p className="text-slate-400 mt-4 max-w-xl mx-auto">A transparent, agile process that keeps you in control at every step.</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white">Our Process</h2>
+            <p className="text-slate-500 dark:text-slate-400 mt-4 max-w-xl mx-auto">A transparent, agile process that keeps you in control at every step.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (
@@ -142,10 +142,10 @@ const ServicesPage: React.FC = () => {
                 {index < processSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-10 left-full w-full h-px bg-gradient-to-r from-primary/50 to-transparent z-0" />
                 )}
-                <div className="glass p-8 rounded-3xl border border-white/5 hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 text-center relative z-10">
+                <div className="glass p-8 rounded-3xl hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 text-center relative z-10">
                   <div className="text-5xl font-black text-gradient mb-4">{step.step}</div>
-                  <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{step.desc}</p>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{step.title}</h3>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -157,7 +157,7 @@ const ServicesPage: React.FC = () => {
       <section className="py-20 bg-gradient-to-r from-primary/20 via-blue-500/10 to-primary/20 border-y border-primary/10">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
-          <p className="text-slate-400 text-xl mb-10 max-w-xl mx-auto">
+          <p className="text-slate-300 text-xl mb-10 max-w-xl mx-auto">
             Tell us your idea and we will turn it into a powerful digital solution. First consultation is always free.
           </p>
           <a
