@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Users, Database, Star, Clock } from 'lucide-react';
 
 const stats = [
-  { value: 120, suffix: '+', label: 'Enterprise Clients', icon: Users, color: 'text-blue-400' },
-  { value: 250, suffix: '+', label: 'Projects Delivered', icon: Database, color: 'text-purple-400' },
+  { value: 12, suffix: '+', label: 'Enterprise Clients', icon: Users, color: 'text-blue-400' },
+  { value: 10, suffix: '+', label: 'Projects Delivered', icon: Database, color: 'text-purple-400' },
   { value: 98, suffix: '%', label: 'Satisfaction Rate', icon: Star, color: 'text-amber-400' },
-  { value: 10, suffix: '+', label: 'Years of Experience', icon: Clock, color: 'text-primary' },
+  { value: 5, suffix: '+', label: 'Years of Experience', icon: Clock, color: 'text-primary' },
 ];
 
 function useCountUp(target: number, duration: number, isVisible: boolean) {
