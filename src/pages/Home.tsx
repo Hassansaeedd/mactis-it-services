@@ -29,12 +29,12 @@ const Home: React.FC = () => {
     <div className="animate-fade-in relative">
       {/* 1. High-Tech Hero Section with Casberry Particles & Origin UI Terminal */}
       <section className="relative py-24 md:py-36 bg-slate-900 dark:bg-dark overflow-hidden border-b border-slate-200/50 dark:border-white/10">
-        {/* Interactive Casberry Particle Canvas */}
-        <ParticlesBackground quantity={75} className="z-0" />
+        {/* Interactive Casberry Particle Canvas (Optimized 60fps) */}
+        <ParticlesBackground quantity={40} className="z-0" />
 
-        {/* Ambient Glow Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-primary/20 blur-[160px] rounded-full pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-blue-500/20 blur-[160px] rounded-full pointer-events-none" />
+        {/* GPU-Accelerated Ambient Glow Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-[280px] md:w-[420px] h-[280px] md:h-[420px] bg-primary/15 blur-[60px] md:blur-[100px] rounded-full pointer-events-none transform-gpu" />
+        <div className="absolute bottom-1/4 right-1/4 w-[280px] md:w-[420px] h-[280px] md:h-[420px] bg-blue-500/15 blur-[60px] md:blur-[100px] rounded-full pointer-events-none transform-gpu" />
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
