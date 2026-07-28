@@ -99,7 +99,7 @@ const SoftwareShowcase: React.FC = () => {
 
                 <ul className="space-y-2.5 mb-8">
                   {product.features.map((feature, i) => (
-                    <li key={i} className="flex items-center space-x-2 text-xs text-slate-300">
+                    <li key={i} className="flex items-center space-x-2 text-xs text-slate-600 dark:text-slate-300">
                       <CheckCircle2 size={14} className="text-primary shrink-0" />
                       <span>{feature}</span>
                     </li>
