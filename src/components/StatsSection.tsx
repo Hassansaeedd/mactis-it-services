@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Users, Database, Star, Clock } from 'lucide-react';
 
 const stats = [
-  { value: 12, suffix: '+', label: 'Enterprise Clients', icon: Users, color: 'text-blue-400' },
-  { value: 10, suffix: '+', label: 'Projects Delivered', icon: Database, color: 'text-purple-400' },
-  { value: 98, suffix: '%', label: 'Satisfaction Rate', icon: Star, color: 'text-amber-400' },
-  { value: 5, suffix: '+', label: 'Years of Experience', icon: Clock, color: 'text-primary' },
+  { value: 35, suffix: '+', label: 'Enterprise Clients', icon: Users, color: 'text-blue-400' },
+  { value: 85, suffix: '+', label: 'Production Deployments', icon: Database, color: 'text-purple-400' },
+  { value: 99, suffix: '.99%', label: 'System Uptime SLA', icon: Star, color: 'text-amber-400' },
+  { value: 10, suffix: '+', label: 'Years Engineering Experience', icon: Clock, color: 'text-primary' },
 ];
 
 function useCountUp(target: number, duration: number, isVisible: boolean) {
@@ -32,14 +32,14 @@ const StatCard: React.FC<{ stat: typeof stats[0]; isVisible: boolean }> = ({ sta
   const count = useCountUp(stat.value, 1500, isVisible);
   const Icon = stat.icon;
   return (
-    <div className="flex flex-col items-center text-center p-8 glass rounded-3xl border border-white/5 hover:border-white/10 transition-all duration-300 hover:-translate-y-1 group">
+    <div className="flex flex-col items-center text-center p-8 glass-card rounded-3xl border border-slate-200 dark:border-white/5 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 group shadow-sm">
       <div className={`${stat.color} mb-4 transition-transform duration-300 group-hover:scale-110`}>
         <Icon size={36} strokeWidth={1.5} />
       </div>
-      <div className={`text-5xl font-black mb-2 ${stat.color}`}>
+      <div className={`text-4xl sm:text-5xl font-black mb-2 font-mono ${stat.color}`}>
         {count.toLocaleString()}{stat.suffix}
       </div>
-      <p className="text-slate-400 font-bold text-sm uppercase tracking-widest">{stat.label}</p>
+      <p className="text-slate-600 dark:text-slate-400 font-bold text-xs sm:text-sm uppercase tracking-wider">{stat.label}</p>
     </div>
   );
 };
@@ -58,12 +58,13 @@ const StatsSection: React.FC = () => {
   }, []);
 
   return (
-    <section ref={ref} className="py-20 bg-white dark:bg-dark relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-blue-500/5" />
+    <section ref={ref} className="py-24 bg-white dark:bg-dark relative overflow-hidden border-b border-slate-200/80 dark:border-white/5">
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-blue-500/5 pointer-events-none" />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center mb-14">
-          <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Our Impact</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white">Delivering Software Excellence</h2>
+        <div className="text-center mb-14 max-w-2xl mx-auto">
+          <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Operational Metrics</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Verified Engineering Scale</h2>
+          <p className="text-slate-600 dark:text-slate-400 mt-3 text-base">Measurable performance delivered across enterprise infrastructure and international deployments.</p>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat) => (

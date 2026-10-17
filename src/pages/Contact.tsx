@@ -65,14 +65,15 @@ const Contact: React.FC = () => {
       <section className="relative py-24 bg-slate-900 dark:bg-dark overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-primary/10" />
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-2xl mx-auto">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider mb-6">
-            Contact Us
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6">
+            Global Engagement & Discovery
           </span>
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-            Start Your <span className="text-gradient">Project With Us</span>
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
+            Schedule an Enterprise <br />
+            <span className="text-gradient">Architectural Consultation</span>
           </h1>
-          <p className="text-slate-400 text-xl leading-relaxed">
-            Whether you want to discuss a new custom application, integrate AI systems, or request a free technical consultation — we are ready to assist.
+          <p className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-normal">
+            Connect directly with our principal engineering directors and solutions architects to evaluate technical requirements, security constraints, and deployment roadmaps.
           </p>
         </div>
       </section>
@@ -132,13 +133,14 @@ const Contact: React.FC = () => {
                       required name="subject" value={formData.subject} onChange={handleChange}
                       className="w-full bg-white dark:bg-dark border border-slate-200 dark:border-white/10 rounded-xl py-3 px-4 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/50 outline-none"
                     >
-                      <option value="">Select an option...</option>
-                      <option value="web-dev">Web Application Development</option>
-                      <option value="app-dev">Mobile App Development (iOS & Android)</option>
-                      <option value="ai-ml">AI Chatbots & Automation</option>
-                      <option value="cloud-devops">Cloud Architecture & hosting</option>
-                      <option value="consulting">IT Security & Consulting</option>
-                      <option value="general">Other / General Question</option>
+                      <option value="">Select an enterprise requirement...</option>
+                      <option value="enterprise-erp">Enterprise Agro-Industrial ERP & Supply Chain</option>
+                      <option value="computer-vision">Smart City & Computer Vision (ANPR / Surveillance)</option>
+                      <option value="generative-ai">Cognitive Generative AI & Autonomous Agents</option>
+                      <option value="digital-commerce">Headless Digital Commerce & Retail Platforms</option>
+                      <option value="cloud-devops">Enterprise Cloud Architecture & DevOps</option>
+                      <option value="cybersecurity">Zero-Trust Cybersecurity & Audit</option>
+                      <option value="custom-solution">Custom Bespoke Enterprise Engineering</option>
                     </select>
                   </div>
                   <div className="space-y-2">

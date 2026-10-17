@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, MessageCircle, Sun, Moon, Sparkles } from 'lucide-react';
+import { Menu, X, MessageCircle, Sun, Moon, ShieldCheck } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const Navbar: React.FC = () => {
@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
       <nav className="max-w-7xl mx-auto rounded-2xl glass border border-slate-200/60 dark:border-white/10 shadow-xl shadow-black/5 dark:shadow-primary/5 transition-all duration-300">
         <div className="px-4 md:px-6">
           <div className="flex items-center justify-between h-16 md:h-18">
-            {/* Logo + Status Badge */}
+            {/* Logo + Corporate Status Badge */}
             <div className="flex items-center space-x-4">
               <Link to="/" className="flex items-center space-x-2.5 group">
                 <div className="p-1.5 rounded-xl bg-primary/10 border border-primary/20 group-hover:scale-105 transition-transform duration-300">
@@ -30,16 +30,18 @@ const Navbar: React.FC = () => {
                   <span className="text-xl font-black tracking-tight text-gradient flex items-center">
                     Mactis<span className="text-slate-900 dark:text-white font-medium text-lg ml-1">IT</span>
                   </span>
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 -mt-1 hidden sm:block">
+                    Enterprise Systems
+                  </span>
                 </div>
               </Link>
 
-              {/* Origin UI Live Status Ping */}
+              {/* Corporate Delivery Status Badge */}
               <div className="hidden lg:flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[11px] font-medium text-slate-600 dark:text-slate-300">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span>Available for New Projects</span>
+                <ShieldCheck className="h-3.5 w-3.5 text-emerald-500" />
+                <span>Global Delivery Network</span>
+                <span className="text-slate-400">•</span>
+                <span className="text-emerald-500 font-semibold">ISO 27001 Aligned</span>
               </div>
             </div>
 
@@ -65,7 +67,7 @@ const Navbar: React.FC = () => {
 
             {/* Right side: Theme Toggle + CTA */}
             <div className="hidden md:flex items-center space-x-3">
-              {/* Origin UI Toggle Switch */}
+              {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
                 aria-label="Toggle theme"
@@ -87,14 +89,13 @@ const Navbar: React.FC = () => {
               </button>
 
               <a
-                href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! Can I get more info on this?')}`}
+                href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to schedule an enterprise consultation with Mactis engineering leadership.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary flex items-center text-xs md:text-sm py-2 px-4 rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/40 group"
+                className="btn-primary flex items-center text-xs md:text-sm py-2.5 px-4 rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/40 font-bold group"
               >
                 <MessageCircle className="mr-1.5 h-4 w-4" />
-                Get Quote
-                <Sparkles className="ml-1.5 h-3.5 w-3.5 opacity-70 group-hover:rotate-12 transition-transform" />
+                Schedule Consultation
               </a>
             </div>
 
@@ -111,6 +112,7 @@ const Navbar: React.FC = () => {
               <button
                 className="p-2 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle mobile menu"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -139,14 +141,14 @@ const Navbar: React.FC = () => {
               );
             })}
             <a
-              href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! Can I get more info on this?')}`}
+              href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to schedule an enterprise consultation with Mactis.')}`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}
-              className="btn-primary w-full text-center flex items-center justify-center py-2.5 rounded-xl text-sm mt-2"
+              className="btn-primary w-full text-center flex items-center justify-center py-2.5 rounded-xl text-sm mt-2 font-bold"
             >
               <MessageCircle className="mr-2 h-4 w-4" />
-              Get Free Quote
+              Schedule Consultation
             </a>
           </div>
         )}

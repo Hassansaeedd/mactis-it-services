@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MessageCircle, Code, ShieldCheck, Cpu, Terminal, Sparkles, CheckCircle2, Copy, Check } from 'lucide-react';
+import { 
+  ArrowRight, MessageCircle, Code2, ShieldCheck, Cpu, 
+  Sparkles, CheckCircle2, Globe2, Activity, Database, Server, ChevronRight
+} from 'lucide-react';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ServicesSection from '../components/ServicesSection';
 import StatsSection from '../components/StatsSection';
@@ -8,268 +11,293 @@ import SoftwareShowcase from '../components/SoftwareShowcase';
 import ParticlesBackground from '../components/ParticlesBackground';
 
 const Home: React.FC = () => {
-  const [copied, setCopied] = useState(false);
-  const [activeTab, setActiveTab] = useState<'architecture' | 'ai' | 'cloud'>('architecture');
-
-  const copySnippet = () => {
-    navigator.clipboard.writeText('npx create-mactis-app@latest');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const techBadges = [
-    { name: 'React 19 & Next.js', color: 'border-blue-500/30 text-blue-500 dark:text-blue-400 bg-blue-500/10' },
-    { name: 'Node.js & Laravel', color: 'border-purple-500/30 text-purple-500 dark:text-purple-400 bg-purple-500/10' },
-    { name: 'Generative AI & LLMs', color: 'border-indigo-500/30 text-indigo-500 dark:text-indigo-400 bg-indigo-500/10' },
-    { name: 'PostgreSQL & Redis', color: 'border-cyan-500/30 text-cyan-500 dark:text-cyan-400 bg-cyan-500/10' },
-    { name: 'Docker & AWS', color: 'border-amber-500/30 text-amber-500 dark:text-amber-400 bg-amber-500/10' },
+  const techEcosystem = [
+    { name: 'Amazon Web Services', tag: 'Cloud Infrastructure' },
+    { name: 'Microsoft Azure', tag: 'Enterprise Cloud' },
+    { name: 'Google Cloud Platform', tag: 'AI & BigQuery' },
+    { name: 'Docker & Kubernetes', tag: 'Container Orchestration' },
+    { name: 'PostgreSQL Enterprise', tag: 'Distributed Relational DB' },
+    { name: 'React 19 & Next.js', tag: 'Frontend Systems' },
+    { name: 'Python & PyTorch', tag: 'Neural AI Models' },
   ];
 
   return (
     <div className="animate-fade-in relative">
-      {/* 1. High-Tech Hero Section with Casberry Particles & Origin UI Terminal */}
-      <section className="relative py-24 md:py-36 bg-slate-900 dark:bg-dark overflow-hidden border-b border-slate-200/50 dark:border-white/10">
-        {/* Interactive Casberry Particle Canvas (Optimized 60fps) */}
-        <ParticlesBackground quantity={40} className="z-0" />
+      {/* 1. Global Multinational Hero Section */}
+      <section className="relative py-20 lg:py-32 bg-slate-950 dark:bg-dark overflow-hidden border-b border-slate-800/80 dark:border-white/10">
+        {/* Subtle Ambient Particle Field */}
+        <ParticlesBackground quantity={35} className="z-0 opacity-60" />
 
-        {/* GPU-Accelerated Ambient Glow Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-[280px] md:w-[420px] h-[280px] md:h-[420px] bg-primary/15 blur-[60px] md:blur-[100px] rounded-full pointer-events-none transform-gpu" />
-        <div className="absolute bottom-1/4 right-1/4 w-[280px] md:w-[420px] h-[280px] md:h-[420px] bg-blue-500/15 blur-[60px] md:blur-[100px] rounded-full pointer-events-none transform-gpu" />
+        {/* Ambient Gradient Glows */}
+        <div className="absolute top-1/6 left-1/4 w-[360px] lg:w-[500px] h-[360px] lg:h-[500px] bg-primary/20 blur-[120px] rounded-full pointer-events-none transform-gpu" />
+        <div className="absolute bottom-1/6 right-1/4 w-[360px] lg:w-[500px] h-[360px] lg:h-[500px] bg-blue-600/15 blur-[120px] rounded-full pointer-events-none transform-gpu" />
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
-            {/* Left Content */}
-            <div className="lg:col-span-7 text-left space-y-8">
-              {/* Origin UI Pill Badge */}
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white/10 dark:bg-white/5 border border-white/20 text-slate-200 text-xs font-semibold backdrop-blur-md">
-                <Sparkles className="h-3.5 w-3.5 text-amber-400 animate-pulse" />
-                <span>Next-Gen Software & AI Engineering</span>
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            {/* Left Content Column */}
+            <div className="lg:col-span-7 text-left space-y-7">
+              {/* Executive Tag Pill */}
+              <div className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-200 text-xs font-semibold backdrop-blur-md shadow-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="text-white">Global Digital Engineering & Software Consultancy</span>
+                <span className="text-slate-400">•</span>
+                <span className="text-primary-light font-bold">Enterprise Scale</span>
               </div>
 
+              {/* Main Headline */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
-                We Build Intelligent <br />
-                <span className="text-gradient">Software & AI Ecosystems</span>
+                Architecting Resilient <br />
+                <span className="text-gradient">Enterprise Software & AI</span> Systems
               </h1>
 
-              <p className="text-slate-300 dark:text-slate-300 text-lg sm:text-xl leading-relaxed max-w-xl">
-                Mactis is a premier technology agency. We architect scalable web platforms, high-performance mobile apps, and enterprise AI models engineered for business growth.
+              {/* Corporate Value Proposition */}
+              <p className="text-slate-300 text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl font-normal">
+                Mactis partners with high-growth companies and multinational enterprises to design, engineer, and deploy mission-critical web applications, high-throughput AI pipelines, and custom industrial ERPs built for uncompromised scale.
               </p>
 
+              {/* Key Proof Points */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-2 border-y border-white/10 max-w-2xl">
+                <div>
+                  <div className="text-xl sm:text-2xl font-extrabold text-white">99.98%</div>
+                  <div className="text-xs text-slate-400 font-medium">Uptime Guarantee</div>
+                </div>
+                <div>
+                  <div className="text-xl sm:text-2xl font-extrabold text-white">15+</div>
+                  <div className="text-xs text-slate-400 font-medium">Global Markets</div>
+                </div>
+                <div>
+                  <div className="text-xl sm:text-2xl font-extrabold text-white">100%</div>
+                  <div className="text-xs text-slate-400 font-medium">IP Ownership</div>
+                </div>
+                <div>
+                  <div className="text-xl sm:text-2xl font-extrabold text-white">24/7</div>
+                  <div className="text-xs text-slate-400 font-medium">DevOps Telemetry</div>
+                </div>
+              </div>
+
               {/* CTAs */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1">
                 <a
-                  href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! Can I get more info on this?')}`}
+                  href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to schedule an enterprise consultation with Mactis engineering leadership.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary inline-flex items-center justify-center text-base py-3.5 px-7 rounded-xl shadow-xl shadow-primary/30 group"
+                  className="btn-primary inline-flex items-center justify-center text-base py-4 px-8 rounded-xl shadow-xl shadow-primary/25 font-bold group"
                 >
                   <MessageCircle className="mr-2.5 h-5 w-5" />
-                  Get Free Consultation
+                  Schedule Executive Briefing
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
 
                 <Link
                   to="/services"
-                  className="px-6 py-3.5 rounded-xl border border-white/20 text-white hover:bg-white/10 backdrop-blur-md font-semibold text-base inline-flex items-center justify-center transition-all"
+                  className="px-6 py-4 rounded-xl border border-white/20 text-white hover:bg-white/10 hover:border-white/40 backdrop-blur-md font-semibold text-base inline-flex items-center justify-center transition-all"
                 >
-                  Explore Services
+                  Explore Capabilities
                 </Link>
               </div>
 
-              {/* Tech Stack Pills */}
-              <div className="pt-4 flex flex-wrap gap-2.5">
-                {techBadges.map((badge, idx) => (
-                  <span
-                    key={idx}
-                    className={`text-xs px-3 py-1 rounded-lg border font-medium transition-all backdrop-blur-sm ${badge.color}`}
-                  >
-                    {badge.name}
-                  </span>
-                ))}
-              </div>
             </div>
 
-            {/* Right: Origin UI Interactive Cyber Terminal */}
-            <div className="lg:col-span-5">
-              <div className="glass-card rounded-2xl border border-white/15 shadow-2xl overflow-hidden backdrop-blur-xl bg-slate-950/80">
+            {/* Right: Real-World Enterprise Visual Showcase */}
+            <div className="lg:col-span-5 relative">
+              
+              {/* Outer Glow Ring */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary via-indigo-500 to-blue-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+
+              {/* Main Enterprise Image Frame */}
+              <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-slate-900">
                 
-                {/* Terminal Header */}
-                <div className="flex items-center justify-between px-4 py-3 bg-slate-900/90 border-b border-white/10">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-rose-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                {/* High-Resolution Real-World Photograph of Enterprise Team & Workspace */}
+                <div className="relative h-[340px] sm:h-[400px] w-full overflow-hidden">
+                  <img 
+                    src="/images/hero_enterprise.jpg" 
+                    alt="Mactis Global Enterprise Software Engineering Team" 
+                    className="w-full h-full object-cover brightness-90 hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  {/* Glassmorphic Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+                  
+                  {/* Top Bar inside image */}
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                    <span className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md border border-white/20 text-[11px] font-semibold text-white">
+                      <Globe2 className="h-3.5 w-3.5 text-blue-400" />
+                      <span>Global Delivery Network</span>
+                    </span>
+                    <span className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 text-[10px] font-bold text-emerald-300">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse mr-1" />
+                      SOC 2 Aligned
+                    </span>
                   </div>
 
-                  <div className="flex items-center space-x-1.5 text-xs text-slate-400 font-mono">
-                    <Terminal className="h-3.5 w-3.5 text-primary-light" />
-                    <span>mactis-system-core.v2</span>
+                  {/* Bottom caption in image */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <p className="text-white font-bold text-base">Senior Engineering & Architecture Center</p>
+                    <p className="text-slate-300 text-xs">Collaborative agile delivery teams managing multi-tier enterprise deployments.</p>
+                  </div>
+                </div>
+
+                {/* Sub-Panel: Live System Reliability Status */}
+                <div className="p-5 bg-slate-950/90 backdrop-blur-xl border-t border-white/10 space-y-3">
+                  <div className="flex items-center justify-between text-xs font-mono">
+                    <div className="flex items-center space-x-2 text-slate-300">
+                      <Activity className="h-4 w-4 text-emerald-400" />
+                      <span>Production Telemetry Status</span>
+                    </div>
+                    <span className="text-emerald-400 font-bold">100% Operational</span>
                   </div>
 
-                  <button
-                    onClick={copySnippet}
-                    className="p-1 rounded text-slate-400 hover:text-white transition-colors"
-                    title="Copy command"
-                  >
-                    {copied ? <Check className="h-4 w-4 text-emerald-400" /> : <Copy className="h-4 w-4" />}
-                  </button>
-                </div>
-
-                {/* Interactive Code Selector */}
-                <div className="flex border-b border-white/10 text-xs font-mono bg-slate-900/50">
-                  <button
-                    onClick={() => setActiveTab('architecture')}
-                    className={`px-4 py-2 flex-1 text-center transition-colors ${
-                      activeTab === 'architecture' ? 'bg-primary/20 text-white border-b-2 border-primary font-bold' : 'text-slate-400 hover:text-slate-200'
-                    }`}
-                  >
-                    Architecture
-                  </button>
-                  <button
-                    onClick={() => setActiveTab('ai')}
-                    className={`px-4 py-2 flex-1 text-center transition-colors ${
-                      activeTab === 'ai' ? 'bg-primary/20 text-white border-b-2 border-primary font-bold' : 'text-slate-400 hover:text-slate-200'
-                    }`}
-                  >
-                    AI Engine
-                  </button>
-                  <button
-                    onClick={() => setActiveTab('cloud')}
-                    className={`px-4 py-2 flex-1 text-center transition-colors ${
-                      activeTab === 'cloud' ? 'bg-primary/20 text-white border-b-2 border-primary font-bold' : 'text-slate-400 hover:text-slate-200'
-                    }`}
-                  >
-                    Cloud & Scale
-                  </button>
-                </div>
-
-                {/* Code Window Content */}
-                <div className="p-5 font-mono text-xs leading-relaxed text-slate-300 space-y-3 min-h-[220px]">
-                  {activeTab === 'architecture' && (
-                    <>
-                      <p className="text-slate-500">// Initialize Mactis High-Speed Stack</p>
-                      <p><span className="text-purple-400">import</span> &#123; <span className="text-blue-400">MicroServices</span>, <span className="text-amber-400">SanctumAuth</span> &#125; <span className="text-purple-400">from</span> <span className="text-emerald-400">'@mactis/core'</span>;</p>
-                      <p className="pt-1"><span className="text-purple-400">const</span> system = <span className="text-purple-400">await</span> MicroServices.<span className="text-blue-400">init</span>(&#123;</p>
-                      <p className="pl-4">framework: <span className="text-emerald-400">'React 19 + Next.js'</span>,</p>
-                      <p className="pl-4">database: <span className="text-emerald-400">'PostgreSQL + Redis'</span>,</p>
-                      <p className="pl-4">security: <span className="text-emerald-400">'AES-256 + OAuth2'</span>,</p>
-                      <p>&#125;);</p>
-                      <p className="text-emerald-400 flex items-center pt-2">
-                        <CheckCircle2 className="h-3.5 w-3.5 mr-1.5 shrink-0" />
-                        <span>System status: 99.99% Uptime Verified</span>
-                      </p>
-                    </>
-                  )}
-
-                  {activeTab === 'ai' && (
-                    <>
-                      <p className="text-slate-500">// Custom AI Agent & Automation Pipeline</p>
-                      <p><span className="text-purple-400">const</span> aiAgent = <span className="text-purple-400">new</span> <span className="text-blue-400">MactisAIAgent</span>(&#123;</p>
-                      <p className="pl-4">model: <span className="text-emerald-400">'GPT-4o-Enterprise'</span>,</p>
-                      <p className="pl-4">knowledgeBase: <span className="text-emerald-400">'Custom Vector DB'</span>,</p>
-                      <p className="pl-4">capabilities: [<span className="text-emerald-400">'Support'</span>, <span className="text-emerald-400">'Automated ERP'</span>],</p>
-                      <p>&#125;);</p>
-                      <p className="text-purple-300 pt-1">aiAgent.<span className="text-blue-400">streamResponse</span>(&#123; latency: <span className="text-amber-400">'14ms'</span> &#125;);</p>
-                    </>
-                  )}
-
-                  {activeTab === 'cloud' && (
-                    <>
-                      <p className="text-slate-500">// Automated CI/CD & Deployment Engine</p>
-                      <p><span className="text-purple-400">deploy</span>: <span className="text-emerald-400">'AWS EC2 / DigitalOcean'</span></p>
-                      <p><span className="text-purple-400">container</span>: <span className="text-emerald-400">'Docker + Kubernetes Cluster'</span></p>
-                      <p><span className="text-purple-400">cdn</span>: <span className="text-emerald-400">'Global Cloudflare Edge'</span></p>
-                      <div className="mt-3 p-2 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-[11px] flex items-center justify-between">
-                        <span>Status: Live Production Ready</span>
-                        <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
-                      </div>
-                    </>
-                  )}
+                  {/* Telemetry Progress Bars */}
+                  <div className="grid grid-cols-3 gap-3 pt-1">
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/5 text-center">
+                      <div className="text-[10px] text-slate-400 font-medium">Avg API Latency</div>
+                      <div className="text-sm font-bold text-white font-mono mt-0.5">14.2 ms</div>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/5 text-center">
+                      <div className="text-[10px] text-slate-400 font-medium">Uptime SLA</div>
+                      <div className="text-sm font-bold text-emerald-400 font-mono mt-0.5">99.99%</div>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-white/5 text-center">
+                      <div className="text-[10px] text-slate-400 font-medium">Automated Tests</div>
+                      <div className="text-sm font-bold text-primary-light font-mono mt-0.5">1,420+</div>
+                    </div>
+                  </div>
                 </div>
 
               </div>
+
+              {/* Floating Pill Card (Bottom Left) */}
+              <div className="hidden sm:flex absolute -bottom-5 -left-6 glass-card p-3.5 rounded-2xl border border-white/20 backdrop-blur-xl shadow-2xl items-center space-x-3 bg-slate-900/90 z-20">
+                <div className="p-2.5 rounded-xl bg-primary/20 text-primary-light">
+                  <Server className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-white">Multi-Cloud Infrastructure</div>
+                  <div className="text-[11px] text-slate-400">AWS • Azure • Kubernetes Hybrid</div>
+                </div>
+              </div>
+
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* 2. Origin UI Style Feature Cards */}
-      <section className="py-20 bg-slate-100 dark:bg-dark-lighter border-b border-slate-200 dark:border-white/5">
+      {/* Enterprise Tech Ecosystem & Standards Bar */}
+      <div className="bg-slate-900 dark:bg-dark-lighter py-6 border-b border-slate-800 dark:border-white/5">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-16 max-w-2xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="text-xs font-bold uppercase tracking-widest text-slate-400 flex items-center space-x-2 shrink-0">
+              <Sparkles className="h-4 w-4 text-primary" />
+              <span>Enterprise Technology Ecosystem</span>
+            </div>
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 sm:gap-4">
+              {techEcosystem.map((item, idx) => (
+                <div 
+                  key={idx}
+                  className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-medium text-slate-300 flex items-center space-x-2"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <span>{item.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 2. Core Enterprise Capabilities Section */}
+      <section className="py-24 bg-white dark:bg-dark-lighter border-b border-slate-200/80 dark:border-white/5">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
             <span className="inline-block px-3.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-3">
-              Why Partner With Mactis
+              Strategic Engineering Capabilities
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white">
-              Enterprise Engineering <br />
-              <span className="text-gradient">Built For Maximum Impact</span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+              Enterprise Software Architecture <br />
+              <span className="text-gradient">Engineered for Scale & Security</span>
             </h2>
+            <p className="text-slate-600 dark:text-slate-400 mt-4 text-base md:text-lg">
+              We eliminate technical debt and accelerate roadmap delivery with robust, secure, and future-proof digital solutions.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            {/* Card 1 */}
-            <div className="glass p-8 rounded-3xl border border-slate-200/60 dark:border-white/10 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-start group">
+            {/* Capability 1 */}
+            <div className="glass-card p-8 rounded-3xl border border-slate-200 dark:border-white/10 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-start group shadow-lg shadow-black/[0.02]">
               <div className="p-4 bg-primary/10 rounded-2xl text-primary mb-6 group-hover:scale-110 transition-transform">
-                <Code className="h-7 w-7" />
+                <Code2 className="h-7 w-7" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Enterprise Web & App Architecture</h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
-                Clean, maintainable, and type-safe code written with modern technologies (React 19, Next.js, Node.js, and Laravel).
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Enterprise Web & Cloud Platforms</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                Clean, type-safe, and microservices-based software architectures built with React 19, Next.js, Node.js, and high-performance backend APIs.
               </p>
-              <ul className="space-y-2 mt-auto">
-                <li className="flex items-center text-xs text-slate-600 dark:text-slate-300">
-                  <CheckCircle2 className="h-4 w-4 text-primary mr-2" />
-                  Fast page load performance
+              <ul className="space-y-2.5 mt-auto w-full pt-4 border-t border-slate-100 dark:border-white/5">
+                <li className="flex items-center text-xs text-slate-700 dark:text-slate-300">
+                  <CheckCircle2 className="h-4 w-4 text-primary mr-2.5 shrink-0" />
+                  Sub-second response time architecture
                 </li>
-                <li className="flex items-center text-xs text-slate-600 dark:text-slate-300">
-                  <CheckCircle2 className="h-4 w-4 text-primary mr-2" />
-                  Custom backend APIs & Dashboards
+                <li className="flex items-center text-xs text-slate-700 dark:text-slate-300">
+                  <CheckCircle2 className="h-4 w-4 text-primary mr-2.5 shrink-0" />
+                  Multi-tenant B2B admin dashboards
+                </li>
+                <li className="flex items-center text-xs text-slate-700 dark:text-slate-300">
+                  <CheckCircle2 className="h-4 w-4 text-primary mr-2.5 shrink-0" />
+                  Audited REST & GraphQL microservices
                 </li>
               </ul>
             </div>
 
-            {/* Card 2 */}
-            <div className="glass p-8 rounded-3xl border border-slate-200/60 dark:border-white/10 hover:border-indigo-500/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-start group">
+            {/* Capability 2 */}
+            <div className="glass-card p-8 rounded-3xl border border-slate-200 dark:border-white/10 hover:border-indigo-500/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-start group shadow-lg shadow-black/[0.02]">
               <div className="p-4 bg-indigo-500/10 rounded-2xl text-indigo-500 dark:text-indigo-400 mb-6 group-hover:scale-110 transition-transform">
                 <Cpu className="h-7 w-7" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">AI Agents & Workflow Automation</h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
-                Streamline operations, automate manual data work, and deploy custom generative AI agents for customer support and ERPs.
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">AI Agents & Computer Vision</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                Operationalize autonomous intelligence: custom retrieval-augmented LLMs, intelligent workflow automation, and edge computer vision suites.
               </p>
-              <ul className="space-y-2 mt-auto">
-                <li className="flex items-center text-xs text-slate-600 dark:text-slate-300">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-400 mr-2" />
-                  Custom LLM & Chatbot integrations
+              <ul className="space-y-2.5 mt-auto w-full pt-4 border-t border-slate-100 dark:border-white/5">
+                <li className="flex items-center text-xs text-slate-700 dark:text-slate-300">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-400 mr-2.5 shrink-0" />
+                  Enterprise vector search & RAG pipelines
                 </li>
-                <li className="flex items-center text-xs text-slate-600 dark:text-slate-300">
-                  <CheckCircle2 className="h-4 w-4 text-indigo-400 mr-2" />
-                  Process & Inventory automation
+                <li className="flex items-center text-xs text-slate-700 dark:text-slate-300">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-400 mr-2.5 shrink-0" />
+                  Real-time video analytics & ANPR recognition
+                </li>
+                <li className="flex items-center text-xs text-slate-700 dark:text-slate-300">
+                  <CheckCircle2 className="h-4 w-4 text-indigo-400 mr-2.5 shrink-0" />
+                  ERP & CRM workflow autonomous agents
                 </li>
               </ul>
             </div>
 
-            {/* Card 3 */}
-            <div className="glass p-8 rounded-3xl border border-slate-200/60 dark:border-white/10 hover:border-emerald-500/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-start group">
+            {/* Capability 3 */}
+            <div className="glass-card p-8 rounded-3xl border border-slate-200 dark:border-white/10 hover:border-emerald-500/40 transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-start group shadow-lg shadow-black/[0.02]">
               <div className="p-4 bg-emerald-500/10 rounded-2xl text-emerald-600 dark:text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
                 <ShieldCheck className="h-7 w-7" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Scalable Cloud & Security</h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
-                Optimized database systems, penetration-tested APIs, and secure cloud setups hosted on AWS & DigitalOcean.
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Cloud DevOps & Zero-Trust Security</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                Resilient infrastructure engineered for 99.99% availability, zero-downtime CI/CD pipelines, and rigorous penetration-tested security controls.
               </p>
-              <ul className="space-y-2 mt-auto">
-                <li className="flex items-center text-xs text-slate-600 dark:text-slate-300">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-400 mr-2" />
-                  Zero-downtime CI/CD deployment
+              <ul className="space-y-2.5 mt-auto w-full pt-4 border-t border-slate-100 dark:border-white/5">
+                <li className="flex items-center text-xs text-slate-700 dark:text-slate-300">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-400 mr-2.5 shrink-0" />
+                  Kubernetes cluster auto-scaling on AWS
                 </li>
-                <li className="flex items-center text-xs text-slate-600 dark:text-slate-300">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-400 mr-2" />
-                  Audited PostgreSQL & MySQL DBs
+                <li className="flex items-center text-xs text-slate-700 dark:text-slate-300">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-400 mr-2.5 shrink-0" />
+                  High-availability PostgreSQL & Redis caching
+                </li>
+                <li className="flex items-center text-xs text-slate-700 dark:text-slate-300">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-400 mr-2.5 shrink-0" />
+                  End-to-end encryption & compliance audits
                 </li>
               </ul>
             </div>
@@ -284,35 +312,40 @@ const Home: React.FC = () => {
       {/* 4. Stats Counters */}
       <StatsSection />
 
-      {/* 5. Software Products Showcase */}
+      {/* 5. Software Products & Projects Showcase (with Real World Images) */}
       <SoftwareShowcase />
 
       {/* 6. Client Testimonials */}
       <TestimonialsSection />
 
-      {/* 7. Conversion CTA Banner with Particle Background */}
-      <section className="relative py-24 bg-gradient-to-br from-primary/20 via-slate-100 dark:via-dark-lighter to-blue-500/20 border-t border-slate-200 dark:border-white/10 overflow-hidden">
-        <ParticlesBackground quantity={40} className="z-0" />
+      {/* 7. Conversion CTA Banner */}
+      <section className="relative py-28 bg-gradient-to-br from-slate-950 via-slate-900 to-primary/30 border-t border-slate-800 dark:border-white/10 overflow-hidden">
+        <ParticlesBackground quantity={30} className="z-0 opacity-50" />
         <div className="container mx-auto px-4 md:px-6 text-center max-w-3xl relative z-10">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6">Ready to Build Your Custom Software?</h2>
-          <p className="text-slate-500 dark:text-slate-300 text-lg mb-10 leading-relaxed">
-            Partner with Pakistan's leading software architects and developers. Tell us about your project requirements and get a detailed proposal within 24 hours.
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-semibold mb-6 backdrop-blur-md">
+            <span>Ready for Global Deployment</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
+            Ready to Engineer Your Next Enterprise Breakthrough?
+          </h2>
+          <p className="text-slate-300 text-lg mb-10 leading-relaxed font-normal">
+            Consult with our principal software architects. Discuss your roadmap, architecture requirements, and timeline for a comprehensive technical proposal.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! Can I get more info on this?')}`}
+              href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to consult with Mactis regarding our software project.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center text-lg px-8 py-4 shadow-xl shadow-primary/30"
+              className="btn-primary inline-flex items-center text-base sm:text-lg px-8 py-4 shadow-xl shadow-primary/30 font-bold"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
-              Start on WhatsApp
+              Direct WhatsApp Briefing
             </a>
             <Link 
               to="/contact" 
-              className="btn-outline text-lg px-8 py-4 bg-white/5 backdrop-blur-md"
+              className="btn-outline text-base sm:text-lg px-8 py-4 bg-white/5 border-white/20 text-white hover:bg-white hover:text-slate-950 font-semibold"
             >
-              Submit Project Details
+              Submit Enterprise RFP
             </Link>
           </div>
         </div>
