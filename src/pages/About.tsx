@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Target, Eye, Shield, Zap, Award, Users, MessageCircle, Globe2 } from 'lucide-react';
-import CEOSection from '../components/CEOSection';
+import { Target, Eye, Shield, Zap, Award, Users, MessageCircle, Globe2, ShieldCheck } from 'lucide-react';
 
 const teamMembers = [
   { 
@@ -125,8 +124,67 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* CEO Executive Section */}
-      <CEOSection />
+      {/* Company Heritage & Engineering Philosophy Section (Replacing personal CEO section) */}
+      <section className="py-24 bg-slate-900 dark:bg-dark-lighter overflow-hidden relative border-b border-slate-800 dark:border-white/5">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/10 blur-[130px] rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Visual Frame */}
+            <div className="lg:col-span-5 relative group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary to-blue-600 rounded-3xl blur-xl opacity-25 group-hover:opacity-40 transition duration-700" />
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-slate-950">
+                <img 
+                  src="/images/hero_enterprise.jpg" 
+                  alt="Mactis Software Engineering Pod" 
+                  className="w-full h-80 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <span className="text-emerald-400 text-xs font-bold uppercase tracking-widest block mb-1">Engineering Rigor</span>
+                  <h4 className="text-white text-lg font-bold">The Mactis Standard</h4>
+                  <p className="text-slate-300 text-xs mt-1">Dedicated senior development squads focused on measurable business outcomes.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Content Column */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary-light text-xs font-bold uppercase tracking-wider">
+                <ShieldCheck className="h-3.5 w-3.5 text-primary-light" />
+                <span>Our Company Story</span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+                Architecting Mission-Critical Software with <span className="text-gradient">Integrity & Precision</span>.
+              </h2>
+
+              <div className="space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
+                <p>
+                  Mactis IT Services was established with a singular engineering commitment: to build dependable, scalable, and intelligent software platforms that solve complex real-world operational challenges.
+                </p>
+                <p>
+                  From agro-industrial ERPs coordinating weighbridge IoT sensors to computer vision systems monitoring municipal highway traffic and cognitive e-commerce assistants, our work is distinguished by technical discipline, security compliance, and transparent delivery.
+                </p>
+              </div>
+
+              {/* Company Highlights */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/10">
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
+                  <h4 className="text-sm font-bold text-white mb-1">Zero Technical Debt Mindset</h4>
+                  <p className="text-xs text-slate-400">Strict typing, modular microservices, and thorough automated testing from sprint one.</p>
+                </div>
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
+                  <h4 className="text-sm font-bold text-white mb-1">100% Client Code Ownership</h4>
+                  <p className="text-xs text-slate-400">Complete intellectual property, documentation, and repository access granted to clients.</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* Brand Values */}
       <section className="py-24 bg-white dark:bg-dark-lighter border-b border-slate-200/80 dark:border-white/5">
