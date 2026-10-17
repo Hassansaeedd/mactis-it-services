@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Target, Eye, Shield, Zap, Award, Users, MessageCircle, Globe2, CheckCircle2 } from 'lucide-react';
+import { Target, Eye, Shield, Zap, Award, Users, MessageCircle, Globe2 } from 'lucide-react';
 import CEOSection from '../components/CEOSection';
 
 const teamMembers = [

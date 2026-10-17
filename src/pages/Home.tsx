@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, MessageCircle, Code2, ShieldCheck, Cpu, 
-  Sparkles, CheckCircle2, Globe2, Activity, Database, Server, ChevronRight
+  Sparkles, CheckCircle2, Globe2, Activity, Server
 } from 'lucide-react';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ServicesSection from '../components/ServicesSection';
