@@ -7,19 +7,10 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import ServicesSection from '../components/ServicesSection';
 import StatsSection from '../components/StatsSection';
 import SoftwareShowcase from '../components/SoftwareShowcase';
-import { ImageWithSkeleton } from '../components/SkeletonLoader';
+import { HeroImageSlider } from '../components/HeroImageSlider';
+import { TechEcosystemMarquee } from '../components/TechEcosystemMarquee';
 
 const Home: React.FC = () => {
-  const techEcosystem = [
-    { name: 'Amazon Web Services', tag: 'Cloud Infrastructure' },
-    { name: 'Microsoft Azure', tag: 'Enterprise Cloud' },
-    { name: 'Google Cloud Platform', tag: 'AI & BigQuery' },
-    { name: 'Docker & Kubernetes', tag: 'Container Orchestration' },
-    { name: 'PostgreSQL Enterprise', tag: 'Distributed Relational DB' },
-    { name: 'React 19 & Next.js', tag: 'Frontend Systems' },
-    { name: 'Python & PyTorch', tag: 'Neural AI Models' },
-  ];
-
   return (
     <div className="animate-fade-in relative bg-white dark:bg-dark">
       {/* 1. Global Enterprise Hero Section */}
@@ -83,53 +74,24 @@ const Home: React.FC = () => {
 
             </div>
 
-            {/* Right: Real-World Enterprise Visual Showcase */}
+            {/* Right: Real-World Enterprise Visual Showcase Slider */}
             <div className="lg:col-span-5">
-              <div className="border border-slate-800 rounded-lg overflow-hidden bg-slate-900 shadow-sm">
-                <ImageWithSkeleton 
-                  src="/images/hero_enterprise.jpg" 
-                  alt="Mactis Global Enterprise Software Engineering Team" 
-                  aspectRatio="aspect-[4/3]"
-                  className="w-full bg-slate-900"
-                />
-                <div className="p-4 bg-slate-900 border-t border-slate-800">
-                  <p className="text-white font-semibold text-sm">Senior Engineering & Architecture Pods</p>
-                  <p className="text-slate-400 text-xs mt-0.5">Cross-functional agile squads architecting scalable enterprise systems.</p>
-                </div>
-              </div>
+              <HeroImageSlider />
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* Enterprise Tech Ecosystem Bar */}
-      <div className="bg-slate-100 dark:bg-slate-900 py-4 border-b border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-3">
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 shrink-0">
-              Technology Ecosystem & Standards
-            </div>
-            <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 sm:gap-3">
-              {techEcosystem.map((item, idx) => (
-                <div 
-                  key={idx}
-                  className="px-2.5 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-700 dark:text-slate-300"
-                >
-                  {item.name}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Enterprise Tech Ecosystem Running Marquee */}
+      <TechEcosystemMarquee />
 
-      {/* 2. Strategic Engineering Capabilities Matrix (Structured, flat, no checkmark overload) */}
+      {/* 2. Strategic Engineering Capabilities Matrix */}
       <section className="py-20 md:py-28 bg-white dark:bg-dark border-b border-slate-200 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-          <div className="text-center mb-14 max-w-2xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2">
-              Capabilities Matrix
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2 font-mono">
+              CAPABILITIES MATRIX // PRACTICES
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
               Enterprise Software Architecture
@@ -139,98 +101,208 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
             
-            {/* Capability 1 */}
-            <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+            {/* Capability 1: Web & Cloud */}
+            <div className="group relative p-7 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-200 shadow-sm hover:shadow-md">
+              <div className="absolute top-0 left-6 right-6 h-[2px] bg-blue-600 dark:bg-blue-500 rounded-full" />
               <div>
+                <div className="flex items-center justify-between mb-5">
+                  <span className="text-[11px] font-mono font-semibold tracking-wider text-blue-700 dark:text-blue-400 uppercase">
+                    PRACTICE // 01
+                  </span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    P99 &lt; 100ms
+                  </span>
+                </div>
+
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="p-2 rounded bg-slate-100 dark:bg-slate-800 text-blue-700 dark:text-blue-400">
+                  <div className="p-2.5 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200/60 dark:border-blue-900/40 text-blue-700 dark:text-blue-400">
                     <Code2 className="h-5 w-5" />
                   </div>
-                  <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     Enterprise Web & Cloud Platforms
                   </h3>
                 </div>
-                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+
+                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
                   Clean, type-safe, and microservices-based software architectures built with React 19, Next.js, and high-performance backend APIs.
                 </p>
-                <div className="space-y-2 border-t border-slate-100 dark:border-slate-800/80 pt-4 text-xs text-slate-600 dark:text-slate-300">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0" />
-                    <span>Sub-second response time architecture</span>
+
+                {/* Tech Pills */}
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {['React 19', 'Next.js 15', 'TypeScript', 'GraphQL', 'Microservices'].map((tag) => (
+                    <span 
+                      key={tag}
+                      className="px-2 py-0.5 text-[11px] font-medium rounded bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Architecture Highlights */}
+                <div className="space-y-2.5 border-t border-slate-100 dark:border-slate-800/80 pt-4 text-xs text-slate-600 dark:text-slate-300">
+                  <div className="flex items-start space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
+                    <span>Sub-second response time architecture with SSR & edge caching</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0" />
-                    <span>Multi-tenant B2B administrative dashboards</span>
+                  <div className="flex items-start space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
+                    <span>Multi-tenant B2B administrative portals and real-time analytics</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0" />
-                    <span>Audited REST and GraphQL microservices</span>
+                  <div className="flex items-start space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
+                    <span>Audited REST and GraphQL microservices with schema validation</span>
                   </div>
                 </div>
               </div>
+
+              <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80">
+                <Link
+                  to="/services"
+                  className="inline-flex items-center text-xs font-semibold text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors"
+                >
+                  <span>Explore Practice Specs</span>
+                  <ArrowRight className="h-3.5 w-3.5 ml-1 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
             </div>
 
-            {/* Capability 2 */}
-            <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+            {/* Capability 2: AI & Computer Vision (Elevated Strategic Feature Card) */}
+            <div className="group relative p-7 bg-slate-50/80 dark:bg-slate-900 border-2 border-blue-600/70 dark:border-blue-500/70 rounded-xl flex flex-col justify-between shadow-lg relative lg:-translate-y-1 transition-all duration-200">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span className="px-3 py-1 rounded-full bg-blue-700 text-white text-[10px] font-bold tracking-wider uppercase font-mono shadow-sm">
+                  Strategic Core Practice
+                </span>
+              </div>
+
               <div>
+                <div className="flex items-center justify-between mb-5 pt-1">
+                  <span className="text-[11px] font-mono font-semibold tracking-wider text-blue-700 dark:text-blue-400 uppercase">
+                    PRACTICE // 02
+                  </span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+                    99.4% Precision
+                  </span>
+                </div>
+
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="p-2 rounded bg-slate-100 dark:bg-slate-800 text-blue-700 dark:text-blue-400">
+                  <div className="p-2.5 rounded-lg bg-blue-600 text-white shadow-sm">
                     <Cpu className="h-5 w-5" />
                   </div>
-                  <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     AI Agents & Computer Vision
                   </h3>
                 </div>
-                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+
+                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
                   Operationalize autonomous intelligence: custom retrieval-augmented LLMs, intelligent workflow automation, and edge computer vision suites.
                 </p>
-                <div className="space-y-2 border-t border-slate-100 dark:border-slate-800/80 pt-4 text-xs text-slate-600 dark:text-slate-300">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0" />
-                    <span>Enterprise vector search and RAG pipelines</span>
+
+                {/* Tech Pills */}
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {['PyTorch', 'Enterprise RAG', 'Edge Vision', 'Vector Embeddings', 'LLM Agents'].map((tag) => (
+                    <span 
+                      key={tag}
+                      className="px-2 py-0.5 text-[11px] font-medium rounded bg-blue-100/70 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800/80 font-mono"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Architecture Highlights */}
+                <div className="space-y-2.5 border-t border-slate-200 dark:border-slate-800 pt-4 text-xs text-slate-600 dark:text-slate-300">
+                  <div className="flex items-start space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
+                    <span>Proprietary vector search pipelines with zero enterprise data leakage</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0" />
-                    <span>Real-time video analytics and ANPR recognition</span>
+                  <div className="flex items-start space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
+                    <span>Real-time multi-camera video analytics, ANPR, and object detection</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0" />
-                    <span>ERP and CRM workflow autonomous agents</span>
+                  <div className="flex items-start space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
+                    <span>Autonomous CRM and ERP reasoning agents automating complex workflows</span>
                   </div>
                 </div>
               </div>
+
+              <div className="pt-6 mt-6 border-t border-slate-200 dark:border-slate-800">
+                <Link
+                  to="/services"
+                  className="inline-flex items-center text-xs font-bold text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors"
+                >
+                  <span>Explore AI Practice Specs</span>
+                  <ArrowRight className="h-3.5 w-3.5 ml-1 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
             </div>
 
-            {/* Capability 3 */}
-            <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+            {/* Capability 3: Cloud DevOps & Security */}
+            <div className="group relative p-7 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-200 shadow-sm hover:shadow-md">
+              <div className="absolute top-0 left-6 right-6 h-[2px] bg-slate-400 dark:bg-slate-600 rounded-full group-hover:bg-blue-600 transition-colors" />
               <div>
+                <div className="flex items-center justify-between mb-5">
+                  <span className="text-[11px] font-mono font-semibold tracking-wider text-slate-600 dark:text-slate-400 uppercase">
+                    PRACTICE // 03
+                  </span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+                    99.9% Uptime SLA
+                  </span>
+                </div>
+
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="p-2 rounded bg-slate-100 dark:bg-slate-800 text-blue-700 dark:text-blue-400">
+                  <div className="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 text-blue-700 dark:text-blue-400">
                     <ShieldCheck className="h-5 w-5" />
                   </div>
-                  <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     Cloud DevOps & Security
                   </h3>
                 </div>
-                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+
+                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
                   Resilient infrastructure engineered for 99.9% availability, zero-downtime CI/CD pipelines, and rigorous penetration-tested security controls.
                 </p>
-                <div className="space-y-2 border-t border-slate-100 dark:border-slate-800/80 pt-4 text-xs text-slate-600 dark:text-slate-300">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0" />
-                    <span>Kubernetes cluster auto-scaling on AWS</span>
+
+                {/* Tech Pills */}
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {['AWS EKS', 'Kubernetes', 'Docker', 'PostgreSQL', 'Terraform IaC'].map((tag) => (
+                    <span 
+                      key={tag}
+                      className="px-2 py-0.5 text-[11px] font-medium rounded bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Architecture Highlights */}
+                <div className="space-y-2.5 border-t border-slate-100 dark:border-slate-800/80 pt-4 text-xs text-slate-600 dark:text-slate-300">
+                  <div className="flex items-start space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
+                    <span>Kubernetes cluster auto-scaling with multi-region AWS and Azure failover</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0" />
-                    <span>High-availability PostgreSQL and Redis caching</span>
+                  <div className="flex items-start space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
+                    <span>High-availability PostgreSQL sharding and Redis distributed caching</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0" />
-                    <span>End-to-end encryption and compliance audits</span>
+                  <div className="flex items-start space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
+                    <span>Automated zero-downtime CI/CD delivery pipelines with SOC-2 compliance</span>
                   </div>
                 </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80">
+                <Link
+                  to="/services"
+                  className="inline-flex items-center text-xs font-semibold text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors"
+                >
+                  <span>Explore Infrastructure Specs</span>
+                  <ArrowRight className="h-3.5 w-3.5 ml-1 transition-transform group-hover:translate-x-1" />
+                </Link>
               </div>
             </div>
 

@@ -5,33 +5,42 @@ import { Link } from 'react-router-dom';
 const services = [
   {
     id: 1,
+    code: '01',
     title: "Web & Distributed Cloud Platforms",
     description: "High-performance, fault-tolerant web applications engineered with Next.js, React 19, and scalable microservices architectures.",
+    tags: ['React 19', 'Next.js 15', 'GraphQL', 'Microservices'],
     deliverables: "High-concurrency APIs, multi-region database replication, sub-second latency.",
     icon: Layout,
     link: "/services"
   },
   {
     id: 2,
+    code: '02',
     title: "Enterprise Mobile Systems",
     description: "Cross-platform iOS and Android applications engineered for sub-second responsiveness, offline data persistence, and native hardware telemetry.",
-    deliverables: "React Native & Flutter, WebSocket sync, biometrics, App Store compliance.",
+    tags: ['React Native', 'Flutter', 'WebSockets', 'Swift'],
+    deliverables: "Unified mobile codebase, WebSocket sync, biometrics, App Store compliance.",
     icon: Smartphone,
     link: "/services"
   },
   {
     id: 3,
+    code: '03',
     title: "Cognitive AI & Computer Vision",
     description: "Production LLM pipelines, autonomous multi-agent operational workflows, and real-time surveillance computer vision models.",
-    deliverables: "Custom RAG embeddings, edge ANPR vision, operational automation.",
+    tags: ['PyTorch', 'Enterprise RAG', 'Edge Vision', 'LLMs'],
+    deliverables: "Custom RAG embeddings, edge ANPR vision, autonomous operational automation.",
     icon: Cpu,
-    link: "/services"
+    link: "/services",
+    featured: true
   },
   {
     id: 4,
+    code: '04',
     title: "Data Architecture & Cloud DevOps",
     description: "High-availability PostgreSQL & Redis clustering, Kubernetes container orchestration, and automated zero-downtime CI/CD deployment pipelines.",
-    deliverables: "Terraform IaC, Docker clusters, 24/7 observability, automated failover.",
+    tags: ['AWS EKS', 'Kubernetes', 'PostgreSQL', 'Terraform'],
+    deliverables: "Terraform IaC, Docker clusters, 24/7 telemetry observability, automated failover.",
     icon: Database,
     link: "/services"
   }
@@ -41,9 +50,9 @@ const ServicesSection: React.FC = () => {
   return (
     <section className="py-20 md:py-28 bg-white dark:bg-dark border-b border-slate-200 dark:border-slate-800">
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-        <div className="text-center mb-14 max-w-2xl mx-auto">
-          <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2">
-            Engineering Practices
+        <div className="text-center mb-16 max-w-2xl mx-auto">
+          <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2 font-mono">
+            CORE DISCIPLINES // PRACTICES
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
             Core Technical Practices
@@ -53,18 +62,40 @@ const ServicesSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 2x2 Structured Editorial Matrix (Replaces bubbly feature cards in a row) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* 2x2 Structured Editorial Matrix */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <div 
                 key={service.id} 
-                className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 transition-colors"
+                className={`group relative p-7 rounded-xl flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-md ${
+                  service.featured
+                    ? 'bg-slate-50/90 dark:bg-slate-900 border-2 border-blue-600/70 dark:border-blue-500/70'
+                    : 'bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 dark:hover:border-blue-500/50'
+                }`}
               >
+                {/* Top Accent Line */}
+                <div
+                  className={`absolute top-0 left-6 right-6 h-[2px] rounded-full ${
+                    service.featured ? 'bg-blue-600' : 'bg-slate-300 dark:bg-slate-700 group-hover:bg-blue-600 transition-colors'
+                  }`}
+                />
+
                 <div>
+                  <div className="flex items-center justify-between mb-5 pt-1">
+                    <span className="text-[11px] font-mono font-semibold tracking-wider text-blue-700 dark:text-blue-400 uppercase">
+                      PRACTICE // {service.code}
+                    </span>
+                    {service.featured && (
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 font-bold">
+                        HIGH DEMAND
+                      </span>
+                    )}
+                  </div>
+
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="p-2 rounded bg-slate-100 dark:bg-slate-800 text-blue-700 dark:text-blue-400">
+                    <div className="p-2.5 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200/60 dark:border-blue-900/40 text-blue-700 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                       <Icon className="h-5 w-5" />
                     </div>
                     <h3 className="text-lg font-bold text-slate-900 dark:text-white">
@@ -72,9 +103,21 @@ const ServicesSection: React.FC = () => {
                     </h3>
                   </div>
                   
-                  <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                  <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
                     {service.description}
                   </p>
+
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {service.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 text-[11px] font-medium rounded bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 font-mono"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
                   <div className="text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800/80 pt-3 mb-6">
                     <span className="font-semibold text-slate-700 dark:text-slate-300">Deliverables: </span>
@@ -82,20 +125,22 @@ const ServicesSection: React.FC = () => {
                   </div>
                 </div>
                 
-                <Link 
-                  to={service.link} 
-                  className="inline-flex items-center text-xs font-semibold text-blue-700 dark:text-blue-400 hover:underline"
-                >
-                  <span>Practice Specifications</span>
-                  <ArrowRight className="ml-1 h-3.5 w-3.5" />
-                </Link>
+                <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                  <Link 
+                    to={service.link} 
+                    className="inline-flex items-center text-xs font-semibold text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors"
+                  >
+                    <span>Practice Specifications & SLA</span>
+                    <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
               </div>
             );
           })}
         </div>
         
-        <div className="mt-12 text-center">
-          <Link to="/services" className="btn-outline text-xs py-2.5 px-6">
+        <div className="mt-14 text-center">
+          <Link to="/services" className="btn-outline text-xs py-3 px-8">
             View Complete Services Portfolio
           </Link>
         </div>

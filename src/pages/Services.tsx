@@ -4,43 +4,74 @@ import {
   Layout, Smartphone, Cpu, Database, Cloud, Shield,
   ArrowRight, MessageCircle, Globe2
 } from 'lucide-react';
+import { TechEcosystemMarquee } from '../components/TechEcosystemMarquee';
 
-const services = [
+interface ServiceItem {
+  code: string;
+  title: string;
+  description: string;
+  slaMetric: string;
+  icon: React.ElementType;
+  tags: string[];
+  features: string[];
+  featured?: boolean;
+}
+
+const services: ServiceItem[] = [
   {
+    code: '01',
     title: 'Enterprise Web & Cloud Platforms',
     description: 'Bespoke high-concurrency web platforms, SaaS ecosystems, and API gateways built with React 19, Next.js, and distributed microservices architecture.',
+    slaMetric: 'P99 < 100ms',
     icon: Layout,
-    features: ['Next.js 15 & React 19 Ecosystems', 'High-Throughput Microservice APIs', 'B2B Admin & Customer Dashboards', 'Multi-Region High Availability'],
+    tags: ['Next.js 15', 'React 19', 'GraphQL', 'Microservices', 'Node.js'],
+    features: ['Next.js 15 & React 19 SSR Ecosystems', 'High-Throughput Microservice APIs', 'B2B Multi-Tenant Portals & Dashboards', 'Multi-Region High Availability Deployment'],
   },
   {
+    code: '02',
     title: 'Cross-Platform Mobile Engineering',
     description: 'High-performance iOS and Android mobile software engineered with React Native and Flutter, featuring offline persistence and native hardware integration.',
+    slaMetric: '60 FPS Native',
     icon: Smartphone,
-    features: ['iOS & Android Cross-Platform', 'React Native & Flutter Architecture', 'App Store & Play Store Compliance', 'Low-Latency WebSocket Real-Time Sync'],
+    tags: ['React Native', 'Flutter', 'WebSockets', 'Swift', 'Kotlin'],
+    features: ['iOS & Android Unified Codebase', 'React Native & Flutter Architecture', 'Biometric Auth & Hardware Integration', 'Low-Latency WebSocket Real-Time Sync'],
   },
   {
+    code: '03',
     title: 'Autonomous AI & Computer Vision',
     description: 'Enterprise generative AI workflows, proprietary RAG neural search pipelines, and edge-deployed computer vision models for automated surveillance.',
+    slaMetric: '99.4% Precision',
     icon: Cpu,
-    features: ['Enterprise RAG & Custom LLMs', 'Edge Computer Vision & ANPR', 'Autonomous Operational Agents', 'Predictive Resource Modeling'],
+    tags: ['PyTorch', 'Enterprise RAG', 'Edge Vision', 'Vector Search', 'Agents'],
+    features: ['Enterprise RAG & Proprietary LLMs', 'Edge Computer Vision & Real-time ANPR', 'Autonomous Operational CRM & ERP Agents', 'Zero Corporate Data Leakage Safeguards'],
+    featured: true,
   },
   {
+    code: '04',
     title: 'Distributed Database Systems',
     description: 'High-availability data layer architecture. We design, optimize, index, and secure mission-critical PostgreSQL, MySQL, Redis, and MongoDB databases.',
+    slaMetric: 'Zero Data Loss',
     icon: Database,
-    features: ['Zero-Downtime Data Migrations', 'Query Optimization & Index Auditing', 'Multi-Node Sharding & Replication', 'Automated Point-in-Time Recovery'],
+    tags: ['PostgreSQL', 'Redis', 'Multi-Node Sharding', 'MongoDB', 'CDC'],
+    features: ['Zero-Downtime Live Data Migrations', 'Query Optimization & Index Auditing', 'Multi-Node Sharding & High-Speed Caching', 'Automated Point-in-Time Recovery'],
   },
   {
+    code: '05',
     title: 'Cloud Architecture & DevOps',
-    description: 'Multi-cloud orchestration across AWS, Azure, and DigitalOcean. Infrastructure as Code (Terraform), Kubernetes autoscaling, and zero-downtime CI/CD.',
+    description: 'Multi-cloud orchestration across AWS, Azure, and Google Cloud. Infrastructure as Code (Terraform), Kubernetes autoscaling, and zero-downtime CI/CD.',
+    slaMetric: '99.9% Uptime SLA',
     icon: Cloud,
-    features: ['AWS & Kubernetes Orchestration', 'Automated CI/CD Delivery Pipelines', 'Multi-Region Disaster Recovery', '24/7 Production Observability'],
+    tags: ['AWS EKS', 'Kubernetes', 'Docker', 'Terraform', 'CI/CD'],
+    features: ['AWS & Kubernetes Auto-Scaling Clusters', 'Automated CI/CD Delivery Pipelines', 'Multi-Region Disaster Recovery Topologies', '24/7 Production Observability & Telemetry'],
   },
   {
+    code: '06',
     title: 'Zero-Trust Cybersecurity Consulting',
     description: 'Safeguard your corporate assets against modern attack vectors. We conduct comprehensive vulnerability assessments, penetration audits, and SOC-2 alignment.',
+    slaMetric: 'SOC-2 Ready',
     icon: Shield,
-    features: ['Full-Scope Penetration Testing', 'API Security & OAuth2 Hardening', 'End-to-End TLS / AES Encryption', 'Compliance Governance Support'],
+    tags: ['Penetration Testing', 'OAuth2 / SAML', 'Zero-Trust', 'AES-256', 'OWASP'],
+    features: ['Full-Scope Penetration Testing & Audits', 'API Security & OAuth2 / SAML Hardening', 'End-to-End TLS / AES Encryption Standards', 'Compliance Governance Support (GDPR & SOC-2)'],
   },
 ];
 
@@ -57,7 +88,7 @@ const ServicesPage: React.FC = () => {
       {/* Hero */}
       <section className="relative py-20 lg:py-28 bg-slate-900 dark:bg-slate-950 border-b border-slate-800">
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center space-x-2 text-xs font-semibold text-blue-400 uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center space-x-2 text-xs font-semibold text-blue-400 uppercase tracking-wider mb-4 font-mono">
             <Globe2 className="h-4 w-4" />
             <span>Enterprise Service Catalog</span>
           </div>
@@ -85,57 +116,110 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Grid (Solid clean cards, no liquid glass, no checkmark overload) */}
+      {/* Running Technology Ecosystem Marquee */}
+      <TechEcosystemMarquee />
+
+      {/* Services Grid (Stylish Enterprise Architecture Cards) */}
       <section className="py-20 md:py-28 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-          <div className="text-center mb-14 max-w-2xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2">
-              Specialized Practices
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2 font-mono">
+              SPECIALIZED PRACTICES // ARCHITECTURE
             </span>
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
               Enterprise Practice Areas
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 mt-2 text-xs sm:text-sm">
-              Engineered to eliminate bottleneck risks and accelerate digital transformation.
+            <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm md:text-base leading-relaxed">
+              Engineered to eliminate bottleneck risks, optimize operational costs, and accelerate digital roadmap execution.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {services.map((service) => {
               const Icon = service.icon;
               return (
                 <div
                   key={service.title}
-                  className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 transition-colors"
+                  className={`group relative p-7 rounded-xl flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-md ${
+                    service.featured
+                      ? 'bg-slate-50/90 dark:bg-slate-900 border-2 border-blue-600/70 dark:border-blue-500/70'
+                      : 'bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 dark:hover:border-blue-500/50'
+                  }`}
                 >
-                  <div>
-                    <div className="p-2 rounded bg-slate-100 dark:bg-slate-800 text-blue-700 dark:text-blue-400 w-fit mb-4">
-                      <Icon className="h-5 w-5" />
+                  {/* Top Accent Line */}
+                  <div
+                    className={`absolute top-0 left-6 right-6 h-[2px] rounded-full ${
+                      service.featured ? 'bg-blue-600' : 'bg-slate-300 dark:bg-slate-700 group-hover:bg-blue-600 transition-colors'
+                    }`}
+                  />
+
+                  {service.featured && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <span className="px-3 py-1 rounded-full bg-blue-700 text-white text-[10px] font-bold tracking-wider uppercase font-mono shadow-sm">
+                        Strategic Core Practice
+                      </span>
                     </div>
-                    <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-                      {service.title}
-                    </h3>
+                  )}
+
+                  <div>
+                    {/* Header Metadata */}
+                    <div className="flex items-center justify-between mb-5 pt-1">
+                      <span className="text-[11px] font-mono font-semibold tracking-wider text-blue-700 dark:text-blue-400 uppercase">
+                        PRACTICE // {service.code}
+                      </span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                        {service.slaMetric}
+                      </span>
+                    </div>
+
+                    {/* Icon and Title */}
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className="p-2.5 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200/60 dark:border-blue-900/40 text-blue-700 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                        {service.title}
+                      </h3>
+                    </div>
+
                     <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
                       {service.description}
                     </p>
-                    <div className="space-y-1.5 mb-6 border-t border-slate-100 dark:border-slate-800/80 pt-3">
+
+                    {/* Tech Chips */}
+                    <div className="flex flex-wrap gap-1.5 mb-6">
+                      {service.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 text-[11px] font-medium rounded bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 font-mono"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Deliverables / Capabilities List */}
+                    <div className="space-y-2 border-t border-slate-100 dark:border-slate-800/80 pt-4 mb-6">
                       {service.features.map((f) => (
-                        <div key={f} className="flex items-center text-xs text-slate-600 dark:text-slate-300">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mr-2" />
+                        <div key={f} className="flex items-start text-xs text-slate-600 dark:text-slate-300">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mr-2 mt-1.5" />
                           <span>{f}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <a
-                    href={`https://wa.me/923154327855?text=${encodeURIComponent(`Hello! I would like to consult with Mactis regarding your "${service.title}" practice.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-xs font-semibold text-blue-700 dark:text-blue-400 hover:underline pt-2 border-t border-slate-100 dark:border-slate-800/60"
-                  >
-                    <span>Request Practice Consultation</span>
-                    <ArrowRight className="ml-1 h-3.5 w-3.5" />
-                  </a>
+                  <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                    <a
+                      href={`https://wa.me/923154327855?text=${encodeURIComponent(`Hello! I would like to consult with Mactis regarding your "${service.title}" practice.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-xs font-semibold text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors"
+                    >
+                      <span>Request Practice Consultation</span>
+                      <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  </div>
                 </div>
               );
             })}
@@ -143,24 +227,26 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Process (Clean flat cards, crisp typography) */}
+      {/* Delivery Framework */}
       <section className="py-20 md:py-28 bg-white dark:bg-dark border-b border-slate-200 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-          <div className="text-center mb-14 max-w-2xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2">
-              Engineering Methodology
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2 font-mono">
+              ENGINEERING METHODOLOGY // PROCESS
             </span>
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Our Delivery Framework</h2>
-            <p className="text-slate-600 dark:text-slate-400 mt-2 text-xs sm:text-sm">A disciplined, agile engineering cadence providing complete transparency at every sprint.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Our Delivery Framework</h2>
+            <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm md:text-base leading-relaxed">
+              A disciplined, agile engineering cadence providing complete transparency at every sprint.
+            </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {processSteps.map((step) => (
               <div 
                 key={step.step} 
-                className="p-6 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-left space-y-2"
+                className="p-6 bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl text-left space-y-3 hover:border-blue-500/40 transition-colors"
               >
                 <div className="text-2xl font-bold font-mono text-blue-700 dark:text-blue-400">{step.step}</div>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-white">{step.title}</h3>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white">{step.title}</h3>
                 <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{step.desc}</p>
               </div>
             ))}
