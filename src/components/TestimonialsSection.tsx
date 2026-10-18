@@ -1,188 +1,135 @@
-import React, { useState } from 'react';
-import { Star, ChevronLeft, ChevronRight, Quote, CheckCircle2 } from 'lucide-react';
+import React from 'react';
+import { Shield, Layers, Clock, Cpu, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const testimonials = [
+const engagementPrinciples = [
   {
-    name: 'Ahmed Raza',
-    location: 'Lahore, Pakistan',
-    role: 'Chief Technology Officer',
-    company: 'Apex FinTech Global',
-    rating: 5,
-    text: 'Mactis engineered our high-frequency transaction ledger and custom analytics suite with flawless execution. Their microservices architecture and zero-downtime database migration exceeded our highest enterprise benchmarks.',
-    image: '/images/client_1.jpg',
+    title: 'Direct Architectural Access',
+    description: 'You collaborate directly with principal software engineers and solutions architects. We eliminate non-technical intermediaries so technical decisions are resolved with speed and precision.',
+    icon: Cpu,
   },
   {
-    name: 'Fatima Malik',
-    location: 'Karachi, Pakistan',
-    role: 'Director of Digital Operations',
-    company: 'Malik Retail & Apparel Group',
-    rating: 5,
-    text: 'The headless digital commerce and inventory synchronization platform Mactis built scaled our seasonal sales across global markets without a single second of latency. Their engineering discipline is world-class.',
-    image: '/images/client_2.jpg',
+    title: '100% Client Code Ownership',
+    description: 'Full repository access, database schemas, and deployment documentation belong entirely to your enterprise upon milestone completion. We practice zero proprietary lock-in.',
+    icon: Shield,
   },
   {
-    name: 'Usman Tariq',
-    location: 'Islamabad, Pakistan',
-    role: 'Founder & Managing Director',
-    company: 'EdVantage Systems',
-    rating: 5,
-    text: 'From the initial architectural discovery to App Store & Play Store publishing, Mactis delivered an ultra-performant React Native ecosystem. Highly responsive, transparent, and technically elite team.',
-    image: '/images/client_3.jpg',
+    title: 'SLA-Backed High Availability',
+    description: 'Mission-critical applications are architected for 99.9% production uptime, automated multi-region database replication, point-in-time recovery, and 24/7 observability.',
+    icon: Clock,
   },
   {
-    name: 'Sara Khan',
-    location: 'Faisalabad, Pakistan',
-    role: 'VP of Industrial Operations',
-    company: 'Indus Agro Industries',
-    rating: 5,
-    text: 'Automating our mill weighbridge and multi-warehouse ledger with Mactis cut operational reconciliation delays by 70%. Their domain knowledge in industrial ERP and IoT hardware connectivity is unmatched.',
-    image: '/images/client_4.jpg',
+    title: 'Disciplined Sprint Cadence',
+    description: 'Bi-weekly sprint releases with staging preview environments, automated test coverage, and transparent project velocity tracking keep milestones on schedule and on budget.',
+    icon: Layers,
+  },
+];
+
+const industrySectors = [
+  {
+    sector: 'Agro-Industrial & Supply Chain',
+    focus: 'Weighbridge IoT automation, grain quality telemetry, and multi-branch ledgers.',
+    metric: '10M+ Kg Tracked'
   },
   {
-    name: 'Bilal Ahmed',
-    location: 'Lahore, Pakistan',
-    role: 'VP of Cloud Infrastructure',
-    company: 'CloudMatrix Technologies',
-    rating: 5,
-    text: 'Mactis orchestrated our Kubernetes cluster deployments on AWS with automated CI/CD pipelines and comprehensive Prometheus monitoring. We have maintained 99.99% uptime since our system launch.',
-    image: '/images/client_5.jpg',
+    sector: 'Municipal & Smart City Vision',
+    focus: 'Neural computer vision, automated license plate recognition, and violation reporting.',
+    metric: '99.4% Recognition'
+  },
+  {
+    sector: 'High-Volume Digital Commerce',
+    focus: 'Headless storefronts, global edge CDN delivery, and real-time inventory synchronization.',
+    metric: 'Sub-350ms Latency'
+  },
+  {
+    sector: 'Hyperlocal Logistics & Fulfillment',
+    focus: 'Rider route optimization, warehouse wave picking, and automated delivery dispatch.',
+    metric: '18-Min Fulfillment SLA'
   },
 ];
 
 const TestimonialsSection: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
-
-  const prev = () => setActiveIndex((i) => (i - 1 + testimonials.length) % testimonials.length);
-  const next = () => setActiveIndex((i) => (i + 1) % testimonials.length);
-
-  const getCard = (offset: number) => testimonials[(activeIndex + offset + testimonials.length) % testimonials.length];
-
   return (
-    <section className="py-24 bg-slate-100 dark:bg-dark overflow-hidden border-b border-slate-200/80 dark:border-white/5">
+    <section className="py-20 md:py-28 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16 max-w-2xl mx-auto">
-          <span className="inline-block px-3.5 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-3">
-            Client Endorsements & Proof
+        {/* Section Header */}
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2">
+            Engagement Governance
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Trusted by Leaders <br />
-            <span className="text-gradient">Across Enterprise Sectors</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-4">
+            Enterprise Delivery Standards
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-4 text-base md:text-lg">
-            Hear directly from technology executives, operations directors, and founders who rely on Mactis engineering.
+          <p className="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed">
+            How we structure every technology partnership to ensure architectural integrity, complete transparency, and measurable return on investment.
           </p>
         </div>
 
-        {/* Desktop: 3 cards, Mobile: 1 card */}
-        <div className="hidden md:grid grid-cols-3 gap-6 mb-10 items-stretch">
-          {[-1, 0, 1].map((offset) => {
-            const t = getCard(offset);
-            const isCenter = offset === 0;
+        {/* 4 Pillars Grid (Structured flat cards, no liquid glass or bouncy animations) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-5xl mx-auto">
+          {engagementPrinciples.map((item, idx) => {
+            const Icon = item.icon;
             return (
-              <div
-                key={t.name + offset}
-                onClick={() => setActiveIndex((activeIndex + offset + testimonials.length) % testimonials.length)}
-                className={`glass-card p-8 rounded-3xl border transition-all duration-500 cursor-pointer flex flex-col justify-between ${
-                  isCenter
-                    ? 'border-primary/40 scale-105 shadow-2xl shadow-primary/10 bg-white dark:bg-slate-900/90'
-                    : 'border-slate-200 dark:border-white/5 opacity-70 hover:opacity-90 scale-95'
-                }`}
+              <div 
+                key={idx}
+                className="p-6 md:p-8 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg space-y-3"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <Quote className="text-primary/40 h-8 w-8" />
-                    <div className="flex items-center space-x-1">
-                      {Array.from({ length: t.rating }).map((_, i) => (
-                        <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
-                      ))}
-                    </div>
+                <div className="flex items-center space-x-3 mb-2">
+                  <div className="p-2 rounded bg-slate-100 dark:bg-slate-850 text-blue-700 dark:text-blue-400">
+                    <Icon className="h-5 w-5" />
                   </div>
-                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-8 text-sm">
-                    "{t.text}"
-                  </p>
+                  <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-white">
+                    {item.title}
+                  </h3>
                 </div>
-
-                <div className="flex items-center space-x-4 pt-4 border-t border-slate-200/60 dark:border-white/5">
-                  <div className="relative">
-                    <img 
-                      src={t.image} 
-                      alt={t.name}
-                      className="h-13 w-13 rounded-full object-cover ring-2 ring-primary/30"
-                    />
-                    <div className="absolute -bottom-1 -right-1 bg-emerald-500 rounded-full p-0.5 text-white" title="Verified Client">
-                      <CheckCircle2 size={12} />
-                    </div>
-                  </div>
-                  <div>
-                    <p className="font-bold text-slate-900 dark:text-white text-sm">{t.name}</p>
-                    <p className="text-xs font-semibold text-primary">{t.role}</p>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400">{t.company}</p>
-                  </div>
-                </div>
+                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             );
           })}
         </div>
 
-        {/* Mobile: single card */}
-        <div className="md:hidden glass-card p-8 rounded-3xl border border-primary/30 mb-8 bg-white dark:bg-slate-900/90 shadow-xl">
-          <div className="flex items-center justify-between mb-4">
-            <Quote className="text-primary/40 h-8 w-8" />
-            <div className="flex items-center space-x-1">
-              {Array.from({ length: testimonials[activeIndex].rating }).map((_, i) => (
-                <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
-              ))}
-            </div>
-          </div>
-          <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-8 text-sm">
-            "{testimonials[activeIndex].text}"
-          </p>
-          <div className="flex items-center space-x-4 pt-4 border-t border-slate-200 dark:border-white/5">
-            <div className="relative">
-              <img 
-                src={testimonials[activeIndex].image} 
-                alt={testimonials[activeIndex].name}
-                className="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30"
-              />
-              <div className="absolute -bottom-1 -right-1 bg-emerald-500 rounded-full p-0.5 text-white">
-                <CheckCircle2 size={12} />
-              </div>
-            </div>
+        {/* Industry Deployment Track Record Table / Split */}
+        <div className="max-w-5xl mx-auto bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg p-6 md:p-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-200 dark:border-slate-800 mb-6 gap-2">
             <div>
-              <p className="font-bold text-slate-900 dark:text-white text-sm">{testimonials[activeIndex].name}</p>
-              <p className="text-xs font-semibold text-primary">{testimonials[activeIndex].role}</p>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400">{testimonials[activeIndex].company}</p>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                Industry Sectors & Proven Track Record
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Representative production domains architected and maintained by our engineering teams.
+              </p>
             </div>
+            <Link 
+              to="/contact" 
+              className="inline-flex items-center text-xs font-semibold text-blue-700 dark:text-blue-400 hover:underline"
+            >
+              <span>Schedule Architecture Review</span>
+              <ArrowRight className="h-3.5 w-3.5 ml-1" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {industrySectors.map((sector, i) => (
+              <div 
+                key={i} 
+                className="p-4 rounded border border-slate-100 dark:border-slate-850 bg-slate-50/60 dark:bg-slate-900/40 space-y-2"
+              >
+                <div className="text-xs font-mono font-bold text-blue-700 dark:text-blue-400">
+                  {sector.metric}
+                </div>
+                <div className="text-sm font-semibold text-slate-900 dark:text-white">
+                  {sector.sector}
+                </div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-normal">
+                  {sector.focus}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Controls */}
-        <div className="flex items-center justify-center space-x-4">
-          <button 
-            onClick={prev} 
-            aria-label="Previous testimonial"
-            className="p-3 glass rounded-xl text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white border border-slate-200 dark:border-white/10 transition-all shadow-sm hover:scale-105"
-          >
-            <ChevronLeft size={20} />
-          </button>
-          <div className="flex space-x-2">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                aria-label={`Go to slide ${i + 1}`}
-                onClick={() => setActiveIndex(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${i === activeIndex ? 'w-8 bg-primary' : 'w-2 bg-slate-300 dark:bg-white/20'}`}
-              />
-            ))}
-          </div>
-          <button 
-            onClick={next} 
-            aria-label="Next testimonial"
-            className="p-3 glass rounded-xl text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white border border-slate-200 dark:border-white/10 transition-all shadow-sm hover:scale-105"
-          >
-            <ChevronRight size={20} />
-          </button>
-        </div>
       </div>
     </section>
   );

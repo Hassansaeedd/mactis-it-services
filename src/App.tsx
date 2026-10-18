@@ -10,6 +10,8 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 /**
  * Layout component for public agency pages
@@ -34,6 +36,10 @@ const App: React.FC = () => {
           <Route path="/services" element={<PublicLayout><Services /></PublicLayout>} />
           <Route path="/about" element={<PublicLayout><About /></PublicLayout>} />
           <Route path="/contact" element={<PublicLayout><Contact /></PublicLayout>} />
+
+          {/* Legal & Governance Routes */}
+          <Route path="/privacy" element={<PublicLayout><PrivacyPolicy /></PublicLayout>} />
+          <Route path="/terms" element={<PublicLayout><TermsOfService /></PublicLayout>} />
 
           {/* Fallback to Home */}
           <Route path="*" element={<Navigate to="/" replace />} />

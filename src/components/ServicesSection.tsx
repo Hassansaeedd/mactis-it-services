@@ -5,85 +5,97 @@ import { Link } from 'react-router-dom';
 const services = [
   {
     id: 1,
-    title: "Web & Cloud Platforms",
-    description: "High-performance, fault-tolerant web applications engineered with Next.js, React 19, and scalable microservices.",
-    icon: <Layout className="h-9 w-9" />,
-    color: "bg-blue-600",
+    title: "Web & Distributed Cloud Platforms",
+    description: "High-performance, fault-tolerant web applications engineered with Next.js, React 19, and scalable microservices architectures.",
+    deliverables: "High-concurrency APIs, multi-region database replication, sub-second latency.",
+    icon: Layout,
     link: "/services"
   },
   {
     id: 2,
     title: "Enterprise Mobile Systems",
-    description: "Cross-platform iOS and Android apps engineered for sub-second latency, offline persistence, and seamless UX.",
-    icon: <Smartphone className="h-9 w-9" />,
-    color: "bg-purple-600",
+    description: "Cross-platform iOS and Android applications engineered for sub-second responsiveness, offline data persistence, and native hardware telemetry.",
+    deliverables: "React Native & Flutter, WebSocket sync, biometrics, App Store compliance.",
+    icon: Smartphone,
     link: "/services"
   },
   {
     id: 3,
     title: "Cognitive AI & Computer Vision",
-    description: "Production LLM pipelines, autonomous multi-agent workflows, and real-time smart surveillance computer vision.",
-    icon: <Cpu className="h-9 w-9" />,
-    color: "bg-indigo-600",
+    description: "Production LLM pipelines, autonomous multi-agent operational workflows, and real-time surveillance computer vision models.",
+    deliverables: "Custom RAG embeddings, edge ANPR vision, operational automation.",
+    icon: Cpu,
     link: "/services"
   },
   {
     id: 4,
-    title: "Data Architecture & DevOps",
-    description: "Distributed PostgreSQL, Redis caching, Kubernetes clustering, and zero-downtime CI/CD cloud infrastructure.",
-    icon: <Database className="h-9 w-9" />,
-    color: "bg-cyan-600",
+    title: "Data Architecture & Cloud DevOps",
+    description: "High-availability PostgreSQL & Redis clustering, Kubernetes container orchestration, and automated zero-downtime CI/CD deployment pipelines.",
+    deliverables: "Terraform IaC, Docker clusters, 24/7 observability, automated failover.",
+    icon: Database,
     link: "/services"
   }
 ];
 
 const ServicesSection: React.FC = () => {
   return (
-    <section className="py-24 bg-slate-50 dark:bg-dark-lighter border-b border-slate-200/80 dark:border-white/5">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16 max-w-2xl mx-auto">
-          <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Full-Lifecycle Engineering</span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Enterprise IT & Engineering Services</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-4 text-base md:text-lg">
-            End-to-end digital engineering capabilities built to modernize legacy systems and build scalable products.
+    <section className="py-20 md:py-28 bg-white dark:bg-dark border-b border-slate-200 dark:border-slate-800">
+      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+        <div className="text-center mb-14 max-w-2xl mx-auto">
+          <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2">
+            Engineering Practices
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
+            Core Technical Practices
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed">
+            Full-lifecycle software engineering and digital infrastructure modernization for high-growth enterprises.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service) => (
-            <div 
-              key={service.id} 
-              className="glass-card p-8 rounded-3xl group relative overflow-hidden transition-all duration-300 transform hover:-translate-y-2 border border-slate-200 dark:border-white/5 shadow-md shadow-black/[0.02] flex flex-col justify-between"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-x-12 -translate-y-12 blur-2xl group-hover:bg-primary/20 transition-all duration-500 pointer-events-none" />
-              
-              <div>
-                <div className={`mb-6 p-4 rounded-2xl w-fit ${service.color} text-white shadow-lg shadow-black/10`}>
-                  {service.icon}
+        {/* 2x2 Structured Editorial Matrix (Replaces bubbly feature cards in a row) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {services.map((service) => {
+            const Icon = service.icon;
+            return (
+              <div 
+                key={service.id} 
+                className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 transition-colors"
+              >
+                <div>
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="p-2 rounded bg-slate-100 dark:bg-slate-800 text-blue-700 dark:text-blue-400">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                      {service.title}
+                    </h3>
+                  </div>
+                  
+                  <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                    {service.description}
+                  </p>
+
+                  <div className="text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800/80 pt-3 mb-6">
+                    <span className="font-semibold text-slate-700 dark:text-slate-300">Deliverables: </span>
+                    {service.deliverables}
+                  </div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary transition-colors">
-                  {service.title}
-                </h3>
-                
-                <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed text-sm">
-                  {service.description}
-                </p>
+                <Link 
+                  to={service.link} 
+                  className="inline-flex items-center text-xs font-semibold text-blue-700 dark:text-blue-400 hover:underline"
+                >
+                  <span>Practice Specifications</span>
+                  <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                </Link>
               </div>
-              
-              <Link 
-                to={service.link} 
-                className="flex items-center text-primary font-bold text-sm group-hover:translate-x-1 transition-transform"
-              >
-                <span>Technical Specifications</span>
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
-          ))}
+            );
+          })}
         </div>
         
-        <div className="mt-16 text-center">
-          <Link to="/services" className="btn-outline font-bold text-sm py-3 px-8 border-slate-300 dark:border-white/20 text-slate-800 dark:text-white">
+        <div className="mt-12 text-center">
+          <Link to="/services" className="btn-outline text-xs py-2.5 px-6">
             View Complete Services Portfolio
           </Link>
         </div>

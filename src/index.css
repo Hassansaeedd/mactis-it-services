@@ -8,57 +8,88 @@
 }
 
 body {
-  @apply bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-200 font-sans selection:bg-primary/30;
+  @apply bg-slate-50 text-slate-900 dark:bg-dark dark:text-slate-100 font-sans selection:bg-blue-100 dark:selection:bg-blue-900/50;
   margin: 0;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar */
+/* Crisp Enterprise Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-slate-100 dark:bg-dark;
+  @apply bg-slate-100 dark:bg-slate-900;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-300 dark:bg-slate-800 rounded-full border-2 border-slate-100 dark:border-dark hover:bg-slate-400 dark:hover:bg-slate-700 transition-colors;
+  @apply bg-slate-300 dark:bg-slate-700 rounded hover:bg-slate-400 dark:hover:bg-slate-600 transition-colors;
 }
 
-/* Glassmorphism utility */
-.glass {
-  @apply bg-white/70 dark:bg-dark-lighter/70 backdrop-blur-md border border-slate-200/50 dark:border-white/10;
+/* Professional Enterprise Cards (Replaces liquid glass & drop shadows) */
+.glass,
+.glass-card,
+.card-base {
+  @apply bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-lg transition-colors duration-200;
 }
 
-.glass-card {
-  @apply bg-white/80 dark:bg-dark-card/50 backdrop-blur-sm border border-slate-200/50 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/10 transition-all duration-300;
-}
-
-/* Gradients */
-.bg-gradient-primary {
-  @apply bg-gradient-to-br from-primary via-primary-dark to-slate-900 dark:to-dark;
-}
-
+/* Solid Clean Accent Typography (Replaces harsh rainbow gradients) */
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-light to-blue-600 dark:to-blue-400;
+  @apply text-blue-700 dark:text-blue-400 font-bold;
 }
 
-/* Buttons */
+/* Professional Corporate Buttons */
 .btn-primary {
-  @apply bg-primary hover:bg-primary-light text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20;
+  @apply bg-blue-700 hover:bg-blue-800 text-white font-medium py-2.5 px-5 rounded-md transition-colors duration-150 text-sm inline-flex items-center justify-center;
 }
 
 .btn-outline {
-  @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300;
+  @apply border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/80 font-medium py-2.5 px-5 rounded-md transition-colors duration-150 text-sm inline-flex items-center justify-center;
 }
 
-/* Animations */
+/* Skeleton Loading Shimmer */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton {
+  @apply relative overflow-hidden bg-slate-200 dark:bg-slate-800 rounded;
+}
+
+.skeleton::after {
+  @apply absolute inset-0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 2s infinite;
+  content: '';
+}
+
+.dark .skeleton::after {
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.05) 20%,
+    rgba(255, 255, 255, 0.1) 60%,
+    rgba(255, 255, 255, 0)
+  );
+}
+
+/* Subtle, dignified entry animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 0.3s ease-out forwards;
 }
