@@ -36,7 +36,7 @@ const StatCard: React.FC<{ stat: typeof stats[0]; isVisible: boolean }> = ({ sta
       <div className="text-blue-700 dark:text-blue-400 mb-3 flex justify-center">
         <Icon size={24} strokeWidth={1.75} />
       </div>
-      <div className="text-3xl md:text-4xl font-bold font-mono text-slate-900 dark:text-white mb-1">
+      <div className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-1">
         {count.toLocaleString()}{stat.suffix}
       </div>
       <p className="text-slate-600 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">

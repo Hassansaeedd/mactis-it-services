@@ -101,7 +101,7 @@ export const HeroImageSlider: React.FC = () => {
 
         {/* Floating Top Badge */}
         <div className="absolute top-3 left-3 z-20">
-          <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-[10px] font-mono font-semibold text-blue-400">
+          <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-[10px] font-semibold text-blue-400">
             <Icon className="w-3 h-3 text-blue-400" />
             <span>{current.badge}</span>
           </div>
@@ -127,7 +127,7 @@ export const HeroImageSlider: React.FC = () => {
 
         {/* Slide Counter Indicator */}
         <div className="absolute top-3 right-3 z-20">
-          <span className="px-2 py-0.5 rounded bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-[10px] font-mono text-slate-300">
+          <span className="px-2 py-0.5 rounded bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-[10px] font-medium text-slate-300">
             0{currentIndex + 1} / 0{slides.length}
           </span>
         </div>

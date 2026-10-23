@@ -85,7 +85,7 @@ const PrivacyPolicy: React.FC = () => {
             <p>
               If you have any questions or require formal compliance audit documentation regarding this policy, please direct inquiries to our legal and data protection team:
             </p>
-            <div className="p-4 border border-slate-200 dark:border-slate-800 rounded bg-slate-50 dark:bg-slate-900/60 font-mono text-xs">
+            <div className="p-4 border border-slate-200 dark:border-slate-800 rounded bg-slate-50 dark:bg-slate-900/60 font-sans font-medium text-xs text-slate-700 dark:text-slate-300">
               Mactis IT Services — Data Governance Officer<br />
               Email: legal@mactis.co / info@mactis.co<br />
               Address: Gulberg III, Lahore, Pakistan

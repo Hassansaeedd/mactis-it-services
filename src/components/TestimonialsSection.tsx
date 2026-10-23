@@ -116,7 +116,7 @@ const TestimonialsSection: React.FC = () => {
                 key={i} 
                 className="p-4 rounded border border-slate-100 dark:border-slate-850 bg-slate-50/60 dark:bg-slate-900/40 space-y-2"
               >
-                <div className="text-xs font-mono font-bold text-blue-700 dark:text-blue-400">
+                <div className="text-xs font-semibold text-blue-700 dark:text-blue-400">
                   {sector.metric}
                 </div>
                 <div className="text-sm font-semibold text-slate-900 dark:text-white">

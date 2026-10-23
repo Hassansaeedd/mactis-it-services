@@ -140,7 +140,7 @@ const SoftwareShowcase: React.FC = () => {
 
                   {/* Impact Metric Pill on Top-Right */}
                   <div className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded bg-slate-900/90 text-white text-right border border-slate-800">
-                    <div className="flex items-center space-x-1 justify-end text-xs font-mono font-bold text-blue-400">
+                    <div className="flex items-center space-x-1 justify-end text-xs font-bold text-blue-400">
                       <TrendingUp className="h-3 w-3" />
                       <span>{product.metric}</span>
                     </div>
@@ -159,7 +159,7 @@ const SoftwareShowcase: React.FC = () => {
                     {product.tags.map((tag, idx) => (
                       <span 
                         key={idx}
-                        className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
+                        className="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
                       >
                         {tag}
                       </span>

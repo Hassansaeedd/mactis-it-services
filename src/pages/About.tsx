@@ -85,11 +85,11 @@ const About: React.FC = () => {
               </p>
               <div className="grid grid-cols-2 gap-4 pt-2">
                 <div className="p-4 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                  <div className="text-2xl font-bold font-mono text-blue-700 dark:text-blue-400">100%</div>
+                  <div className="text-2xl font-extrabold tracking-tight text-blue-700 dark:text-blue-400">100%</div>
                   <div className="text-xs text-slate-600 dark:text-slate-400 font-medium mt-1">Client Code IP Guarantee</div>
                 </div>
                 <div className="p-4 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-                  <div className="text-2xl font-bold font-mono text-blue-700 dark:text-blue-400">14-Day</div>
+                  <div className="text-2xl font-extrabold tracking-tight text-blue-700 dark:text-blue-400">14-Day</div>
                   <div className="text-xs text-slate-600 dark:text-slate-400 font-medium mt-1">Sprint Delivery Cadence</div>
                 </div>
               </div>

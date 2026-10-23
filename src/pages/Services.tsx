@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Layout, Smartphone, Cpu, Database, Cloud, Shield,
-  ArrowRight, MessageCircle, Globe2
+  ArrowRight, MessageCircle, Globe2, CheckCircle2
 } from 'lucide-react';
 import { TechEcosystemMarquee } from '../components/TechEcosystemMarquee';
 
@@ -22,7 +22,7 @@ const services: ServiceItem[] = [
     code: '01',
     title: 'Enterprise Web & Cloud Platforms',
     description: 'Bespoke high-concurrency web platforms, SaaS ecosystems, and API gateways built with React 19, Next.js, and distributed microservices architecture.',
-    slaMetric: 'P99 < 100ms',
+    slaMetric: 'Sub-100ms Latency',
     icon: Layout,
     tags: ['Next.js 15', 'React 19', 'GraphQL', 'Microservices', 'Node.js'],
     features: ['Next.js 15 & React 19 SSR Ecosystems', 'High-Throughput Microservice APIs', 'B2B Multi-Tenant Portals & Dashboards', 'Multi-Region High Availability Deployment'],
@@ -40,7 +40,7 @@ const services: ServiceItem[] = [
     code: '03',
     title: 'Autonomous AI & Computer Vision',
     description: 'Enterprise generative AI workflows, proprietary RAG neural search pipelines, and edge-deployed computer vision models for automated surveillance.',
-    slaMetric: '99.4% Precision',
+    slaMetric: 'Production Ready',
     icon: Cpu,
     tags: ['PyTorch', 'Enterprise RAG', 'Edge Vision', 'Vector Search', 'Agents'],
     features: ['Enterprise RAG & Proprietary LLMs', 'Edge Computer Vision & Real-time ANPR', 'Autonomous Operational CRM & ERP Agents', 'Zero Corporate Data Leakage Safeguards'],
@@ -88,7 +88,7 @@ const ServicesPage: React.FC = () => {
       {/* Hero */}
       <section className="relative py-20 lg:py-28 bg-slate-900 dark:bg-slate-950 border-b border-slate-800">
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center space-x-2 text-xs font-semibold text-blue-400 uppercase tracking-wider mb-4 font-mono">
+          <div className="inline-flex items-center space-x-2 text-xs font-semibold text-blue-400 uppercase tracking-wider mb-4">
             <Globe2 className="h-4 w-4" />
             <span>Enterprise Service Catalog</span>
           </div>
@@ -104,13 +104,13 @@ const ServicesPage: React.FC = () => {
               href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to schedule an enterprise consultation regarding Mactis IT services.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary space-x-2 py-3 px-6 text-sm"
+              className="btn-primary space-x-2 py-3 px-6 text-sm font-semibold"
             >
               <MessageCircle className="h-4 w-4" />
               <span>Schedule Architecture Briefing</span>
             </a>
-            <Link to="/contact" className="btn-outline py-3 px-6 text-sm text-white border-slate-700 hover:bg-slate-800">
-              Submit RFP Specs
+            <Link to="/contact" className="btn-outline py-3 px-6 text-sm font-semibold text-white border-slate-700 hover:bg-slate-800">
+              Submit RFP Specifications
             </Link>
           </div>
         </div>
@@ -119,12 +119,12 @@ const ServicesPage: React.FC = () => {
       {/* Running Technology Ecosystem Marquee */}
       <TechEcosystemMarquee />
 
-      {/* Services Grid (Stylish Enterprise Architecture Cards) */}
+      {/* Services Grid (Smooth Flowing Enterprise Cards) */}
       <section className="py-20 md:py-28 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2 font-mono">
-              SPECIALIZED PRACTICES // ARCHITECTURE
+            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2">
+              Specialized Practices
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
               Enterprise Practice Areas
@@ -140,22 +140,15 @@ const ServicesPage: React.FC = () => {
               return (
                 <div
                   key={service.title}
-                  className={`group relative p-7 rounded-xl flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-md ${
+                  className={`group relative p-7 rounded-xl flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md ${
                     service.featured
                       ? 'bg-slate-50/90 dark:bg-slate-900 border-2 border-blue-600/70 dark:border-blue-500/70'
                       : 'bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 dark:hover:border-blue-500/50'
                   }`}
                 >
-                  {/* Top Accent Line */}
-                  <div
-                    className={`absolute top-0 left-6 right-6 h-[2px] rounded-full ${
-                      service.featured ? 'bg-blue-600' : 'bg-slate-300 dark:bg-slate-700 group-hover:bg-blue-600 transition-colors'
-                    }`}
-                  />
-
                   {service.featured && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <span className="px-3 py-1 rounded-full bg-blue-700 text-white text-[10px] font-bold tracking-wider uppercase font-mono shadow-sm">
+                      <span className="px-3 py-1 rounded-full bg-blue-700 text-white text-xs font-semibold tracking-wide uppercase shadow-sm">
                         Strategic Core Practice
                       </span>
                     </div>
@@ -164,10 +157,10 @@ const ServicesPage: React.FC = () => {
                   <div>
                     {/* Header Metadata */}
                     <div className="flex items-center justify-between mb-5 pt-1">
-                      <span className="text-[11px] font-mono font-semibold tracking-wider text-blue-700 dark:text-blue-400 uppercase">
-                        PRACTICE // {service.code}
+                      <span className="text-xs font-semibold tracking-wider text-blue-700 dark:text-blue-400 uppercase">
+                        Practice {service.code}
                       </span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                      <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
                         {service.slaMetric}
                       </span>
                     </div>
@@ -191,7 +184,7 @@ const ServicesPage: React.FC = () => {
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-0.5 text-[11px] font-medium rounded bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 font-mono"
+                          className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
                         >
                           {tag}
                         </span>
@@ -202,7 +195,7 @@ const ServicesPage: React.FC = () => {
                     <div className="space-y-2 border-t border-slate-100 dark:border-slate-800/80 pt-4 mb-6">
                       {service.features.map((f) => (
                         <div key={f} className="flex items-start text-xs text-slate-600 dark:text-slate-300">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mr-2 mt-1.5" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0 mr-2 mt-0.5" />
                           <span>{f}</span>
                         </div>
                       ))}
@@ -231,8 +224,8 @@ const ServicesPage: React.FC = () => {
       <section className="py-20 md:py-28 bg-white dark:bg-dark border-b border-slate-200 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2 font-mono">
-              ENGINEERING METHODOLOGY // PROCESS
+            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2">
+              Engineering Methodology
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">Our Delivery Framework</h2>
             <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm md:text-base leading-relaxed">
@@ -245,7 +238,7 @@ const ServicesPage: React.FC = () => {
                 key={step.step} 
                 className="p-6 bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl text-left space-y-3 hover:border-blue-500/40 transition-colors"
               >
-                <div className="text-2xl font-bold font-mono text-blue-700 dark:text-blue-400">{step.step}</div>
+                <div className="text-2xl font-bold text-blue-700 dark:text-blue-400 tracking-tight">{step.step}</div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white">{step.title}</h3>
                 <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{step.desc}</p>
               </div>
@@ -265,7 +258,7 @@ const ServicesPage: React.FC = () => {
             href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to schedule an enterprise consultation regarding Mactis IT services.')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary text-xs py-3 px-6 space-x-2"
+            className="btn-primary text-xs py-3 px-6 space-x-2 font-semibold"
           >
             <MessageCircle className="h-4 w-4" />
             <span>Connect on WhatsApp</span>

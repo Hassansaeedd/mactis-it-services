@@ -86,7 +86,7 @@ const TermsOfService: React.FC = () => {
             <p>
               For legal notices, contract modifications, or enterprise Master Services Agreement (MSA) inquiries, contact:
             </p>
-            <div className="p-4 border border-slate-200 dark:border-slate-800 rounded bg-slate-50 dark:bg-slate-900/60 font-mono text-xs">
+            <div className="p-4 border border-slate-200 dark:border-slate-800 rounded bg-slate-50 dark:bg-slate-900/60 font-sans font-medium text-xs text-slate-700 dark:text-slate-300">
               Mactis IT Services — Contracts & Legal Operations<br />
               Email: legal@mactis.co / info@mactis.co<br />
               Gulberg III, Lahore, Pakistan

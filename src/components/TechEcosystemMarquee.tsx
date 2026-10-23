@@ -185,7 +185,7 @@ export const TechEcosystemMarquee: React.FC = () => {
               Technology Ecosystem & Production Standards
             </span>
           </div>
-          <span className="hidden sm:inline-block text-xs text-slate-500 dark:text-slate-400 font-mono">
+          <span className="hidden sm:inline-block text-xs text-slate-500 dark:text-slate-400 font-medium">
             Audited Stack • Multi-Cloud Ready
           </span>
         </div>
