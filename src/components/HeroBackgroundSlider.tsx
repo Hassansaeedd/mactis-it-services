@@ -119,9 +119,10 @@ export const HeroBackgroundSlider: React.FC<HeroBackgroundSliderProps> = ({ onSl
         );
       })}
 
-      {/* Modern Cinematic Overlay: Balanced for high photo visibility + crisp typography */}
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/75 to-slate-950/85" />
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-slate-950/70" />
+      {/* Light, crisp contrast overlay - allows real offices, servers, and engineering teams to be clearly visible and prominent */}
+      <div className="absolute inset-0 bg-slate-950/45" />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/15 to-slate-950/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-transparent to-slate-950/50" />
 
       {/* Interactive Story Pillar Navigator Bar (Apple & Vercel Style) */}
       <div className="absolute bottom-6 left-0 right-0 z-30 px-4 md:px-8">

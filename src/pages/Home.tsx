@@ -122,35 +122,36 @@ const Home: React.FC = () => {
 
             <a
               href="#project-estimator"
-              className="btn-outline py-3.5 px-7 text-sm font-semibold text-white border-slate-600/90 bg-slate-900/70 backdrop-blur-md hover:bg-slate-800 w-full sm:w-auto"
+              className="py-3.5 px-7 text-sm font-bold text-white bg-white/10 hover:bg-white/20 border-2 border-white/50 hover:border-white rounded-md backdrop-blur-md transition-all duration-200 w-full sm:w-auto shadow-lg text-center inline-flex items-center justify-center space-x-1.5"
             >
-              Estimate Your Project Scope ↓
+              <span>Estimate Your Project Scope</span>
+              <span className="font-bold">↓</span>
             </a>
           </motion.div>
 
-          {/* Interactive Live Architectural Switcher (Direct in Hero) */}
+          {/* Interactive Live Architectural Preview Card (Aesthetic, Soft Glass) */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="max-w-3xl mx-auto rounded-2xl bg-slate-950/80 backdrop-blur-xl border border-slate-800 p-4 sm:p-5 shadow-2xl text-left"
+            className="max-w-3xl mx-auto rounded-2xl bg-slate-900/70 backdrop-blur-xl border border-white/15 p-5 sm:p-6 shadow-2xl text-left"
           >
-            {/* Pill tabs */}
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-4">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                Interactive Architecture Preview:
+            {/* Minimalist Segmented Tabs */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-3 mb-4 gap-2">
+              <span className="text-xs font-medium text-slate-300">
+                Architecture by Practice:
               </span>
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap gap-1.5">
                 {architecturePillars.map((p) => {
                   const isActive = p.id === activePillar.id;
                   return (
                     <button
                       key={p.id}
                       onClick={() => setActivePillar(p)}
-                      className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
+                      className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
                         isActive
-                          ? 'bg-blue-600 text-white shadow-sm'
-                          : 'text-slate-400 hover:text-white hover:bg-slate-850'
+                          ? 'bg-white/20 text-white border border-white/30 shadow-sm'
+                          : 'text-slate-400 hover:text-white hover:bg-white/5'
                       }`}
                     >
                       {p.name.split(' ')[0]}
@@ -160,7 +161,7 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Active blueprint details */}
+            {/* Active Blueprint Details */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={activePillar.id}
@@ -170,36 +171,36 @@ const Home: React.FC = () => {
                 transition={{ duration: 0.2 }}
                 className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center"
               >
-                <div className="sm:col-span-8 space-y-2">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-xs font-bold text-blue-400 uppercase tracking-wide">
+                <div className="sm:col-span-8 space-y-2.5">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-sm font-semibold text-white">
                       {activePillar.name}
                     </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-400 border border-emerald-800 font-mono">
+                    <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 font-medium">
                       {activePillar.sla}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <p className="text-xs text-slate-300 leading-relaxed font-normal">
                     {activePillar.deliverable}
                   </p>
-                  <div className="flex flex-wrap gap-1 pt-1">
+                  <div className="flex flex-wrap gap-1.5 pt-0.5">
                     {activePillar.tech.map((t) => (
-                      <span key={t} className="px-2 py-0.5 text-[10px] font-medium rounded bg-slate-800 text-slate-300 border border-slate-700">
+                      <span key={t} className="px-2.5 py-0.5 text-[11px] font-normal rounded-md bg-white/5 text-slate-300 border border-white/10">
                         {t}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="sm:col-span-4 sm:border-l sm:border-slate-800 sm:pl-4 flex flex-col justify-center">
+                <div className="sm:col-span-4 sm:border-l sm:border-white/10 sm:pl-5 flex flex-col justify-center">
                   <Link
                     to={activePillar.link}
-                    className="inline-flex items-center text-xs font-bold text-blue-400 hover:text-blue-300 group"
+                    className="inline-flex items-center text-xs font-semibold text-slate-200 hover:text-white group"
                   >
-                    <span>Inspect Full Practice</span>
+                    <span>View Full Practice Specs</span>
                     <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                   </Link>
-                  <span className="text-[10px] text-slate-400 mt-1">
+                  <span className="text-[11px] text-slate-400 mt-1">
                     Audited Production Delivery
                   </span>
                 </div>

@@ -270,73 +270,80 @@ const SoftwareShowcase: React.FC = () => {
       {/* Interactive Project Architecture Inspection Modal */}
       <AnimatePresence>
         {activeModalProduct && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-md"
+          >
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              initial={{ opacity: 0, scale: 0.96, y: 14 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              exit={{ opacity: 0, scale: 0.96, y: 10 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto"
             >
               {/* Close Button */}
               <button
                 onClick={() => setActiveModalProduct(null)}
                 aria-label="Close modal"
-                className="absolute top-5 right-5 p-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
+                className="absolute top-5 right-5 p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
               >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
 
-              <div className="mb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400">
-                  {activeModalProduct.category} • Technical Specification
+              <div className="mb-5 pr-8">
+                <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                  {activeModalProduct.category} • Production Specification
                 </span>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mt-1">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-1 tracking-tight">
                   {activeModalProduct.title}
                 </h3>
               </div>
 
               {/* Verified Metrics Badge */}
-              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 mb-6 flex items-center justify-between">
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800 mb-6 flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-slate-500 block">Verified Production Metric</span>
-                  <span className="text-base font-extrabold text-blue-600 dark:text-blue-400">
+                  <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 block">Verified Production Metric</span>
+                  <span className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
                     {activeModalProduct.metric} — {activeModalProduct.metricLabel}
                   </span>
                 </div>
-                <span className="px-2.5 py-1 text-xs font-semibold rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
                   Live in Production
                 </span>
               </div>
 
               {/* Architecture Blueprint Details */}
-              <div className="space-y-4 mb-6 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              <div className="space-y-5 mb-6 text-sm text-slate-600 dark:text-slate-300">
                 <div>
-                  <h4 className="font-bold text-slate-900 dark:text-white mb-1.5 uppercase text-xs tracking-wider">
+                  <h4 className="font-semibold text-slate-900 dark:text-white mb-2 text-xs uppercase tracking-wider">
                     System Architecture & Data Flow
                   </h4>
-                  <p className="leading-relaxed bg-slate-50 dark:bg-slate-950/80 p-3.5 rounded-lg border border-slate-200 dark:border-slate-800 font-mono text-xs">
+                  <p className="leading-relaxed bg-slate-50 dark:bg-slate-950/40 p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/80 font-normal text-xs sm:text-sm">
                     {activeModalProduct.architectureOverview}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-slate-900 dark:text-white mb-1.5 uppercase text-xs tracking-wider">
+                  <h4 className="font-semibold text-slate-900 dark:text-white mb-2 text-xs uppercase tracking-wider">
                     Infrastructure & Reliability Specs
                   </h4>
-                  <p className="leading-relaxed">
+                  <p className="leading-relaxed text-xs sm:text-sm">
                     {activeModalProduct.deploymentSpecs}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="font-bold text-slate-900 dark:text-white mb-2 uppercase text-xs tracking-wider">
+                  <h4 className="font-semibold text-slate-900 dark:text-white mb-2.5 text-xs uppercase tracking-wider">
                     Integrated Technologies
                   </h4>
                   <div className="flex flex-wrap gap-1.5">
                     {activeModalProduct.tags.map((t) => (
-                      <span key={t} className="px-2.5 py-1 text-xs font-semibold rounded-md bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700">
+                      <span key={t} className="px-2.5 py-1 text-xs font-normal rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
                         {t}
                       </span>
                     ))}
@@ -350,19 +357,19 @@ const SoftwareShowcase: React.FC = () => {
                   href={`https://wa.me/923154327855?text=${encodeURIComponent(`Hello! I reviewed the architecture for ${activeModalProduct.title} on Mactis and would like to consult on a similar solution.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary w-full sm:w-auto text-xs py-2.5 px-5 font-bold"
+                  className="btn-primary w-full sm:w-auto text-xs py-3 px-5 font-semibold"
                 >
                   Discuss Similar Implementation
                 </a>
                 <button
                   onClick={() => setActiveModalProduct(null)}
-                  className="btn-outline w-full sm:w-auto text-xs py-2.5 px-5"
+                  className="btn-outline w-full sm:w-auto text-xs py-3 px-5"
                 >
                   Close Inspection
                 </button>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </section>

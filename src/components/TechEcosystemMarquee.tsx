@@ -176,21 +176,7 @@ export const techStackLogos: TechItem[] = [
 
 export const TechEcosystemMarquee: React.FC = () => {
   return (
-    <div className="bg-slate-100 dark:bg-slate-900/90 py-6 border-y border-slate-200 dark:border-slate-800 overflow-hidden relative">
-      <div className="container mx-auto px-4 md:px-6 mb-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
-              Technology Ecosystem & Production Standards
-            </span>
-          </div>
-          <span className="hidden sm:inline-block text-xs text-slate-500 dark:text-slate-400 font-medium">
-            Audited Stack • Multi-Cloud Ready
-          </span>
-        </div>
-      </div>
-
+    <div className="bg-slate-100 dark:bg-slate-900/90 py-5 border-y border-slate-200 dark:border-slate-800 overflow-hidden relative">
       {/* Infinite Running Marquee Track */}
       <div className="relative w-full overflow-hidden flex mask-gradient">
         {/* Subtle edge fades for ultra high-end look */}
