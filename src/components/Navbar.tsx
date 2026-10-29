@@ -22,12 +22,12 @@ const Navbar: React.FC = () => {
             {/* Logo */}
             <div className="flex items-center space-x-3">
               <Link to="/" className="flex items-center space-x-2.5 group">
-                <div className="p-1 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200/60 dark:border-blue-900/40">
+                <div className="p-1 rounded-lg bg-sky-50 dark:bg-sky-950/60 border border-sky-200/60 dark:border-sky-900/40">
                   <img src="/logo2.png" alt="Mactis Logo" className="h-8 w-auto" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center">
-                    Mactis<span className="text-blue-600 dark:text-blue-400 font-bold ml-1">IT</span>
+                    Mactis<span className="text-sky-500 dark:text-sky-400 font-bold ml-1">IT</span>
                   </span>
                   <span className="text-[10px] uppercase font-semibold tracking-wider text-slate-500 -mt-0.5 hidden sm:block">
                     Software & Systems
@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
                     to={link.path}
                     className={`px-4 py-1.5 rounded-md text-xs sm:text-sm font-semibold transition-all duration-150 ${
                       isActive
-                        ? 'text-white bg-blue-700 shadow-sm'
+                        ? 'text-white bg-sky-500 shadow-sm'
                         : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white dark:hover:bg-slate-700'
                     }`}
                   >
@@ -139,7 +139,7 @@ const Navbar: React.FC = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`block px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                     isActive
-                      ? 'bg-blue-700 text-white'
+                      ? 'bg-sky-500 text-white'
                       : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                   }`}
                 >

@@ -129,16 +129,16 @@ const Home: React.FC = () => {
             </a>
           </motion.div>
 
-          {/* Interactive Live Architectural Preview Card (Aesthetic, Soft Glass) */}
+          {/* Interactive Live Architectural Preview Card (Luminous Cream White Contrast Aesthetic) */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="max-w-3xl mx-auto rounded-2xl bg-slate-900/70 backdrop-blur-xl border border-white/15 p-5 sm:p-6 shadow-2xl text-left"
+            className="max-w-3xl mx-auto rounded-2xl bg-[#FAF9F5] text-slate-900 border border-amber-200/60 p-5 sm:p-6 shadow-2xl shadow-black/40 text-left"
           >
             {/* Minimalist Segmented Tabs */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-3 mb-4 gap-2">
-              <span className="text-xs font-medium text-slate-300">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-3 mb-4 gap-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                 Architecture by Practice:
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -148,10 +148,10 @@ const Home: React.FC = () => {
                     <button
                       key={p.id}
                       onClick={() => setActivePillar(p)}
-                      className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+                      className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
                         isActive
-                          ? 'bg-white/20 text-white border border-white/30 shadow-sm'
-                          : 'text-slate-400 hover:text-white hover:bg-white/5'
+                          ? 'bg-slate-900 text-white shadow-sm'
+                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/70'
                       }`}
                     >
                       {p.name.split(' ')[0]}
@@ -173,34 +173,34 @@ const Home: React.FC = () => {
               >
                 <div className="sm:col-span-8 space-y-2.5">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-sm font-semibold text-white">
+                    <span className="text-sm sm:text-base font-bold text-slate-950">
                       {activePillar.name}
                     </span>
-                    <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 font-medium">
+                    <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200 font-semibold">
                       {activePillar.sla}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {activePillar.deliverable}
                   </p>
                   <div className="flex flex-wrap gap-1.5 pt-0.5">
                     {activePillar.tech.map((t) => (
-                      <span key={t} className="px-2.5 py-0.5 text-[11px] font-normal rounded-md bg-white/5 text-slate-300 border border-white/10">
+                      <span key={t} className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-white text-slate-800 border border-slate-200 shadow-xs">
                         {t}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="sm:col-span-4 sm:border-l sm:border-white/10 sm:pl-5 flex flex-col justify-center">
+                <div className="sm:col-span-4 sm:border-l sm:border-slate-200 sm:pl-5 flex flex-col justify-center">
                   <Link
                     to={activePillar.link}
-                    className="inline-flex items-center text-xs font-semibold text-slate-200 hover:text-white group"
+                    className="inline-flex items-center text-xs font-bold text-sky-600 hover:text-sky-700 group"
                   >
                     <span>View Full Practice Specs</span>
                     <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                   </Link>
-                  <span className="text-[11px] text-slate-400 mt-1">
+                  <span className="text-[11px] text-slate-400 mt-1 font-medium">
                     Audited Production Delivery
                   </span>
                 </div>
@@ -436,28 +436,28 @@ const Home: React.FC = () => {
       {/* 7. Why Teams Choose Mactis */}
       <TestimonialsSection />
 
-      {/* 8. Conversion CTA Banner */}
-      <section className="py-20 md:py-24 bg-slate-900 dark:bg-slate-950 border-t border-slate-800 text-center">
-        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-          <h2 className="text-2xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+      {/* 8. Conversion CTA Banner with Light Blue Brand Theme */}
+      <section className="py-20 md:py-24 bg-gradient-to-br from-sky-500 via-sky-600 to-blue-600 text-white text-center relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 max-w-3xl relative z-10">
+          <h2 className="text-2xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">
             Ready to Build or Scale Your Software?
           </h2>
-          <p className="text-slate-300 text-sm md:text-base mb-8 leading-relaxed">
+          <p className="text-sky-100 text-sm md:text-base mb-8 leading-relaxed font-normal">
             Discuss your project requirements, timeline, and architecture with our engineering leadership. We will evaluate your specs and provide a realistic, phased roadmap.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
             <a
               href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to consult with Mactis regarding our software project.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary py-3.5 px-7 font-bold shadow-lg shadow-blue-900/40"
+              className="py-3.5 px-8 font-bold bg-white text-sky-700 hover:bg-sky-50 rounded-lg shadow-xl transition-all duration-200 inline-flex items-center justify-center"
             >
               <span>Schedule WhatsApp Consultation</span>
               <span className="ml-2 font-bold">→</span>
             </a>
             <Link 
               to="/contact" 
-              className="btn-outline py-3.5 px-7 text-white border-slate-700 hover:bg-slate-800 font-semibold"
+              className="py-3.5 px-7 text-white font-semibold border-2 border-white/60 hover:bg-white/15 rounded-lg backdrop-blur-sm transition-all duration-200"
             >
               Send Project Inquiry Form
             </Link>

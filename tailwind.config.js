@@ -9,10 +9,10 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#1E40AF', // Enterprise Royal Blue
-          light: '#2563EB',   // Corporate Cobalt
-          dark: '#1D4ED8',    // Deep Sapphire
-          muted: '#3B82F6',
+          DEFAULT: '#0EA5E9', // Sky 500 (Matches Mactis Light Blue Logo)
+          light: '#38BDF8',   // Sky 400
+          dark: '#0284C7',    // Sky 600
+          muted: '#7DD3FC',   // Sky 300
         },
         dark: {
           DEFAULT: '#0F172A', // Slate 900 (High-end corporate midnight)

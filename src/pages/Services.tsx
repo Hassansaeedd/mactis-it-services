@@ -75,31 +75,31 @@ const processSteps = [
 const ServicesPage: React.FC = () => {
   return (
     <div className="animate-fade-in bg-white dark:bg-dark">
-      {/* Hero */}
-      <section className="relative py-20 lg:py-28 bg-slate-900 dark:bg-slate-950 border-b border-slate-800">
+      {/* Hero with Light Blue Brand Theme */}
+      <section className="relative py-20 lg:py-28 bg-gradient-to-b from-sky-50 via-white to-sky-50/60 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 border-b border-sky-100 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center space-x-2 text-xs font-semibold text-blue-400 uppercase tracking-wider mb-4">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+          <div className="inline-flex items-center space-x-2 text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider mb-4">
+            <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
             <span>Our Services & Practices</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight leading-[1.15]">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 dark:text-white mb-4 tracking-tight leading-[1.15]">
             Engineering Practices Designed for <br />
-            <span className="text-blue-400">Scale, Speed & Reliability</span>
+            <span className="text-sky-600 dark:text-sky-400">Scale, Speed & Reliability</span>
           </h1>
-          <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-8 font-normal">
+          <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-8 font-normal">
             Mactis provides full-lifecycle software engineering, custom platforms, and technical infrastructure consulting. We work as dedicated engineering partners to deliver results on time and within scope.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
             <a
               href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to schedule an enterprise consultation regarding Mactis IT services.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary space-x-2 py-3.5 px-7 text-sm font-semibold"
+              className="btn-primary space-x-2 py-3.5 px-7 text-sm font-semibold shadow-md"
             >
               <span>Schedule a Consultation</span>
-              <span className="ml-1">→</span>
+              <span className="ml-1 font-bold">→</span>
             </a>
-            <Link to="/contact" className="btn-outline py-3.5 px-7 text-sm font-semibold text-white border-slate-700 hover:bg-slate-800">
+            <Link to="/contact" className="btn-outline py-3.5 px-7 text-sm font-semibold">
               Submit Project Inquiry
             </Link>
           </div>
@@ -222,7 +222,7 @@ const ServicesPage: React.FC = () => {
                 key={step.step} 
                 className="p-6 bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl text-left space-y-3 hover:border-blue-500/40 transition-colors"
               >
-                <div className="text-2xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight">{step.step}</div>
+                <div className="text-2xl font-extrabold text-sky-600 dark:text-sky-400 tracking-tight">{step.step}</div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white">{step.title}</h3>
                 <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{step.desc}</p>
               </div>
@@ -231,18 +231,18 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="py-16 md:py-20 bg-slate-900 dark:bg-slate-950 border-t border-slate-800 text-center">
-        <div className="container mx-auto px-4 md:px-6 max-w-2xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">Ready to Discuss Your Project?</h2>
-          <p className="text-slate-300 text-xs sm:text-sm mb-8 leading-relaxed font-normal">
+      {/* CTA Banner with Light Blue Brand Theme */}
+      <section className="py-20 md:py-24 bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 text-white text-center relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 max-w-2xl relative z-10">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-3 tracking-tight">Ready to Discuss Your Project?</h2>
+          <p className="text-sky-100 text-sm mb-8 leading-relaxed font-normal">
             Schedule an initial consultation with our technical leads. We will review your requirements, suggest an architectural approach, and provide a realistic estimate.
           </p>
           <a
             href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to schedule an enterprise consultation regarding Mactis IT services.')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary text-xs py-3.5 px-7 space-x-2 font-semibold"
+            className="py-3.5 px-8 font-bold bg-white text-sky-700 hover:bg-sky-50 rounded-lg shadow-xl transition-all duration-200 inline-flex items-center justify-center space-x-2"
           >
             <span>Connect on WhatsApp</span>
             <span className="ml-1 font-bold">→</span>

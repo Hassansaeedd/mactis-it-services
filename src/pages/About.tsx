@@ -33,18 +33,18 @@ const values = [
 const About: React.FC = () => {
   return (
     <div className="animate-fade-in bg-white dark:bg-dark">
-      {/* Hero */}
-      <section className="relative py-20 lg:py-28 bg-slate-900 dark:bg-slate-950 border-b border-slate-800">
+      {/* Hero with Light Blue Brand Theme */}
+      <section className="relative py-20 lg:py-28 bg-gradient-to-b from-sky-50 via-white to-sky-50/60 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 border-b border-sky-100 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center space-x-2 text-xs font-semibold text-blue-400 uppercase tracking-wider mb-4">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+          <div className="inline-flex items-center space-x-2 text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider mb-4">
+            <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
             <span>About Mactis IT Services</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight leading-[1.15]">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 dark:text-white mb-4 tracking-tight leading-[1.15]">
             Engineering Reliable Software for <br />
-            <span className="text-blue-400">Ambitious Businesses</span>
+            <span className="text-sky-600 dark:text-sky-400">Ambitious Businesses</span>
           </h1>
-          <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
+          <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
             Mactis is a software engineering and technology consulting company. We partner with businesses to architect, build, and support the digital platforms that drive daily operations and business growth.
           </p>
         </div>
@@ -236,24 +236,24 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-slate-900 dark:bg-slate-950 border-t border-slate-800 text-center">
-        <div className="container mx-auto px-4 md:px-6 max-w-2xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">Let's Build Something Together</h2>
-          <p className="text-slate-300 text-xs sm:text-sm mb-8 leading-relaxed">
+      {/* CTA with Light Blue Brand Theme */}
+      <section className="py-20 md:py-24 bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 text-white text-center relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 max-w-2xl relative z-10">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-3 tracking-tight">Let's Build Something Together</h2>
+          <p className="text-sky-100 text-sm mb-8 leading-relaxed font-normal">
             Have an upcoming software project or need to augment your team with senior engineers? Reach out today to start the conversation.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
             <a
               href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to discuss our software engineering requirements with Mactis.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary py-3 px-6 text-xs font-semibold"
+              className="py-3.5 px-8 font-bold bg-white text-sky-700 hover:bg-sky-50 rounded-lg shadow-xl transition-all duration-200 inline-flex items-center justify-center space-x-2"
             >
               <span>Chat on WhatsApp</span>
               <span className="ml-1 font-bold">→</span>
             </a>
-            <Link to="/contact" className="btn-outline py-3 px-6 text-xs text-white border-slate-700 hover:bg-slate-800 font-semibold">
+            <Link to="/contact" className="py-3.5 px-7 text-white font-semibold border-2 border-white/60 hover:bg-white/15 rounded-lg backdrop-blur-sm transition-all duration-200">
               Contact Our Team
             </Link>
           </div>

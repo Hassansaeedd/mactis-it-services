@@ -136,14 +136,14 @@ export const HeroBackgroundSlider: React.FC<HeroBackgroundSliderProps> = ({ onSl
                   onClick={() => goToSlide(idx)}
                   className={`text-left p-3 sm:p-3.5 rounded-lg backdrop-blur-md transition-all duration-300 relative overflow-hidden border ${
                     isActive
-                      ? 'bg-slate-900/90 border-blue-500/80 shadow-lg shadow-blue-950/40'
+                      ? 'bg-slate-900/90 border-sky-400/80 shadow-lg shadow-sky-950/40'
                       : 'bg-slate-950/60 border-slate-800/80 hover:bg-slate-900/60 hover:border-slate-700 text-slate-400'
                   }`}
                 >
                   {/* Active Progress Filling Bar */}
                   {isActive && (
                     <div 
-                      className="absolute top-0 left-0 bottom-0 bg-blue-500/15 transition-all duration-75 pointer-events-none"
+                      className="absolute top-0 left-0 bottom-0 bg-sky-400/20 transition-all duration-75 pointer-events-none"
                       style={{ width: `${progress}%` }}
                     />
                   )}
@@ -151,7 +151,7 @@ export const HeroBackgroundSlider: React.FC<HeroBackgroundSliderProps> = ({ onSl
                   <div className="h-1 w-full bg-slate-800 rounded-full overflow-hidden mb-2">
                     <div
                       className={`h-full transition-all duration-75 ${
-                        isActive ? 'bg-blue-400' : 'bg-transparent'
+                        isActive ? 'bg-sky-400' : 'bg-transparent'
                       }`}
                       style={{ width: isActive ? `${progress}%` : '0%' }}
                     />
@@ -159,14 +159,14 @@ export const HeroBackgroundSlider: React.FC<HeroBackgroundSliderProps> = ({ onSl
 
                   <div className="flex items-center justify-between mb-1">
                     <span className={`text-[10px] font-bold tracking-wider uppercase ${
-                      isActive ? 'text-blue-400' : 'text-slate-400'
+                      isActive ? 'text-sky-400' : 'text-slate-400'
                     }`}>
                       {slide.badge}
                     </span>
                     {isActive && (
                       <span className="flex h-1.5 w-1.5 relative">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-400" />
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-sky-400" />
                       </span>
                     )}
                   </div>

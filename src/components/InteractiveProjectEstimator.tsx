@@ -122,31 +122,38 @@ export const InteractiveProjectEstimator: React.FC = () => {
 I would like to schedule an architectural consultation to discuss this scope.`;
 
   return (
-    <section id="project-estimator" className="py-20 md:py-28 bg-slate-900 dark:bg-slate-950 text-white border-t border-slate-800 relative overflow-hidden">
+    <section id="project-estimator" className="py-20 md:py-28 bg-[#F8FAFC] dark:bg-slate-900 border-y border-sky-100 dark:border-slate-800 text-slate-900 dark:text-white relative overflow-hidden">
+      {/* Soft Light Blue Ambient Glow */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky-200/40 dark:bg-sky-900/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-100/30 dark:bg-slate-800/20 rounded-full blur-3xl pointer-events-none" />
+
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-6xl">
-        {/* Section Header (Clean, No Harsh Pill Badge) */}
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
+          <span className="text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2">
+            Project Scope Architect
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-950 dark:text-white mb-3">
             Plan Your Software Scope & Architecture
           </h2>
-          <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed">
             Configure your technical requirements below to instantly preview recommended architecture sprints, dedicated pod structure, and estimated engineering milestones.
           </p>
         </div>
 
-        {/* Aesthetic Configuration Layout */}
+        {/* Contrasting Cream-White & Ink-Black Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Controls Column (7 Cols) */}
+          {/* Controls Column (7 Cols on Light Cream Surface) */}
           <div className="lg:col-span-7 space-y-7">
             
             {/* Step 1: Platform Selection */}
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-semibold text-slate-300">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">
                   01 / Select Software Domain
                 </span>
-                <span className="text-[11px] text-slate-400">Click to switch</span>
+                <span className="text-[11px] text-slate-500 dark:text-slate-400">Click to switch</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {platforms.map((p) => {
@@ -157,19 +164,19 @@ I would like to schedule an architectural consultation to discuss this scope.`;
                       onClick={() => setSelectedPlatform(p)}
                       className={`text-left p-4 rounded-xl border transition-all duration-200 ${
                         isSelected
-                          ? 'bg-slate-800/90 border-slate-400 text-white shadow-sm'
-                          : 'bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-400'
+                          ? 'bg-sky-50/80 dark:bg-sky-950/40 border-2 border-sky-500 text-slate-900 dark:text-white shadow-md ring-2 ring-sky-400/20'
+                          : 'bg-white dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 hover:border-sky-300 text-slate-700 dark:text-slate-300 shadow-xs'
                       }`}
                     >
                       <div className="flex items-center justify-between mb-1">
-                        <span className={`text-sm font-semibold ${isSelected ? 'text-white' : 'text-slate-300'}`}>
+                        <span className="text-sm font-bold text-slate-900 dark:text-white">
                           {p.name}
                         </span>
                         {isSelected && (
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                          <span className="w-2 h-2 rounded-full bg-sky-500" />
                         )}
                       </div>
-                      <div className="text-xs text-slate-400 line-clamp-1">
+                      <div className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1 font-normal">
                         {p.subtitle}
                       </div>
                     </button>
@@ -181,7 +188,7 @@ I would like to schedule an architectural consultation to discuss this scope.`;
             {/* Step 2: Scope & Phase */}
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-semibold text-slate-300">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">
                   02 / Delivery Scope & Timeline
                 </span>
               </div>
@@ -194,17 +201,17 @@ I would like to schedule an architectural consultation to discuss this scope.`;
                       onClick={() => setSelectedScope(s)}
                       className={`text-left p-4 rounded-xl border transition-all duration-200 ${
                         isSelected
-                          ? 'bg-slate-800/90 border-slate-400 text-white shadow-sm'
-                          : 'bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-400'
+                          ? 'bg-sky-50/80 dark:bg-sky-950/40 border-2 border-sky-500 text-slate-900 dark:text-white shadow-md ring-2 ring-sky-400/20'
+                          : 'bg-white dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 hover:border-sky-300 text-slate-700 dark:text-slate-300 shadow-xs'
                       }`}
                     >
-                      <div className={`text-xs font-medium mb-1 ${isSelected ? 'text-slate-200' : 'text-slate-400'}`}>
+                      <div className={`text-xs font-semibold mb-1 ${isSelected ? 'text-sky-700 dark:text-sky-400' : 'text-slate-500 dark:text-slate-400'}`}>
                         {s.name}
                       </div>
-                      <div className={`text-base font-bold ${isSelected ? 'text-white' : 'text-slate-200'}`}>
+                      <div className="text-base font-extrabold text-slate-900 dark:text-white">
                         {s.timeline}
                       </div>
-                      <div className="text-[11px] text-slate-400 mt-1">
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
                         {s.sprints}
                       </div>
                     </button>
@@ -216,7 +223,7 @@ I would like to schedule an architectural consultation to discuss this scope.`;
             {/* Step 3: SLA & Reliability */}
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-semibold text-slate-300">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">
                   03 / Service Level Agreement (SLA)
                 </span>
               </div>
@@ -229,17 +236,17 @@ I would like to schedule an architectural consultation to discuss this scope.`;
                       onClick={() => setSelectedSla(sla)}
                       className={`text-left p-4 rounded-xl border transition-all duration-200 ${
                         isSelected
-                          ? 'bg-slate-800/90 border-slate-400 text-white shadow-sm'
-                          : 'bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-400'
+                          ? 'bg-sky-50/80 dark:bg-sky-950/40 border-2 border-sky-500 text-slate-900 dark:text-white shadow-md ring-2 ring-sky-400/20'
+                          : 'bg-white dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 hover:border-sky-300 text-slate-700 dark:text-slate-300 shadow-xs'
                       }`}
                     >
-                      <div className={`text-xs font-medium ${isSelected ? 'text-white' : 'text-slate-300'}`}>
+                      <div className="text-xs font-semibold text-slate-900 dark:text-white">
                         {sla.name}
                       </div>
-                      <div className="text-xs font-medium text-emerald-400 mt-1">
+                      <div className="text-xs font-bold text-sky-600 dark:text-sky-400 mt-1">
                         {sla.sla}
                       </div>
-                      <div className="text-[10px] text-slate-400 mt-1">
+                      <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">
                         {sla.support}
                       </div>
                     </button>
@@ -250,12 +257,12 @@ I would like to schedule an architectural consultation to discuss this scope.`;
 
           </div>
 
-          {/* Aesthetic Scope Summary Card (5 Cols) */}
+          {/* Contrasting Ink-Black Summary Card (5 Cols) */}
           <div className="lg:col-span-5">
-            <div className="p-6 md:p-7 rounded-2xl bg-slate-900/80 backdrop-blur-xl border border-slate-800 shadow-xl relative overflow-hidden">
-              <div className="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-5">
+            <div className="p-6 md:p-7 rounded-2xl bg-[#0B1120] text-white border border-slate-800 shadow-2xl relative overflow-hidden">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
                 <div>
-                  <span className="text-[11px] font-medium text-slate-400 block">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-sky-400 block mb-1">
                     Scope Blueprint
                   </span>
                   <h3 className="text-lg font-bold text-white tracking-tight">
@@ -263,7 +270,7 @@ I would like to schedule an architectural consultation to discuss this scope.`;
                   </h3>
                 </div>
                 <div className="text-right">
-                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 inline-block mb-1">
+                  <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/30 inline-block mb-1">
                     {selectedSla.sla}
                   </span>
                   <span className="text-[11px] text-slate-400 block">
@@ -273,27 +280,27 @@ I would like to schedule an architectural consultation to discuss this scope.`;
               </div>
 
               {/* Cadence Metrics Bar */}
-              <div className="grid grid-cols-2 gap-3 p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80 mb-5 text-center">
+              <div className="grid grid-cols-2 gap-3 p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 mb-5 text-center">
                 <div>
-                  <span className="text-[11px] text-slate-400 block">Cadence</span>
-                  <span className="text-sm font-semibold text-white">{selectedScope.sprints}</span>
+                  <span className="text-[10px] uppercase font-semibold text-slate-400 block">Cadence</span>
+                  <span className="text-sm font-bold text-white">{selectedScope.sprints}</span>
                 </div>
                 <div>
-                  <span className="text-[11px] text-slate-400 block">Dedicated Pod</span>
-                  <span className="text-sm font-semibold text-slate-200">4-5 Engineers</span>
+                  <span className="text-[10px] uppercase font-semibold text-slate-400 block">Dedicated Pod</span>
+                  <span className="text-sm font-bold text-sky-300">4-5 Engineers</span>
                 </div>
               </div>
 
               {/* Recommended Stack */}
               <div className="mb-5">
-                <span className="text-xs font-medium text-slate-300 block mb-2">
+                <span className="text-xs font-semibold text-slate-300 block mb-2">
                   Audited Production Stack:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {selectedPlatform.stack.map((item) => (
                     <span
                       key={item}
-                      className="px-2.5 py-1 text-[11px] font-normal rounded-md bg-slate-800/80 text-slate-300 border border-slate-700/80"
+                      className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-slate-800 text-slate-200 border border-slate-700"
                     >
                       {item}
                     </span>
@@ -303,7 +310,7 @@ I would like to schedule an architectural consultation to discuss this scope.`;
 
               {/* Scope Deliverables */}
               <div className="mb-6">
-                <span className="text-xs font-medium text-slate-300 block mb-2">
+                <span className="text-xs font-semibold text-slate-300 block mb-2">
                   Key Sprint Deliverables:
                 </span>
                 <AnimatePresence mode="wait">
@@ -317,7 +324,7 @@ I would like to schedule an architectural consultation to discuss this scope.`;
                   >
                     {selectedPlatform.deliverables.map((del, i) => (
                       <div key={i} className="flex items-start space-x-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-1.5 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0" />
                         <span className="leading-relaxed font-normal">{del}</span>
                       </div>
                     ))}
@@ -326,12 +333,12 @@ I would like to schedule an architectural consultation to discuss this scope.`;
               </div>
 
               {/* Primary Consultation Trigger */}
-              <div className="space-y-2.5 pt-4 border-t border-slate-800/80">
+              <div className="space-y-2.5 pt-4 border-t border-slate-800">
                 <a
                   href={`https://wa.me/923154327855?text=${encodeURIComponent(whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary w-full py-3.5 px-4 rounded-xl text-xs font-semibold flex items-center justify-center space-x-2 shadow-md"
+                  className="btn-primary w-full py-3.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center space-x-2 shadow-lg shadow-sky-500/25"
                 >
                   <span>Consult Engineering on this Scope</span>
                   <span className="font-bold">→</span>
