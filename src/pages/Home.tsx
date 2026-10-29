@@ -1,89 +1,227 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ServicesSection from '../components/ServicesSection';
 import StatsSection from '../components/StatsSection';
 import SoftwareShowcase from '../components/SoftwareShowcase';
 import { HeroBackgroundSlider } from '../components/HeroBackgroundSlider';
 import { TechEcosystemMarquee } from '../components/TechEcosystemMarquee';
+import { InteractiveProjectEstimator } from '../components/InteractiveProjectEstimator';
+
+interface ArchitecturalPillar {
+  id: string;
+  name: string;
+  tag: string;
+  tech: string[];
+  deliverable: string;
+  sla: string;
+  link: string;
+}
+
+const architecturePillars: ArchitecturalPillar[] = [
+  {
+    id: 'web',
+    name: 'Web & SaaS Platforms',
+    tag: 'Practice 01',
+    tech: ['React 19', 'Next.js 15', 'TypeScript', 'Node.js', 'PostgreSQL'],
+    deliverable: 'High-concurrency B2B web portals, sub-second SSR, and role-based access control.',
+    sla: 'Sub-300ms Page Loads • 99.9% Uptime',
+    link: '/services',
+  },
+  {
+    id: 'cloud',
+    name: 'Cloud & DevOps Clusters',
+    tag: 'Practice 02',
+    tech: ['AWS', 'Microsoft Azure', 'Kubernetes', 'Docker', 'Terraform'],
+    deliverable: 'Autoscaling microservices, multi-region failover, and automated CI/CD pipelines.',
+    sla: '99.99% Infrastructure SLA • Zero-Downtime Deploys',
+    link: '/services',
+  },
+  {
+    id: 'mobile',
+    name: 'Mobile Engineering',
+    tag: 'Practice 03',
+    tech: ['React Native', 'Flutter', 'WebSockets', 'SQLite', 'REST APIs'],
+    deliverable: 'Dual iOS and Android apps with live GPS telemetry, push notifications, and offline sync.',
+    sla: '60 FPS Native Performance • App Store Compliance',
+    link: '/services',
+  },
+  {
+    id: 'erp',
+    name: 'Industrial ERP & IoT',
+    tag: 'Practice 04',
+    tech: ['PostgreSQL', 'Python / Go', 'IoT COM Sync', 'Weighbridges'],
+    deliverable: 'Hardware weighbridge automated logging, multi-branch ledgers, and inventory audit logs.',
+    sla: '100% ACID Audit Trail • Multi-Branch Synchronization',
+    link: '/services',
+  },
+];
 
 const Home: React.FC = () => {
+  const [activePillar, setActivePillar] = useState<ArchitecturalPillar>(architecturePillars[0]);
+
   return (
-    <div className="animate-fade-in relative bg-white dark:bg-dark">
-      {/* 1. Full-Width Background Photo Hero Section */}
-      <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center justify-center py-20 lg:py-28 overflow-hidden border-b border-slate-800">
+    <div className="relative bg-white dark:bg-dark">
+      {/* 1. Cinematic Full-Width Background Photo Hero Section */}
+      <section className="relative min-h-[750px] lg:min-h-[860px] flex items-center justify-center pt-24 pb-36 sm:pb-40 overflow-hidden border-b border-slate-800">
         <HeroBackgroundSlider />
 
         {/* Foreground Content */}
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-4xl mx-auto">
-          {/* Sub-badge */}
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-700/60 text-xs font-semibold uppercase tracking-wider text-blue-400 mb-6 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-            <span>Software Development & Cloud Engineering</span>
-          </div>
+          {/* Live Status Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-xs font-semibold uppercase tracking-wider text-blue-400 mb-6 shadow-md"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Q4 2026 / 2027 Engineering Sprints Open</span>
+          </motion.div>
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.15] mb-6">
+          <motion.h1 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.12] mb-6"
+          >
             Engineering Custom Software, <br />
-            <span className="text-blue-400">Cloud Systems & Intelligent</span> Solutions
-          </h1>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-blue-200">
+              Cloud Systems & Intelligent
+            </span> Solutions
+          </motion.h1>
 
           {/* Value Proposition */}
-          <p className="text-slate-200 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto font-normal mb-8">
-            Mactis designs, builds, and scales custom software for growing businesses and established organizations. From mission-critical web platforms and mobile apps to custom industrial ERPs and cloud architecture, we build reliable digital systems tailored to your business.
-          </p>
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-slate-200 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto font-normal mb-8 text-shadow-sm"
+          >
+            Mactis designs, builds, and deploys high-availability custom software for organizations. From mission-critical web platforms and mobile apps to industrial ERPs and cloud architecture, we build reliable digital systems tailored to your business.
+          </motion.p>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-12">
+          {/* Dual Primary Call-to-Actions */}
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-10"
+          >
             <a
-              href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to discuss a software project with Mactis engineering leadership.')}`}
+              href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to schedule an architectural consultation with Mactis engineering leadership.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary py-3.5 px-7 text-sm font-semibold shadow-lg shadow-blue-900/30 w-full sm:w-auto"
+              className="btn-primary py-3.5 px-7 text-sm font-bold shadow-xl shadow-blue-900/40 w-full sm:w-auto"
             >
-              <span>Schedule a Consultation</span>
+              <span>Schedule Architecture Consultation</span>
               <span className="ml-2 font-bold">→</span>
             </a>
 
-            <Link
-              to="/services"
-              className="btn-outline py-3.5 px-7 text-sm font-semibold text-white border-slate-600/80 bg-slate-900/60 backdrop-blur-md hover:bg-slate-800 w-full sm:w-auto"
+            <a
+              href="#project-estimator"
+              className="btn-outline py-3.5 px-7 text-sm font-semibold text-white border-slate-600/90 bg-slate-900/70 backdrop-blur-md hover:bg-slate-800 w-full sm:w-auto"
             >
-              Explore Our Services
-            </Link>
-          </div>
+              Estimate Your Project Scope ↓
+            </a>
+          </motion.div>
 
-          {/* Key Proof Points Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-800 max-w-3xl mx-auto text-center shadow-xl">
-            <div className="p-2">
-              <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">12+</div>
-              <div className="text-xs text-slate-400 font-medium mt-1">Enterprise Clients</div>
+          {/* Interactive Live Architectural Switcher (Direct in Hero) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="max-w-3xl mx-auto rounded-2xl bg-slate-950/80 backdrop-blur-xl border border-slate-800 p-4 sm:p-5 shadow-2xl text-left"
+          >
+            {/* Pill tabs */}
+            <div className="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-4">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                Interactive Architecture Preview:
+              </span>
+              <div className="flex flex-wrap gap-1">
+                {architecturePillars.map((p) => {
+                  const isActive = p.id === activePillar.id;
+                  return (
+                    <button
+                      key={p.id}
+                      onClick={() => setActivePillar(p)}
+                      className={`px-3 py-1 rounded-md text-xs font-semibold transition-all ${
+                        isActive
+                          ? 'bg-blue-600 text-white shadow-sm'
+                          : 'text-slate-400 hover:text-white hover:bg-slate-850'
+                      }`}
+                    >
+                      {p.name.split(' ')[0]}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-            <div className="p-2">
-              <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">20+</div>
-              <div className="text-xs text-slate-400 font-medium mt-1">Production Projects</div>
-            </div>
-            <div className="p-2">
-              <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">3+</div>
-              <div className="text-xs text-slate-400 font-medium mt-1">Years Track Record</div>
-            </div>
-            <div className="p-2">
-              <div className="text-2xl sm:text-3xl font-extrabold text-blue-400 tracking-tight">99.9%</div>
-              <div className="text-xs text-slate-400 font-medium mt-1">Uptime SLA</div>
-            </div>
-          </div>
+
+            {/* Active blueprint details */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activePillar.id}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.2 }}
+                className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center"
+              >
+                <div className="sm:col-span-8 space-y-2">
+                  <div className="flex items-center space-x-2">
+                    <span className="text-xs font-bold text-blue-400 uppercase tracking-wide">
+                      {activePillar.name}
+                    </span>
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-400 border border-emerald-800 font-mono">
+                      {activePillar.sla}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    {activePillar.deliverable}
+                  </p>
+                  <div className="flex flex-wrap gap-1 pt-1">
+                    {activePillar.tech.map((t) => (
+                      <span key={t} className="px-2 py-0.5 text-[10px] font-medium rounded bg-slate-800 text-slate-300 border border-slate-700">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="sm:col-span-4 sm:border-l sm:border-slate-800 sm:pl-4 flex flex-col justify-center">
+                  <Link
+                    to={activePillar.link}
+                    className="inline-flex items-center text-xs font-bold text-blue-400 hover:text-blue-300 group"
+                  >
+                    <span>Inspect Full Practice</span>
+                    <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                  </Link>
+                  <span className="text-[10px] text-slate-400 mt-1">
+                    Audited Production Delivery
+                  </span>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </motion.div>
+
         </div>
       </section>
 
       {/* Technology Ecosystem Running Marquee */}
       <TechEcosystemMarquee />
 
-      {/* 2. Core Capabilities Matrix */}
+      {/* 2. Interactive Enterprise Project Scope & Estimator */}
+      <InteractiveProjectEstimator />
+
+      {/* 3. Core Capabilities Matrix */}
       <section className="py-20 md:py-28 bg-white dark:bg-dark border-b border-slate-200 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2">
-              What We Do
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2">
+              Engineering Disciplines
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
               Core Engineering Capabilities
@@ -96,7 +234,7 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
             
             {/* Capability 1: Web & SaaS */}
-            <div className="group relative p-7 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 shadow-sm hover:shadow-md">
+            <div className="group relative p-7 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 shadow-sm hover:shadow-lg">
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <span className="text-xs font-bold text-blue-700 dark:text-blue-400 tracking-wide uppercase">
@@ -147,7 +285,7 @@ const Home: React.FC = () => {
               <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80">
                 <Link
                   to="/services"
-                  className="inline-flex items-center text-xs font-semibold text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors"
+                  className="inline-flex items-center text-xs font-bold text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors"
                 >
                   <span>Learn more about Web & SaaS</span>
                   <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
@@ -159,7 +297,7 @@ const Home: React.FC = () => {
             <div className="group relative p-7 bg-slate-50/90 dark:bg-slate-900 border-2 border-blue-600/70 dark:border-blue-500/70 rounded-xl flex flex-col justify-between shadow-lg transition-all duration-300">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <span className="px-3 py-1 rounded-full bg-blue-700 text-white text-xs font-semibold tracking-wide uppercase shadow-sm">
-                  Featured Service
+                  Featured Discipline
                 </span>
               </div>
 
@@ -178,7 +316,7 @@ const Home: React.FC = () => {
                 </h3>
 
                 <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
-                  Practical AI integration that automates repetitive tasks, extracts actionable insights from documents, and provides conversational assistants for your users.
+                  Practical AI integration that automates repetitive workflows, extracts actionable insights from documents, and provides conversational assistants for your users.
                 </p>
 
                 {/* Tech Pills */}
@@ -222,7 +360,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* Capability 3: Cloud & DevOps */}
-            <div className="group relative p-7 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 shadow-sm hover:shadow-md">
+            <div className="group relative p-7 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 shadow-sm hover:shadow-lg">
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <span className="text-xs font-bold text-slate-600 dark:text-slate-400 tracking-wide uppercase">
@@ -273,7 +411,7 @@ const Home: React.FC = () => {
               <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80">
                 <Link
                   to="/services"
-                  className="inline-flex items-center text-xs font-semibold text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors"
+                  className="inline-flex items-center text-xs font-bold text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors"
                 >
                   <span>Learn more about Cloud & DevOps</span>
                   <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
@@ -285,19 +423,19 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. Core Services Section */}
+      {/* 4. Core Services Section */}
       <ServicesSection />
 
-      {/* 4. Stats Counters */}
+      {/* 5. Stats Counters (12+ Enterprise Clients, 20+ Production Projects, 3+ Years Track Record, 99.9% Uptime) */}
       <StatsSection />
 
-      {/* 5. Software Products & Projects Showcase */}
+      {/* 6. Software Products & Projects Showcase with Interactive Architecture Inspection */}
       <SoftwareShowcase />
 
-      {/* 6. Why Teams Choose Mactis */}
+      {/* 7. Why Teams Choose Mactis */}
       <TestimonialsSection />
 
-      {/* 7. Conversion CTA Banner */}
+      {/* 8. Conversion CTA Banner */}
       <section className="py-20 md:py-24 bg-slate-900 dark:bg-slate-950 border-t border-slate-800 text-center">
         <div className="container mx-auto px-4 md:px-6 max-w-3xl">
           <h2 className="text-2xl md:text-4xl font-bold text-white mb-4 tracking-tight">
@@ -311,16 +449,16 @@ const Home: React.FC = () => {
               href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to consult with Mactis regarding our software project.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary py-3 px-6 space-x-2 font-semibold"
+              className="btn-primary py-3.5 px-7 font-bold shadow-lg shadow-blue-900/40"
             >
-              <span>Contact on WhatsApp</span>
-              <span className="ml-1 font-bold">→</span>
+              <span>Schedule WhatsApp Consultation</span>
+              <span className="ml-2 font-bold">→</span>
             </a>
             <Link 
               to="/contact" 
-              className="btn-outline py-3 px-6 text-white border-slate-700 hover:bg-slate-800 font-semibold"
+              className="btn-outline py-3.5 px-7 text-white border-slate-700 hover:bg-slate-800 font-semibold"
             >
-              Send Project Inquiry
+              Send Project Inquiry Form
             </Link>
           </div>
         </div>

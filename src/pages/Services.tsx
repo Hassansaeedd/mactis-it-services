@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { TechEcosystemMarquee } from '../components/TechEcosystemMarquee';
+import { InteractiveProjectEstimator } from '../components/InteractiveProjectEstimator';
 
 interface ServiceItem {
   code: string;
@@ -199,6 +200,9 @@ const ServicesPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Interactive Scope & Architecture Estimator */}
+      <InteractiveProjectEstimator />
 
       {/* Delivery Framework */}
       <section className="py-20 md:py-28 bg-white dark:bg-dark border-b border-slate-200 dark:border-slate-800">
