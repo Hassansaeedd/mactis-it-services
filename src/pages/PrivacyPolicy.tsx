@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, ArrowLeft } from 'lucide-react';
 
 const PrivacyPolicy: React.FC = () => {
   return (
@@ -9,17 +8,16 @@ const PrivacyPolicy: React.FC = () => {
         {/* Navigation Breadcrumb */}
         <Link 
           to="/" 
-          className="inline-flex items-center text-xs font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white mb-8 transition-colors"
+          className="inline-flex items-center text-xs font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white mb-8 transition-colors"
         >
-          <ArrowLeft className="h-3.5 w-3.5 mr-1" />
+          <span className="mr-1.5 font-bold">←</span>
           Back to Overview
         </Link>
 
         {/* Header */}
         <div className="border-b border-slate-200 dark:border-slate-800 pb-8 mb-12">
-          <div className="flex items-center space-x-2 text-xs font-semibold text-blue-700 dark:text-blue-400 uppercase tracking-wider mb-2">
-            <Shield className="h-4 w-4" />
-            <span>Corporate Governance</span>
+          <div className="inline-block text-xs font-semibold text-blue-700 dark:text-blue-400 uppercase tracking-wider mb-2">
+            Corporate Governance
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-4">
             Enterprise Privacy Policy

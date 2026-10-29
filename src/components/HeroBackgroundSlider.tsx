@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface SlideData {
   id: number;
@@ -12,26 +11,26 @@ const slides: SlideData[] = [
   {
     id: 1,
     image: '/images/hero_enterprise.jpg',
-    badge: 'Enterprise Engineering',
-    title: 'Senior Architecture Pods & Agile Squads',
+    badge: 'Software Engineering',
+    title: 'Senior Engineering Pods & Dedicated Developers',
   },
   {
     id: 2,
     image: '/images/hero_cloud.jpg',
-    badge: 'Cloud Infrastructure',
-    title: 'Mission-Critical Cloud Datacenters & DevOps',
+    badge: 'Cloud & Infrastructure',
+    title: 'Cloud Datacenters & DevOps Automation',
   },
   {
     id: 3,
     image: '/images/hero_sprint.jpg',
-    badge: 'High-Velocity Delivery',
-    title: 'Full-Stack Software Sprints & Modernization',
+    badge: 'Agile Development',
+    title: 'Full-Stack Web, Mobile & SaaS Sprints',
   },
   {
     id: 4,
     image: '/images/hero_warroom.jpg',
-    badge: 'Systems Governance',
-    title: 'Zero-Trust Security & High-Concurrency Systems',
+    badge: 'Enterprise Systems',
+    title: 'Custom ERPs, Databases & System Security',
   },
 ];
 
@@ -77,14 +76,11 @@ export const HeroBackgroundSlider: React.FC = () => {
       })}
 
       {/* High-End Enterprise Contrast Overlays */}
-      {/* 1. Deep slate directional gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-slate-950/80" />
-      {/* 2. Vertical top & bottom fade */}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/90" />
-      {/* 3. Subtle dark slate tint */}
       <div className="absolute inset-0 bg-slate-950/40" />
 
-      {/* Slide Navigation & Indicator Pills (Pointer events enabled for interaction) */}
+      {/* Slide Navigation & Indicator Pills */}
       <div className="absolute bottom-6 right-6 md:right-12 z-20 pointer-events-auto flex items-center space-x-3 bg-slate-900/80 backdrop-blur-md px-3.5 py-2 rounded-full border border-slate-700/60 shadow-lg">
         <span className="text-[11px] font-medium text-slate-300 tracking-wide pr-1">
           {slides[currentIndex].badge}
@@ -107,14 +103,18 @@ export const HeroBackgroundSlider: React.FC = () => {
             aria-label="Previous backdrop slide"
             className="p-1 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
           >
-            <ChevronLeft className="w-3.5 h-3.5" />
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
           </button>
           <button
             onClick={nextSlide}
             aria-label="Next backdrop slide"
             className="p-1 rounded-full text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
           >
-            <ChevronRight className="w-3.5 h-3.5" />
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </button>
         </div>
       </div>

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, MessageCircle, Send, CheckCircle2, Loader2 } from 'lucide-react';
 
 const contactInfo = [
-  { icon: MapPin, title: 'Corporate Headquarters', detail: 'Gulberg III, Lahore, Pakistan' },
-  { icon: Phone, title: 'Direct Hotline', detail: '+92 315 4327855' },
-  { icon: Mail, title: 'Executive Inquiries', detail: 'info@mactis.co' },
-  { icon: Clock, title: 'Consultation Hours', detail: 'Mon-Sat: 10:00 AM - 7:00 PM' },
+  { label: 'Office Location', detail: 'Gulberg III, Lahore, Pakistan' },
+  { label: 'Direct Phone', detail: '+92 315 4327855' },
+  { label: 'General Inquiries', detail: 'info@mactis.co' },
+  { label: 'Working Hours', detail: 'Mon–Sat: 10:00 AM – 7:00 PM' },
 ];
 
 const WEB3FORMS_ACCESS_KEY: string = "0d9997d3-2f7c-4982-9099-26c52d99b858";
@@ -40,7 +39,7 @@ const Contact: React.FC = () => {
           access_key: WEB3FORMS_ACCESS_KEY,
           name: formData.name,
           email: formData.email,
-          subject: `Mactis IT: Technical Consultation Request (${formData.subject})`,
+          subject: `Mactis IT: Project Consultation Request (${formData.subject})`,
           message: formData.message
         })
       });
@@ -64,14 +63,15 @@ const Contact: React.FC = () => {
       {/* Hero */}
       <section className="relative py-16 lg:py-24 bg-slate-900 dark:bg-slate-950 border-b border-slate-800 text-center">
         <div className="container mx-auto px-4 md:px-6 max-w-2xl mx-auto">
-          <span className="text-xs font-semibold uppercase tracking-wider text-blue-400 block mb-3">
-            Engagement & Discovery
-          </span>
+          <div className="inline-flex items-center space-x-2 text-xs font-semibold text-blue-400 uppercase tracking-wider mb-3">
+            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+            <span>Contact & Inquiries</span>
+          </div>
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight tracking-tight">
-            Schedule an Architectural Consultation
+            Let's Talk About Your Next Software Project
           </h1>
           <p className="text-slate-300 text-sm md:text-base leading-relaxed font-normal">
-            Connect directly with our principal engineering leads to evaluate technical specifications, security constraints, and deployment roadmaps.
+            Connect directly with our engineering leadership to discuss specifications, technical dependencies, project scope, and timelines.
           </p>
         </div>
       </section>
@@ -80,36 +80,35 @@ const Contact: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           {/* Contact Info Cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
-            {contactInfo.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div 
-                  key={item.title} 
-                  className="p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-left space-y-1.5"
-                >
-                  <Icon className="h-5 w-5 text-blue-700 dark:text-blue-400 mb-2" />
-                  <p className="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">{item.title}</p>
-                  <p className="text-slate-900 dark:text-white font-bold text-xs sm:text-sm">{item.detail}</p>
-                </div>
-              );
-            })}
+            {contactInfo.map((item) => (
+              <div 
+                key={item.label} 
+                className="p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-left space-y-1.5 shadow-sm"
+              >
+                <p className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">{item.label}</p>
+                <p className="text-slate-900 dark:text-white font-bold text-sm sm:text-base">{item.detail}</p>
+              </div>
+            ))}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             {/* Contact Form */}
-            <div className="lg:col-span-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-6 md:p-8">
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-6">
-                Request an Architectural Discovery Session
+            <div className="lg:col-span-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 md:p-8 shadow-sm">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                Send a Project Inquiry
               </h2>
+              <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-6">
+                Tell us about your project goals. We typically respond within one business day.
+              </p>
 
               {submitted ? (
                 <div className="text-center py-12 space-y-3">
-                  <div className="mx-auto bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 h-14 w-14 rounded-full flex items-center justify-center">
-                    <CheckCircle2 size={32} />
+                  <div className="mx-auto bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 h-14 w-14 rounded-full flex items-center justify-center font-bold text-2xl">
+                    ✓
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">Project Briefing Received</h3>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">Inquiry Received</h3>
                   <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm max-w-md mx-auto">
-                    A principal solutions architect will review your technical requirements and respond with initial evaluation notes within 24 hours.
+                    Thank you for reaching out. A senior member of our engineering team will review your requirements and respond shortly.
                   </p>
                 </div>
               ) : (
@@ -117,60 +116,59 @@ const Contact: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                        Full Name *
+                        Your Name *
                       </label>
                       <input
                         required name="name" type="text" value={formData.name} onChange={handleChange}
-                        className="w-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-md py-2.5 px-3 text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:border-blue-600 outline-none"
-                        placeholder="e.g. John Doe"
+                        className="w-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg py-2.5 px-3 text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:border-blue-600 outline-none"
+                        placeholder="John Doe"
                       />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                        Corporate Email *
+                        Work Email *
                       </label>
                       <input
                         required name="email" type="email" value={formData.email} onChange={handleChange}
-                        className="w-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-md py-2.5 px-3 text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:border-blue-600 outline-none"
+                        className="w-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg py-2.5 px-3 text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:border-blue-600 outline-none"
                         placeholder="name@company.com"
                       />
                     </div>
                   </div>
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                      Technical Practice Area *
+                      Service Area of Interest *
                     </label>
                     <select
                       required name="subject" value={formData.subject} onChange={handleChange}
-                      className="w-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-md py-2.5 px-3 text-xs sm:text-sm text-slate-900 dark:text-white focus:border-blue-600 outline-none"
+                      className="w-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg py-2.5 px-3 text-xs sm:text-sm text-slate-900 dark:text-white focus:border-blue-600 outline-none"
                     >
-                      <option value="">Select a practice area...</option>
-                      <option value="enterprise-erp">Enterprise Agro-Industrial ERP & Supply Chain</option>
-                      <option value="computer-vision">Smart City & Computer Vision (ANPR / Surveillance)</option>
-                      <option value="generative-ai">Cognitive Generative AI & Autonomous Agents</option>
-                      <option value="digital-commerce">Headless Digital Commerce & Retail Platforms</option>
-                      <option value="cloud-devops">Enterprise Cloud Architecture & DevOps</option>
-                      <option value="cybersecurity">Zero-Trust Cybersecurity & Audit</option>
-                      <option value="custom-solution">Custom Bespoke Enterprise Engineering</option>
+                      <option value="">Select a service category...</option>
+                      <option value="web-development">Web & SaaS Application Development</option>
+                      <option value="mobile-apps">Mobile App Development (iOS & Android)</option>
+                      <option value="enterprise-erp">Custom Enterprise ERP & Systems</option>
+                      <option value="ai-automation">AI Integration & Smart Automation</option>
+                      <option value="cloud-devops">Cloud Infrastructure & DevOps</option>
+                      <option value="security-audit">Security & Vulnerability Audits</option>
+                      <option value="other">Other / Custom Project</option>
                     </select>
                   </div>
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                      Project Requirements & Timeline *
+                      Project Description *
                     </label>
                     <textarea
                       required name="message" rows={4} value={formData.message} onChange={handleChange}
-                      className="w-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-md py-2.5 px-3 text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:border-blue-600 outline-none resize-none"
-                      placeholder="Outline your architectural requirements, data volumes, integration needs, or timeline constraints..."
+                      className="w-full bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg py-2.5 px-3 text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:border-blue-600 outline-none resize-none"
+                      placeholder="Please share details about what you want to build, any existing systems, and your expected timeline..."
                     />
                   </div>
                   <button 
                     type="submit" 
                     disabled={loading} 
-                    className="w-full btn-primary py-3 text-xs sm:text-sm font-semibold space-x-2 disabled:opacity-50"
+                    className="w-full btn-primary py-3.5 text-xs sm:text-sm font-semibold disabled:opacity-50"
                   >
-                    {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-                    <span>{loading ? 'Submitting Briefing...' : 'Submit Architecture Request'}</span>
+                    <span>{loading ? 'Submitting...' : 'Send Inquiry →'}</span>
                   </button>
                 </form>
               )}
@@ -179,32 +177,27 @@ const Contact: React.FC = () => {
             {/* Direct WhatsApp & Map Sidebar */}
             <div className="lg:col-span-5 space-y-6">
               {/* WhatsApp Card */}
-              <div className="p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="p-2.5 rounded bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400">
-                    <MessageCircle className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 dark:text-white text-base">Direct Technical Hotline</h3>
-                    <p className="text-slate-500 dark:text-slate-400 text-xs">Mon-Sat: 10:00 AM - 7:00 PM</p>
-                  </div>
+              <div className="p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-3 shadow-sm">
+                <div>
+                  <h3 className="font-bold text-slate-900 dark:text-white text-base">Direct WhatsApp Line</h3>
+                  <p className="text-slate-500 dark:text-slate-400 text-xs mt-0.5">Available Mon–Sat: 10:00 AM – 7:00 PM</p>
                 </div>
                 <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
-                  For urgent operational requests or rapid consultation scheduling, connect directly with an engineering lead on WhatsApp.
+                  For quick inquiries or immediate questions regarding custom software development, you can message our engineering lead directly on WhatsApp.
                 </p>
                 <a
                   href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to schedule a technical consultation regarding an enterprise software project.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-md flex items-center justify-center space-x-2 transition-colors"
+                  className="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg flex items-center justify-center space-x-2 transition-colors"
                 >
-                  <MessageCircle className="h-4 w-4" />
-                  <span>Start WhatsApp Conversation</span>
+                  <span>Chat on WhatsApp</span>
+                  <span className="font-bold">→</span>
                 </a>
               </div>
 
               {/* Map Embed */}
-              <div className="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 h-64 bg-slate-900">
+              <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 h-64 bg-slate-900">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54445.99498879888!2d74.27483694999999!3d31.516564350000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe9765878e0!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1715000000000!5m2!1sen!2s"
                   width="100%"

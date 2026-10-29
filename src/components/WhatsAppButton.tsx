@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
 
 const WHATSAPP_NUMBER = '923154327855';
 const WHATSAPP_MESSAGE = 'Hello! Can I get more info on this?';
@@ -15,9 +14,12 @@ const WhatsAppButton: React.FC = () => {
         <div className="relative bg-white text-gray-800 text-sm font-semibold px-4 py-3 rounded-2xl shadow-2xl max-w-[200px] animate-fade-in-up">
           <button
             onClick={() => setShowTooltip(false)}
-            className="absolute -top-2 -right-2 bg-gray-200 rounded-full p-0.5 hover:bg-gray-300 transition-colors"
+            aria-label="Dismiss tooltip"
+            className="absolute -top-2 -right-2 bg-gray-200 rounded-full p-1 hover:bg-gray-300 transition-colors"
           >
-            <X size={12} />
+            <svg className="w-3 h-3 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
           </button>
           <p>💬 Chat with us on WhatsApp!</p>
           {/* Tooltip arrow */}
