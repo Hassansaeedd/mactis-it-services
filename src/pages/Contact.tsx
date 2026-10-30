@@ -64,14 +64,13 @@ const Contact: React.FC = () => {
       <section className="relative py-16 lg:py-24 bg-gradient-to-b from-sky-50 via-white to-sky-50/60 dark:from-slate-900 dark:to-slate-950 border-b border-sky-100 dark:border-slate-800 text-center">
         <div className="container mx-auto px-4 md:px-6 max-w-2xl mx-auto">
           <div className="inline-flex items-center space-x-2 text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider mb-3">
-            <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
-            <span>Contact & Inquiries</span>
+            <span>Contact Our Team</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold text-slate-950 dark:text-white mb-4 leading-tight tracking-tight">
-            Let's Talk About Your Next Software Project
+            Let's Talk About Your Project
           </h1>
           <p className="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed font-normal">
-            Connect directly with our engineering leadership to discuss specifications, technical dependencies, project scope, and timelines.
+            Connect directly with our development team to discuss your ideas, project timeline, and pricing. We are here to help you succeed.
           </p>
         </div>
       </section>

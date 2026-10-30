@@ -20,78 +20,78 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    title: "Agro-Industrial & Rice Mill ERP",
-    category: "Enterprise ERP",
+    title: "Rice Mill & Factory Management System",
+    category: "Business Software",
     image: "/images/project_ricemill.jpg",
     metric: "10M+ Kg",
     metricLabel: "Stock Managed Annually",
-    description: "End-to-end industrial resource planning platform with automated weighbridge IoT integration, grain moisture analytics, and real-time vendor ledgers.",
-    tags: ["PostgreSQL", "IoT Hardware Sync", "Microservices", "Automated Billing"],
-    features: ["Automated Weighbridge IoT Sync", "Moisture & Crop Batch Loggers", "Multi-Branch Ledger Sync", "Automated Invoice & Tax Engine"],
-    architectureOverview: "Serial COM-port listeners sync truck gross/tare weights directly to transactional PostgreSQL tables. Real-time background workers compute moisture deductions and update supplier balances with sub-second ACID guarantees.",
-    deploymentSpecs: "On-Premise Edge Gateway + Azure Cloud Sync • 99.9% Offline-Tolerant Availability",
+    description: "Complete business software that automatically records truck scale weights, tracks grain inventory, manages moisture cuts, and handles customer invoicing.",
+    tags: ["PostgreSQL", "Truck Scale Sync", "Automated Billing", "Inventory Alerts"],
+    features: ["Automatic Truck Scale Weight Sync", "Moisture & Crop Batch Tracking", "Multi-Branch Ledger & Accounts", "Instant Invoicing & Billing"],
+    architectureOverview: "Connects directly to electronic weighbridge scales so truck weights record automatically without manual typing errors. Updates inventory and customer accounts immediately, even during internet outages.",
+    deploymentSpecs: "Runs smoothly on-premise at the factory and syncs with cloud servers whenever internet is available.",
   },
   {
     id: 2,
-    title: "Intelligent Traffic Vision & Analytics",
-    category: "AI & Computer Vision",
+    title: "Smart Camera & Vehicle Recognition System",
+    category: "AI & Smart Vision",
     image: "/images/project_traffic.jpg",
     metric: "99.4%",
     metricLabel: "Plate Detection Accuracy",
-    description: "High-throughput smart city traffic surveillance suite utilizing neural computer vision for automated license plate detection, lane violation auditing, and digital evidence generation.",
-    tags: ["Python OpenCV", "PyTorch", "FastAPI", "Edge Computing"],
-    features: ["Automatic Number Plate Recognition (ANPR)", "Real-Time Lane & Speed Violation", "Automated Digital Evidence PDFs", "GIS Heatmap Telemetry"],
-    architectureOverview: "RTSP camera feeds stream into TensorRT-accelerated edge inference pods. Detected vehicle vectors trigger automated ANPR OCR pipelines, saving watermarked forensic snapshots to encrypted S3-compatible storage.",
-    deploymentSpecs: "Docker Containerized Edge GPU Pods • <120ms Frame Inference Latency",
+    description: "Automated camera software that reads vehicle license plates, tracks road traffic, and generates automated violation records in real time.",
+    tags: ["Python OpenCV", "PyTorch", "Fast Processing", "Camera Feeds"],
+    features: ["Instant Number Plate Reading (ANPR)", "Lane & Speed Violation Alerts", "Automated PDF Evidence Reports", "Traffic Flow Heatmaps & Analytics"],
+    architectureOverview: "Connects to traffic cameras to read vehicle plates in a fraction of a second. Automatically generates watermarked image reports and saves records securely.",
+    deploymentSpecs: "Fast, lightweight camera setup processing video frames in real time with 99.4% accuracy.",
   },
   {
     id: 3,
-    title: "Cognitive E-Commerce Assistant",
-    category: "Generative AI",
+    title: "AI Customer Support & Sales Assistant",
+    category: "Smart AI",
     image: "/images/project_chatbot.jpg",
     metric: "4.2x",
-    metricLabel: "Conversion Rate Uplift",
-    description: "Autonomous customer intelligence agent that integrates with product catalogs, handles real-time stock inquiries, and resolves 85% of support tickets autonomously.",
-    tags: ["LLM Agents", "Vector Embeddings", "Webhooks", "Live Cart Sync"],
-    features: ["Context-Aware Multilingual NLP", "Catalog & Inventory Live Sync", "Automated Order Tracking", "Seamless Human Agent Hand-off"],
-    architectureOverview: "Hybrid semantic search combining pgvector with live warehouse inventory APIs. Contextual guardrails prevent hallucinations, ensuring 100% price and stock accuracy before response generation.",
-    deploymentSpecs: "Serverless Edge Workers + Webhook Dispatcher • 250ms Token Streaming",
+    metricLabel: "Faster Inquiries Handled",
+    description: "Smart AI chat assistant that answers customer questions 24/7, checks store stock in real time, and helps complete orders without delay.",
+    tags: ["AI Chatbot", "WhatsApp Sync", "Store Catalog", "Instant Replies"],
+    features: ["24/7 Fast Customer Answering", "Live Store Inventory & Price Lookup", "Automated Order Tracking", "Easy Hand-off to Human Team"],
+    architectureOverview: "Answers customer inquiries accurately using your product catalog and live database. Transfers complex questions to your human team seamlessly.",
+    deploymentSpecs: "Instant response time across WhatsApp and your website with 99.9% uptime.",
   },
   {
     id: 4,
-    title: "Global Fashion & Luxury E-Commerce",
-    category: "Digital Commerce",
+    title: "Fashion & Luxury Online Store",
+    category: "Online Stores",
     image: "/images/project_fashion.jpg",
     metric: "350ms",
-    metricLabel: "Global Edge Latency",
-    description: "High-performance headless digital commerce platform engineered for premier apparel brands, featuring high-fidelity lookbooks, currency localization, and sub-second checkout.",
-    tags: ["Next.js 15", "Tailwind CSS", "Stripe Global", "Edge CDN"],
-    features: ["Immersive 4K Lookbook Galleries", "Multi-Currency & Global Tax Engine", "Dynamic Size & Fit Recommender", "Sub-second Headless Checkout"],
-    architectureOverview: "Edge-cached Next.js 15 SSR storefront backed by headless REST/GraphQL microservices. Cart state persists across devices via distributed Redis caches with optimistic client-side updates.",
-    deploymentSpecs: "Vercel Global Edge Network + AWS RDS Multi-AZ • 99.99% Checkout Uptime",
+    metricLabel: "Instant Page Speed",
+    description: "Fast, elegant e-commerce website designed for high-end clothing brands, with crystal-clear photo galleries, easy mobile checkout, and multi-currency payments.",
+    tags: ["Next.js", "Mobile Checkout", "Global Payments", "Photo Galleries"],
+    features: ["High-Quality Photo & Video Galleries", "Worldwide Currencies & Payment Gateways", "Interactive Size & Fit Guide", "Fast One-Click Checkout"],
+    architectureOverview: "Engineered for lightning-fast browsing on smartphones. Shoppers can view large collections and checkout in seconds with zero lag.",
+    deploymentSpecs: "Global fast cloud hosting with 99.99% uptime during peak shopping seasons.",
   },
   {
     id: 5,
-    title: "Hyperlocal On-Demand Grocery Delivery",
-    category: "Mobile & Logistics",
+    title: "Grocery & Delivery Mobile App System",
+    category: "Mobile Apps",
     image: "/images/project_grocery.jpg",
     metric: "18 Min",
-    metricLabel: "Average Fulfillment SLA",
-    description: "Full-stack mobile ordering ecosystem for on-demand supermarket delivery, featuring live driver telemetry, automated inventory depletion, and warehouse wave picking.",
-    tags: ["React Native", "Flutter", "Redis PubSub", "WebSockets"],
-    features: ["Real-Time Driver GPS Tracking", "Automated Stock Depletion Engine", "Warehouse Picker Mobile App", "Dynamic Surge & Delivery Pricing"],
-    architectureOverview: "Bi-directional WebSocket server coordinating location broadcasts between customer apps, warehouse pickers, and dispatch drivers with dead-reckoning geospatial interpolation.",
-    deploymentSpecs: "Kubernetes Autoscaled Node.js Cluster + Redis Geo Cluster • High-Concurrency SLA",
+    metricLabel: "Average Order Delivery",
+    description: "Complete mobile delivery platform with an app for customers to order, an app for riders to deliver with live GPS, and a store dashboard to pack items.",
+    tags: ["React Native", "Live GPS", "Rider App", "Store Packing"],
+    features: ["Live GPS Driver Tracking", "Real-Time Stock Updates", "Warehouse & Store Packing App", "Delivery Fees & Route Calculation"],
+    architectureOverview: "Keeps customers, packing staff, and delivery riders coordinated with live map updates and instant notifications as orders move from shelf to doorstep.",
+    deploymentSpecs: "High-capacity server infrastructure ready for thousands of simultaneous shoppers.",
   },
 ];
 
-const categories = ["All Products", "Enterprise ERP", "AI & Computer Vision", "Generative AI", "Digital Commerce", "Mobile & Logistics"];
+const categories = ["All Projects", "Business Software", "AI & Smart Vision", "Smart AI", "Online Stores", "Mobile Apps"];
 
 const SoftwareShowcase: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All Products");
+  const [selectedCategory, setSelectedCategory] = useState("All Projects");
   const [activeModalProduct, setActiveModalProduct] = useState<Product | null>(null);
 
-  const filteredProducts = selectedCategory === "All Products"
+  const filteredProducts = selectedCategory === "All Projects"
     ? products
     : products.filter(p => p.category === selectedCategory);
 
@@ -100,14 +100,14 @@ const SoftwareShowcase: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-block text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 mb-2">
-            Selected Production Deployments
+          <div className="inline-block text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 mb-2">
+            Proven Real-World Work
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-4">
-            Production Software Solutions
+            Projects We Have Built & Deployed
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed">
-            From automated agro-industrial ERPs to edge computer vision and e-commerce platforms, inspect our live systems and architecture specs.
+            From factory inventory systems to smart camera software and high-speed online stores, explore the software we built for our clients.
           </p>
 
           {/* Interactive Filter Tabs */}
@@ -120,7 +120,7 @@ const SoftwareShowcase: React.FC = () => {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all relative ${
                     isActive
-                      ? 'bg-slate-900 text-white dark:bg-blue-600 dark:text-white shadow-sm'
+                      ? 'bg-slate-900 text-white dark:bg-sky-600 dark:text-white shadow-sm'
                       : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                   }`}
                 >
@@ -137,12 +137,13 @@ const SoftwareShowcase: React.FC = () => {
             {filteredProducts.map((product) => (
               <motion.div 
                 layout
+                whileHover={{ y: -6 }}
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.25 }}
                 key={product.id}
-                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden flex flex-col justify-between hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 shadow-sm hover:shadow-lg group"
+                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden flex flex-col justify-between hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-xl group"
               >
                 <div>
                   {/* Real-World Image */}
@@ -151,7 +152,7 @@ const SoftwareShowcase: React.FC = () => {
                       src={product.image}
                       alt={product.title}
                       aspectRatio="aspect-[16/9]"
-                      className="w-full bg-slate-900 group-hover:scale-[1.02] transition-transform duration-500"
+                      className="w-full bg-slate-900 group-hover:scale-[1.03] transition-transform duration-500"
                     />
                     
                     {/* Category Badge */}
@@ -161,9 +162,9 @@ const SoftwareShowcase: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* Impact Metric Pill */}
+                    {/* Impact Metric */}
                     <div className="absolute top-3 right-3 z-10 px-3 py-1.5 rounded-md bg-slate-900/90 text-white text-right backdrop-blur-md border border-slate-800">
-                      <div className="text-xs font-bold text-blue-400">
+                      <div className="text-xs font-bold text-sky-400">
                         {product.metric}
                       </div>
                       <span className="text-[10px] text-slate-300 block">{product.metricLabel}</span>
@@ -192,15 +193,17 @@ const SoftwareShowcase: React.FC = () => {
                       {product.description}
                     </p>
 
-                    {/* Modules List */}
+                    {/* Key Features List */}
                     <div className="bg-slate-50 dark:bg-slate-950/60 p-4 rounded-lg border border-slate-200/70 dark:border-slate-800/80 mb-2">
                       <p className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-2.5">
-                        Key Capabilities
+                        Key Features Included
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {product.features.map((feature, i) => (
                           <div key={i} className="flex items-start text-xs text-slate-600 dark:text-slate-400">
-                            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mr-2 mt-1.5" />
+                            <svg className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                            </svg>
                             <span>{feature}</span>
                           </div>
                         ))}
@@ -209,23 +212,23 @@ const SoftwareShowcase: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Card Footer with Inspect Architecture button */}
+                {/* Card Footer with Inspect Details button */}
                 <div className="px-6 py-4 bg-slate-50/70 dark:bg-slate-950/40 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                   <button
                     onClick={() => setActiveModalProduct(product)}
-                    className="text-xs font-bold text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 inline-flex items-center group-hover:underline"
+                    className="text-xs font-bold text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 inline-flex items-center group-hover:underline"
                   >
-                    <span>Inspect Architecture & Specs</span>
+                    <span>View Project Details</span>
                     <span className="ml-1 font-bold">→</span>
                   </button>
 
                   <a
-                    href={`https://wa.me/923154327855?text=${encodeURIComponent(`Hello! I am inquiring about the ${product.title} architecture.`)}`}
+                    href={`https://wa.me/923154327855?text=${encodeURIComponent(`Hello! I am interested in building something like the ${product.title}.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                   >
-                    Consult on this
+                    Inquire on WhatsApp
                   </a>
                 </div>
               </motion.div>
@@ -233,16 +236,20 @@ const SoftwareShowcase: React.FC = () => {
           </AnimatePresence>
 
           {/* Custom Project Box */}
-          <div className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-8 flex flex-col justify-center items-center text-center">
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 mb-2">
-              Custom Development
+          <motion.div 
+            whileHover={{ y: -6 }}
+            transition={{ duration: 0.2 }}
+            className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-8 flex flex-col justify-center items-center text-center shadow-sm"
+          >
+            <span className="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 mb-2">
+              Custom Requirements
             </span>
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2.5">
-              Have a Custom Software Project in Mind?
+              Have a Unique Idea for Your Business?
             </h3>
             
             <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed max-w-md mb-6">
-              Whether you need a custom industrial ERP, mobile application, or cloud-hosted SaaS platform, our senior developers build solutions tailored to your operational requirements.
+              Whether you need factory management software, a mobile app, or a high-converting website, our team creates custom solutions designed specifically for your workflows.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-3">
@@ -250,11 +257,11 @@ const SoftwareShowcase: React.FC = () => {
                 to="/contact" 
                 className="btn-primary text-xs py-2.5 px-6 font-semibold"
               >
-                Request a Proposal
+                Send Us Your Requirements
               </Link>
               
               <a
-                href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to discuss custom software development for our organization.')}`}
+                href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to discuss a custom software project for our business.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline text-xs py-2.5 px-6 font-semibold"
@@ -262,12 +269,12 @@ const SoftwareShowcase: React.FC = () => {
                 Chat on WhatsApp
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
 
       </div>
 
-      {/* Interactive Project Architecture Inspection Modal */}
+      {/* Interactive Project Details Modal */}
       <AnimatePresence>
         {activeModalProduct && (
           <motion.div 
@@ -297,31 +304,31 @@ const SoftwareShowcase: React.FC = () => {
 
               <div className="mb-5 pr-8">
                 <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-                  {activeModalProduct.category} • Production Specification
+                  {activeModalProduct.category} • Project Overview
                 </span>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-1 tracking-tight">
                   {activeModalProduct.title}
                 </h3>
               </div>
 
-              {/* Verified Metrics Badge */}
+              {/* Verified Metrics Display */}
               <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800 mb-6 flex items-center justify-between">
                 <div>
-                  <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 block">Verified Production Metric</span>
+                  <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 block">Performance Result</span>
                   <span className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
                     {activeModalProduct.metric} — {activeModalProduct.metricLabel}
                   </span>
                 </div>
-                <span className="px-3 py-1 text-xs font-medium rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                  Live in Production
+                <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                  Successfully Deployed
                 </span>
               </div>
 
-              {/* Architecture Blueprint Details */}
+              {/* Project Details */}
               <div className="space-y-5 mb-6 text-sm text-slate-600 dark:text-slate-300">
                 <div>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-2 text-xs uppercase tracking-wider">
-                    System Architecture & Data Flow
+                    How This System Works
                   </h4>
                   <p className="leading-relaxed bg-slate-50 dark:bg-slate-950/40 p-4 rounded-xl border border-slate-200/70 dark:border-slate-800/80 font-normal text-xs sm:text-sm">
                     {activeModalProduct.architectureOverview}
@@ -330,7 +337,7 @@ const SoftwareShowcase: React.FC = () => {
 
                 <div>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-2 text-xs uppercase tracking-wider">
-                    Infrastructure & Reliability Specs
+                    Hosting & Reliability
                   </h4>
                   <p className="leading-relaxed text-xs sm:text-sm">
                     {activeModalProduct.deploymentSpecs}
@@ -339,7 +346,7 @@ const SoftwareShowcase: React.FC = () => {
 
                 <div>
                   <h4 className="font-semibold text-slate-900 dark:text-white mb-2.5 text-xs uppercase tracking-wider">
-                    Integrated Technologies
+                    Technologies Used
                   </h4>
                   <div className="flex flex-wrap gap-1.5">
                     {activeModalProduct.tags.map((t) => (
@@ -354,18 +361,18 @@ const SoftwareShowcase: React.FC = () => {
               {/* Action buttons */}
               <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center gap-3">
                 <a
-                  href={`https://wa.me/923154327855?text=${encodeURIComponent(`Hello! I reviewed the architecture for ${activeModalProduct.title} on Mactis and would like to consult on a similar solution.`)}`}
+                  href={`https://wa.me/923154327855?text=${encodeURIComponent(`Hello! I reviewed the ${activeModalProduct.title} on Mactis and would like to build a similar solution for my business.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary w-full sm:w-auto text-xs py-3 px-5 font-semibold"
+                  className="btn-primary w-full sm:w-auto text-xs py-3 px-5 font-semibold text-center"
                 >
-                  Discuss Similar Implementation
+                  Discuss a Similar Project
                 </a>
                 <button
                   onClick={() => setActiveModalProduct(null)}
                   className="btn-outline w-full sm:w-auto text-xs py-3 px-5"
                 >
-                  Close Inspection
+                  Close Details
                 </button>
               </div>
             </motion.div>

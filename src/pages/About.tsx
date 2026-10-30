@@ -37,15 +37,14 @@ const About: React.FC = () => {
       <section className="relative py-20 lg:py-28 bg-gradient-to-b from-sky-50 via-white to-sky-50/60 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 border-b border-sky-100 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center space-x-2 text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider mb-4">
-            <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
-            <span>About Mactis IT Services</span>
+            <span>About Mactis</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 dark:text-white mb-4 tracking-tight leading-[1.15]">
-            Engineering Reliable Software for <br />
-            <span className="text-sky-600 dark:text-sky-400">Ambitious Businesses</span>
+            Custom Software Built for <br />
+            <span className="text-sky-600 dark:text-sky-400">Growing Businesses</span>
           </h1>
           <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
-            Mactis is a software engineering and technology consulting company. We partner with businesses to architect, build, and support the digital platforms that drive daily operations and business growth.
+            Mactis is a software development and technology partner. We team up with businesses to design, build, and support websites, mobile apps, and custom tools that make everyday operations faster and easier.
           </p>
         </div>
       </section>

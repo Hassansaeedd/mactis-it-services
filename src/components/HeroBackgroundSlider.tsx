@@ -12,30 +12,30 @@ export const slides: SlideData[] = [
   {
     id: 1,
     image: '/images/hero_enterprise.jpg',
-    badge: '01 / Custom Software',
-    title: 'Senior Engineering Pods & Web Platforms',
-    description: 'High-concurrency React 19 & Next.js architectures with clean microservices.',
+    badge: 'Websites & Apps',
+    title: 'Fast Websites & Web Applications',
+    description: 'Clean, modern websites and client portals built to load fast on any phone or computer.',
   },
   {
     id: 2,
     image: '/images/hero_cloud.jpg',
-    badge: '02 / Cloud & DevOps',
-    title: 'Automated Kubernetes & Multi-Cloud Clusters',
-    description: 'Resilient AWS and Azure deployments with zero-downtime CI/CD automation.',
+    badge: 'Cloud & Hosting',
+    title: 'Secure Cloud & Reliable Servers',
+    description: 'Safe, high-speed servers that keep your business online 24/7 without slowdowns or crashes.',
   },
   {
     id: 3,
     image: '/images/hero_sprint.jpg',
-    badge: '03 / Mobile Sprints',
-    title: 'Cross-Platform iOS & Android Mobile Apps',
-    description: 'Native performance mobile apps with live telemetry and offline sync.',
+    badge: 'Mobile Apps',
+    title: 'Mobile Apps for iPhone & Android',
+    description: 'Smooth and user-friendly mobile apps with push notifications and easy navigation.',
   },
   {
     id: 4,
     image: '/images/hero_warroom.jpg',
-    badge: '04 / Enterprise Systems',
-    title: 'Industrial ERPs, Weighbridges & IoT Automation',
-    description: 'Mission-critical database schemas, hardware sync, and audit compliance.',
+    badge: 'Business Software',
+    title: 'Custom Business & Inventory Systems',
+    description: 'Tailored billing, inventory, and management tools to organize your daily work.',
   },
 ];
 
@@ -163,12 +163,6 @@ export const HeroBackgroundSlider: React.FC<HeroBackgroundSliderProps> = ({ onSl
                     }`}>
                       {slide.badge}
                     </span>
-                    {isActive && (
-                      <span className="flex h-1.5 w-1.5 relative">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-sky-400" />
-                      </span>
-                    )}
                   </div>
                   <div className={`text-xs sm:text-sm font-semibold truncate ${
                     isActive ? 'text-white' : 'text-slate-300'
@@ -182,7 +176,7 @@ export const HeroBackgroundSlider: React.FC<HeroBackgroundSliderProps> = ({ onSl
         </div>
       </div>
 
-      {/* Manual Slide Control Arrows & Pause Indicator */}
+      {/* Manual Slide Control Arrows & Slide Counter */}
       <div className="absolute top-6 right-6 z-20 hidden lg:flex items-center space-x-2 bg-slate-950/70 backdrop-blur-md border border-slate-800 rounded-full p-1.5 text-xs text-slate-300">
         <button
           onClick={prevSlide}

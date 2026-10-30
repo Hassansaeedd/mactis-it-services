@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { TechEcosystemMarquee } from '../components/TechEcosystemMarquee';
 import { InteractiveProjectEstimator } from '../components/InteractiveProjectEstimator';
 
@@ -7,7 +8,7 @@ interface ServiceItem {
   code: string;
   title: string;
   description: string;
-  slaMetric: string;
+  badge: string;
   tags: string[];
   features: string[];
   featured?: boolean;
@@ -16,60 +17,90 @@ interface ServiceItem {
 const services: ServiceItem[] = [
   {
     code: '01',
-    title: 'Web Applications & SaaS Platforms',
-    description: 'Custom, high-concurrency web platforms, client portals, and SaaS applications built with React 19, Next.js, and scalable backend microservices.',
-    slaMetric: 'Sub-100ms Latency',
-    tags: ['Next.js 15', 'React 19', 'TypeScript', 'Node.js', 'REST & GraphQL'],
-    features: ['Server-side rendering (SSR) and edge-cached web architecture', 'High-throughput microservices and API gateways', 'Multi-tenant B2B portals and administrative dashboards', 'Multi-region deployment with automated load balancing'],
+    title: 'Custom Websites & Web Applications',
+    description: 'Custom, fast-loading websites, customer portals, and online platforms designed to convert visitors and run smoothly on all devices.',
+    badge: 'Fast & Modern',
+    tags: ['Next.js', 'React', 'Mobile Ready', 'Admin Panel', 'Stripe Payments'],
+    features: [
+      'Tailored responsive design for smartphones, tablets, and desktops',
+      'Search engine optimization (SEO) to help new customers discover you',
+      'Secure user accounts, customer profiles, and fast checkout',
+      'Simple admin dashboard to update photos, products, and content'
+    ],
   },
   {
     code: '02',
-    title: 'Mobile App Engineering',
-    description: 'Cross-platform mobile apps for iOS and Android engineered with React Native and Flutter, featuring offline persistence and hardware integration.',
-    slaMetric: '60 FPS Native',
-    tags: ['React Native', 'Flutter', 'iOS & Android', 'WebSockets', 'SQLite'],
-    features: ['Unified single codebase for iOS and Android devices', 'Offline-first database persistence and background sync', 'Biometric login and native device hardware access', 'App Store and Google Play compliance and publishing'],
+    title: 'Mobile App Development (iOS & Android)',
+    description: 'Native-feel mobile apps for Apple iPhones and Android phones, crafted for speed, easy navigation, and seamless performance.',
+    badge: 'iOS & Android',
+    tags: ['React Native', 'Flutter', 'Apple App Store', 'Google Play', 'Offline Mode'],
+    features: [
+      'Single unified app that runs smoothly on both iPhone and Android',
+      'Works offline so your users can see data even without internet',
+      'Instant push notifications to message and engage your customers',
+      'Full assistance publishing to the Apple App Store & Google Play Store'
+    ],
   },
   {
     code: '03',
     title: 'AI Solutions & Smart Automation',
-    description: 'Applied artificial intelligence workflows: document data extraction, retrieval-augmented (RAG) knowledge search, and computer vision models.',
-    slaMetric: 'Production Ready',
-    tags: ['PyTorch', 'Vector Search', 'Document AI', 'Computer Vision', 'LLM Bots'],
-    features: ['Custom retrieval-augmented (RAG) knowledge systems', 'Automated camera analytics and license plate recognition (ANPR)', 'Customer support chatbots and operational workflow bots', 'Private on-premise or cloud deployments with strict data privacy'],
+    description: 'Save hours each week by automating repetitive tasks, customer messaging, and paperwork with smart, easy-to-use digital tools.',
+    badge: 'Popular Choice',
+    tags: ['WhatsApp AI Bot', 'Auto-Invoicing', 'Document Scanner', 'Smart Reports'],
+    features: [
+      '24/7 automated WhatsApp and website customer service assistants',
+      'Automatic digital paperwork sorting and invoice data extraction',
+      'Daily business analytics and sales alerts directly to your phone',
+      'Strict data privacy keeping your customer records 100% confidential'
+    ],
     featured: true,
   },
   {
     code: '04',
-    title: 'Database Architecture & Data Pipelines',
-    description: 'Scalable data layer design, query optimization, indexing, and management for mission-critical PostgreSQL, MySQL, Redis, and MongoDB databases.',
-    slaMetric: 'Zero Data Loss',
-    tags: ['PostgreSQL', 'Redis', 'MySQL', 'MongoDB', 'Data Pipelines'],
-    features: ['Zero-downtime database migrations and index optimization', 'High-availability read replicas and distributed Redis caching', 'Automated point-in-time recovery and snapshot scheduling', 'ETL pipelines and analytics warehousing'],
+    title: 'Business Management & ERP Software',
+    description: 'Centralized software tailored to your factory, warehouse, or retail operations to manage stock, sales, and employee approvals.',
+    badge: 'Tailored Software',
+    tags: ['Inventory', 'Weighbridges', 'Billing', 'Ledgers', 'Branch Sync'],
+    features: [
+      'Automated weighbridge and scale integration for accurate weights',
+      'Multi-warehouse stock tracking and automated reorder alerts',
+      'Double-entry ledgers, automated tax calculations, and invoices',
+      'Role-based permissions for managers, cashiers, and staff'
+    ],
   },
   {
     code: '05',
-    title: 'Cloud Infrastructure & DevOps',
-    description: 'Cloud infrastructure setup, migration, and maintenance across AWS, Google Cloud, and Microsoft Azure using Infrastructure as Code (Terraform).',
-    slaMetric: '99.9% Uptime SLA',
-    tags: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD'],
-    features: ['Auto-scaling Kubernetes and Docker container clusters', 'Automated CI/CD build and release pipelines', 'Multi-region disaster recovery and automated failover', '24/7 server health telemetry and active error alerts'],
+    title: 'Cloud Hosting & DevOps Maintenance',
+    description: 'Secure cloud hosting, daily backups, and round-the-clock maintenance to keep your software fast and online 24 hours a day.',
+    badge: '99.9% Uptime',
+    tags: ['AWS', 'Google Cloud', 'Daily Backups', 'SSL Security', 'Speed Boost'],
+    features: [
+      'High-speed cloud servers with 99.9% guaranteed uptime',
+      'Automatic daily database backups to safeguard your company data',
+      'Zero-downtime updates so your software never goes offline',
+      'Friendly technical support ready whenever you need assistance'
+    ],
   },
   {
     code: '06',
-    title: 'Security & Vulnerability Audits',
-    description: 'Protect your digital assets with practical security auditing: application penetration testing, API hardening, and authentication reviews.',
-    slaMetric: 'Security Audited',
-    tags: ['Penetration Testing', 'OAuth2 / SAML', 'Zero-Trust', 'SSL/TLS', 'OWASP'],
-    features: ['Full application penetration testing and code vulnerability reviews', 'API authentication hardening with OAuth2, JWT, and SAML', 'End-to-end data encryption at rest and in transit', 'Assistance with compliance, data privacy, and security standards'],
+    title: 'Security & Software Maintenance',
+    description: 'Protect your business records, user accounts, and customer transactions with proactive security checks and system updates.',
+    badge: 'Security Protected',
+    tags: ['SSL/TLS', 'Data Encryption', 'Account Security', 'Security Audits'],
+    features: [
+      'Comprehensive security scanning to protect against data leaks',
+      'Two-factor authentication and safe password login systems',
+      'End-to-end data encryption for sensitive financial records',
+      'Routine software patches and security updates to keep you protected'
+    ],
   },
 ];
 
 const processSteps = [
-  { step: '01', title: 'Technical Discovery', desc: 'We evaluate your business goals, user requirements, and technical dependencies to map out a clear architecture blueprint.' },
-  { step: '02', title: 'Architecture & Design', desc: 'We create high-fidelity user flows, database schemas, API contracts, and infrastructure topologies before writing code.' },
-  { step: '03', title: 'Sprint Development', desc: 'Bi-weekly sprint deliveries with senior engineers, automated test coverage, and staging preview environments for your team to test.' },
-  { step: '04', title: 'Deployment & Support', desc: 'Production rollout with zero downtime, comprehensive documentation, and ongoing monitoring and support.' },
+  { step: '01', title: 'Free Consultation', desc: 'We listen to your business goals, discuss your ideas, and outline a straightforward, transparent plan.' },
+  { step: '02', title: 'Design & Prototype', desc: 'We design clear visual mockups and screens so you can see exactly how your software will look and work.' },
+  { step: '03', title: 'Building & Testing', desc: 'Our developers build your software with regular updates and live previews so you can test working features.' },
+  { step: '04', title: 'Launch & Support', desc: 'We launch your system smoothly and provide friendly ongoing support and maintenance so you never get stuck.' },
 ];
 
 const ServicesPage: React.FC = () => {
@@ -79,28 +110,27 @@ const ServicesPage: React.FC = () => {
       <section className="relative py-20 lg:py-28 bg-gradient-to-b from-sky-50 via-white to-sky-50/60 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 border-b border-sky-100 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center space-x-2 text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider mb-4">
-            <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
-            <span>Our Services & Practices</span>
+            <span>Our Services & Solutions</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 dark:text-white mb-4 tracking-tight leading-[1.15]">
-            Engineering Practices Designed for <br />
-            <span className="text-sky-600 dark:text-sky-400">Scale, Speed & Reliability</span>
+            Custom Software Built for <br />
+            <span className="text-sky-600 dark:text-sky-400">Speed, Simplicity & Growth</span>
           </h1>
           <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed mb-8 font-normal">
-            Mactis provides full-lifecycle software engineering, custom platforms, and technical infrastructure consulting. We work as dedicated engineering partners to deliver results on time and within scope.
+            Mactis builds custom websites, mobile apps, and business management tools. We work directly with you to turn your ideas into dependable software delivered on time.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
             <a
-              href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to schedule an enterprise consultation regarding Mactis IT services.')}`}
+              href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to consult with Mactis about custom software development.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary space-x-2 py-3.5 px-7 text-sm font-semibold shadow-md"
             >
-              <span>Schedule a Consultation</span>
+              <span>Schedule Free WhatsApp Consultation</span>
               <span className="ml-1 font-bold">→</span>
             </a>
             <Link to="/contact" className="btn-outline py-3.5 px-7 text-sm font-semibold">
-              Submit Project Inquiry
+              Send Project Inquiry
             </Link>
           </div>
         </div>
@@ -113,31 +143,33 @@ const ServicesPage: React.FC = () => {
       <section className="py-20 md:py-28 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2">
-              Capabilities
+            <span className="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2">
+              What We Do
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
-              Our Practice Areas
+              Our Core Services
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm md:text-base leading-relaxed">
-              Tailored software development and cloud consulting practices built to solve concrete business challenges.
+              Tailored software development and cloud solutions designed to solve real business needs.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {services.map((service) => (
-              <div
+              <motion.div
                 key={service.title}
-                className={`group relative p-7 rounded-xl flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md ${
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.2 }}
+                className={`group relative p-7 rounded-xl flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-lg ${
                   service.featured
-                    ? 'bg-slate-50/90 dark:bg-slate-900 border-2 border-blue-600/70 dark:border-blue-500/70'
-                    : 'bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 dark:hover:border-blue-500/50'
+                    ? 'bg-sky-50/70 dark:bg-slate-900 border-2 border-sky-500/80 dark:border-sky-500/70'
+                    : 'bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-sky-400 dark:hover:border-sky-500'
                 }`}
               >
                 {service.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="px-3 py-1 rounded-full bg-blue-700 text-white text-xs font-semibold tracking-wide uppercase shadow-sm">
-                      Featured Practice
+                    <span className="px-3 py-1 rounded-full bg-sky-600 text-white text-xs font-semibold tracking-wide uppercase shadow-sm">
+                      Most Popular
                     </span>
                   </div>
                 )}
@@ -145,11 +177,11 @@ const ServicesPage: React.FC = () => {
                 <div>
                   {/* Header Metadata */}
                   <div className="flex items-center justify-between mb-4 pt-1">
-                    <span className="text-xs font-bold text-blue-700 dark:text-blue-400 tracking-wide uppercase">
-                      Practice {service.code}
+                    <span className="text-xs font-bold text-sky-600 dark:text-sky-400 tracking-wide uppercase">
+                      Service {service.code}
                     </span>
-                    <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                      {service.slaMetric}
+                    <span className="text-xs font-medium px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                      {service.badge}
                     </span>
                   </div>
 
@@ -173,11 +205,13 @@ const ServicesPage: React.FC = () => {
                     ))}
                   </div>
 
-                  {/* Deliverables / Capabilities List */}
-                  <div className="space-y-2 border-t border-slate-100 dark:border-slate-800/80 pt-4 mb-6">
+                  {/* Features List with Clean Checkmark SVGs */}
+                  <div className="space-y-2.5 border-t border-slate-100 dark:border-slate-800/80 pt-4 mb-6">
                     {service.features.map((f) => (
                       <div key={f} className="flex items-start text-xs text-slate-600 dark:text-slate-300">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mr-2.5 mt-1.5" />
+                        <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
                         <span>{f}</span>
                       </div>
                     ))}
@@ -186,16 +220,16 @@ const ServicesPage: React.FC = () => {
 
                 <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80">
                   <a
-                    href={`https://wa.me/923154327855?text=${encodeURIComponent(`Hello! I would like to consult with Mactis regarding your "${service.title}" practice.`)}`}
+                    href={`https://wa.me/923154327855?text=${encodeURIComponent(`Hello! I would like to discuss your "${service.title}" service.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-xs font-semibold text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors"
+                    className="inline-flex items-center text-xs font-semibold text-sky-600 dark:text-sky-400 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors"
                   >
-                    <span>Request Practice Consultation</span>
+                    <span>Discuss this Service on WhatsApp</span>
                     <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                   </a>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -208,24 +242,26 @@ const ServicesPage: React.FC = () => {
       <section className="py-20 md:py-28 bg-white dark:bg-dark border-b border-slate-200 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <span className="text-xs font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2">
               Our Process
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">How We Deliver</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">How We Work Together</h2>
             <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm md:text-base leading-relaxed">
-              A structured, collaborative engineering process that delivers software on schedule with full visibility at every milestone.
+              A transparent, friendly process that delivers your software on schedule with full visibility at every step.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {processSteps.map((step) => (
-              <div 
+              <motion.div 
                 key={step.step} 
-                className="p-6 bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl text-left space-y-3 hover:border-blue-500/40 transition-colors"
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.15 }}
+                className="p-6 bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl text-left space-y-3 hover:border-sky-400 transition-colors shadow-sm"
               >
                 <div className="text-2xl font-extrabold text-sky-600 dark:text-sky-400 tracking-tight">{step.step}</div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white">{step.title}</h3>
                 <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{step.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -236,10 +272,10 @@ const ServicesPage: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6 max-w-2xl relative z-10">
           <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-3 tracking-tight">Ready to Discuss Your Project?</h2>
           <p className="text-sky-100 text-sm mb-8 leading-relaxed font-normal">
-            Schedule an initial consultation with our technical leads. We will review your requirements, suggest an architectural approach, and provide a realistic estimate.
+            Schedule an initial consultation with our technical team. We will review what you need and provide a realistic timeline and cost estimate.
           </p>
           <a
-            href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to schedule an enterprise consultation regarding Mactis IT services.')}`}
+            href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to consult with Mactis about software development.')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="py-3.5 px-8 font-bold bg-white text-sky-700 hover:bg-sky-50 rounded-lg shadow-xl transition-all duration-200 inline-flex items-center justify-center space-x-2"

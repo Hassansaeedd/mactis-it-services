@@ -32,12 +32,10 @@ const WhatsAppButton: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => setShowTooltip(false)}
-        className="group relative flex items-center justify-center w-16 h-16 rounded-full shadow-2xl shadow-green-500/40 transition-all duration-300 hover:scale-110 hover:shadow-green-500/60"
+        className="group relative flex items-center justify-center w-16 h-16 rounded-full shadow-2xl shadow-green-500/40 transition-all duration-300 hover:scale-105 hover:shadow-green-500/60"
         style={{ backgroundColor: '#25D366' }}
         aria-label="Chat on WhatsApp"
       >
-        {/* Ping animation */}
-        <span className="absolute inline-flex h-full w-full rounded-full opacity-40 animate-ping" style={{ backgroundColor: '#25D366' }} />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"

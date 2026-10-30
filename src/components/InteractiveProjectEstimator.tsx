@@ -5,7 +5,6 @@ interface PlatformOption {
   id: string;
   name: string;
   subtitle: string;
-  defaultWeeks: number;
   stack: string[];
   deliverables: string[];
 }
@@ -13,54 +12,50 @@ interface PlatformOption {
 const platforms: PlatformOption[] = [
   {
     id: 'web',
-    name: 'Web & SaaS Platform',
-    subtitle: 'React 19, Next.js & Distributed APIs',
-    defaultWeeks: 8,
-    stack: ['React 19', 'Next.js 15', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker'],
+    name: 'Custom Website or Web Portal',
+    subtitle: 'Modern websites, customer dashboards & online shops',
+    stack: ['React', 'Next.js', 'Node.js', 'PostgreSQL', 'Secure Payments'],
     deliverables: [
-      'Responsive, high-concurrency B2B/B2C web application',
-      'Sub-second server-side rendering & edge CDN caching',
-      'Secure role-based authentication (RBAC) & payments',
-      'Zero-downtime CI/CD automated deployment pipelines',
+      'Mobile-friendly design that looks great on all screens and phones',
+      'Fast page loading speed with search engine optimization (SEO)',
+      'Secure customer logins, accounts, and online payment checkout',
+      'Easy-to-use admin panel to manage content, users, and orders',
     ],
   },
   {
     id: 'mobile',
-    name: 'Mobile Application',
-    subtitle: 'Native iOS & Android Engineering',
-    defaultWeeks: 10,
-    stack: ['React Native', 'Flutter', 'TypeScript', 'WebSockets', 'REST APIs', 'Firebase'],
+    name: 'Mobile App (iOS & Android)',
+    subtitle: 'Smooth mobile apps for iPhones and Android phones',
+    stack: ['React Native', 'Flutter', 'iOS & Android', 'Cloud Sync', 'Push Alerts'],
     deliverables: [
-      'Dual iOS and Android builds ready for App Store & Play Store',
-      'Offline-first SQLite local data persistence',
-      'Real-time push notifications & background synchronization',
-      'Hardware camera, GPS, and biometrics authentication',
-    ],
-  },
-  {
-    id: 'cloud',
-    name: 'Cloud & DevOps Infrastructure',
-    subtitle: 'Kubernetes, AWS / Azure & Terraform',
-    defaultWeeks: 6,
-    stack: ['AWS', 'Microsoft Azure', 'Kubernetes', 'Docker', 'Terraform', 'PostgreSQL'],
-    deliverables: [
-      'Multi-region cluster provisioning with Terraform IaC',
-      'Automated horizontal auto-scaling & load balancing',
-      'Automated encrypted backups & disaster recovery drill',
-      'Real-time Prometheus & Grafana telemetry dashboards',
+      'Published apps ready for Apple App Store and Google Play Store',
+      'Smooth offline capability so users can access data without internet',
+      'Instant push notifications to engage your customers',
+      'Seamless camera, GPS location, and fingerprint/face login',
     ],
   },
   {
     id: 'erp',
-    name: 'Industrial ERP & Custom Automation',
-    subtitle: 'Hardware Sync, Ledgers & Databases',
-    defaultWeeks: 12,
-    stack: ['PostgreSQL', 'Python / Go', 'Next.js', 'IoT Serial Sync', 'Microservices'],
+    name: 'Business Management Software',
+    subtitle: 'Billing, stock inventory & operational management',
+    stack: ['PostgreSQL', 'Node.js', 'Automated Billing', 'Inventory Tracking'],
     deliverables: [
-      'Weighbridge / IoT hardware serial-port automated sync',
-      'Double-entry inventory & financial ledger engine',
-      'Multi-warehouse batch tracking & automated barcode logs',
-      'Role-restricted managerial approvals & audit compliance',
+      'Automated customer invoices, bills, and tax receipts',
+      'Multi-warehouse inventory tracking and stock alerts',
+      'Electronic scale & hardware integration for accurate weight logging',
+      'Role-based manager approvals and transparent financial activity logs',
+    ],
+  },
+  {
+    id: 'cloud',
+    name: 'Cloud Hosting & Maintenance',
+    subtitle: 'High-speed servers, backups & continuous support',
+    stack: ['AWS', 'Google Cloud', 'Docker', 'Automated Daily Backups'],
+    deliverables: [
+      'Secure cloud server setup on AWS, Google Cloud, or Microsoft Azure',
+      'Automatic daily backups to protect your business records safely',
+      '99.9% uptime with 24/7 server monitoring',
+      'Speed optimizations and regular security updates',
     ],
   },
 ];
@@ -68,45 +63,45 @@ const platforms: PlatformOption[] = [
 const scopeTiers = [
   {
     id: 'mvp',
-    name: 'MVP Rapid Sprint',
+    name: 'Quick Launch',
     timeline: '4 – 6 Weeks',
-    sprints: '3 Two-Week Sprints',
-    description: 'Fast architectural prototype ready for real market validation and stakeholder sign-off.',
+    sprints: 'Quick Delivery',
+    description: 'Quick delivery of essential features to test your idea or get your business online fast.',
   },
   {
     id: 'production',
-    name: 'Production Release',
+    name: 'Complete System',
     timeline: '8 – 12 Weeks',
-    sprints: '5 Two-Week Sprints',
-    description: 'Full-featured enterprise software with comprehensive test coverage, staging, and SLA compliance.',
+    sprints: 'Standard Delivery',
+    description: 'Full-featured, tested software customized and ready for your daily business operations.',
   },
   {
     id: 'enterprise',
-    name: 'Enterprise Modernization',
+    name: 'Large Enterprise',
     timeline: '14 – 18+ Weeks',
-    sprints: '8+ Two-Week Sprints',
-    description: 'Complex legacy migration, distributed microservices, multi-region cluster, and security audits.',
+    sprints: 'Comprehensive Delivery',
+    description: 'Comprehensive software for large companies with custom integrations and data migration.',
   },
 ];
 
 const slaTiers = [
   {
     id: 'standard',
-    name: 'Standard Commercial',
-    sla: '99.5% Uptime SLA',
-    support: 'Business Hours Escalation',
+    name: 'Standard Support',
+    sla: 'Business Hours',
+    support: 'Fast email & business hours assistance',
   },
   {
-    id: 'high_availability',
-    name: 'High Availability',
-    sla: '99.9% Uptime SLA',
-    support: '24/7 Automated Health Monitors',
+    id: 'priority',
+    name: 'Priority Support',
+    sla: '24/7 Monitoring',
+    support: 'Direct WhatsApp support & server monitoring',
   },
   {
-    id: 'zero_trust',
-    name: 'Zero-Trust Enterprise',
-    sla: '99.99% Uptime SLA',
-    support: 'Dedicated Tier-1 On-Call Pod',
+    id: 'dedicated',
+    name: 'Dedicated Partner',
+    sla: 'Dedicated Support',
+    support: 'Direct developer contact & continuous improvements',
   },
 ];
 
@@ -115,15 +110,15 @@ export const InteractiveProjectEstimator: React.FC = () => {
   const [selectedScope, setSelectedScope] = useState(scopeTiers[1]);
   const [selectedSla, setSelectedSla] = useState(slaTiers[1]);
 
-  const whatsappMessage = `Hello Mactis Engineering! I used your Project Scope Planner to configure:
-- Platform: ${selectedPlatform.name}
-- Scope & Timeline: ${selectedScope.name} (${selectedScope.timeline})
-- Reliability SLA: ${selectedSla.name} (${selectedSla.sla})
-I would like to schedule an architectural consultation to discuss this scope.`;
+  const whatsappMessage = `Hello Mactis! I used your Project Planner to configure:
+- Project Type: ${selectedPlatform.name}
+- Timeline & Size: ${selectedScope.name} (${selectedScope.timeline})
+- Support Plan: ${selectedSla.name} (${selectedSla.sla})
+I would like to discuss this project and get an estimate for my business.`;
 
   return (
     <section id="project-estimator" className="py-20 md:py-28 bg-[#F8FAFC] dark:bg-slate-900 border-y border-sky-100 dark:border-slate-800 text-slate-900 dark:text-white relative overflow-hidden">
-      {/* Soft Light Blue Ambient Glow */}
+      {/* Soft Ambient Light Glow */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky-200/40 dark:bg-sky-900/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-100/30 dark:bg-slate-800/20 rounded-full blur-3xl pointer-events-none" />
 
@@ -131,17 +126,17 @@ I would like to schedule an architectural consultation to discuss this scope.`;
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2">
-            Project Scope Architect
+            Interactive Project Planner
           </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-950 dark:text-white mb-3">
-            Plan Your Software Scope & Architecture
+            Plan Your Project & Estimate Timelines
           </h2>
           <p className="text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed">
-            Configure your technical requirements below to instantly preview recommended architecture sprints, dedicated pod structure, and estimated engineering milestones.
+            Choose what you want to build and how quickly you need it. See the estimated delivery time, team setup, and what you will receive.
           </p>
         </div>
 
-        {/* Contrasting Cream-White & Ink-Black Layout */}
+        {/* Contrasting Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Controls Column (7 Cols on Light Cream Surface) */}
@@ -151,15 +146,17 @@ I would like to schedule an architectural consultation to discuss this scope.`;
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">
-                  01 / Select Software Domain
+                  01 / Choose Your Project Type
                 </span>
-                <span className="text-[11px] text-slate-500 dark:text-slate-400">Click to switch</span>
+                <span className="text-[11px] text-slate-500 dark:text-slate-400">Click to select</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {platforms.map((p) => {
                   const isSelected = p.id === selectedPlatform.id;
                   return (
-                    <button
+                    <motion.button
+                      whileHover={{ y: -2 }}
+                      transition={{ duration: 0.15 }}
                       key={p.id}
                       onClick={() => setSelectedPlatform(p)}
                       className={`text-left p-4 rounded-xl border transition-all duration-200 ${
@@ -173,13 +170,15 @@ I would like to schedule an architectural consultation to discuss this scope.`;
                           {p.name}
                         </span>
                         {isSelected && (
-                          <span className="w-2 h-2 rounded-full bg-sky-500" />
+                          <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                          </svg>
                         )}
                       </div>
                       <div className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1 font-normal">
                         {p.subtitle}
                       </div>
-                    </button>
+                    </motion.button>
                   );
                 })}
               </div>
@@ -189,14 +188,16 @@ I would like to schedule an architectural consultation to discuss this scope.`;
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">
-                  02 / Delivery Scope & Timeline
+                  02 / Project Size & Timeline
                 </span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                 {scopeTiers.map((s) => {
                   const isSelected = s.id === selectedScope.id;
                   return (
-                    <button
+                    <motion.button
+                      whileHover={{ y: -2 }}
+                      transition={{ duration: 0.15 }}
                       key={s.id}
                       onClick={() => setSelectedScope(s)}
                       className={`text-left p-4 rounded-xl border transition-all duration-200 ${
@@ -214,7 +215,7 @@ I would like to schedule an architectural consultation to discuss this scope.`;
                       <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
                         {s.sprints}
                       </div>
-                    </button>
+                    </motion.button>
                   );
                 })}
               </div>
@@ -224,14 +225,16 @@ I would like to schedule an architectural consultation to discuss this scope.`;
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">
-                  03 / Service Level Agreement (SLA)
+                  03 / Ongoing Support & Updates
                 </span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                 {slaTiers.map((sla) => {
                   const isSelected = sla.id === selectedSla.id;
                   return (
-                    <button
+                    <motion.button
+                      whileHover={{ y: -2 }}
+                      transition={{ duration: 0.15 }}
                       key={sla.id}
                       onClick={() => setSelectedSla(sla)}
                       className={`text-left p-4 rounded-xl border transition-all duration-200 ${
@@ -249,7 +252,7 @@ I would like to schedule an architectural consultation to discuss this scope.`;
                       <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">
                         {sla.support}
                       </div>
-                    </button>
+                    </motion.button>
                   );
                 })}
               </div>
@@ -260,41 +263,34 @@ I would like to schedule an architectural consultation to discuss this scope.`;
           {/* Contrasting Ink-Black Summary Card (5 Cols) */}
           <div className="lg:col-span-5">
             <div className="p-6 md:p-7 rounded-2xl bg-[#0B1120] text-white border border-slate-800 shadow-2xl relative overflow-hidden">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
-                <div>
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-sky-400 block mb-1">
-                    Scope Blueprint
-                  </span>
-                  <h3 className="text-lg font-bold text-white tracking-tight">
-                    {selectedPlatform.name}
-                  </h3>
-                </div>
-                <div className="text-right">
-                  <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/30 inline-block mb-1">
-                    {selectedSla.sla}
-                  </span>
-                  <span className="text-[11px] text-slate-400 block">
-                    {selectedScope.timeline}
-                  </span>
-                </div>
+              <div className="border-b border-slate-800 pb-4 mb-5">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-sky-400 block mb-1">
+                  Project Summary
+                </span>
+                <h3 className="text-lg font-bold text-white tracking-tight">
+                  {selectedPlatform.name}
+                </h3>
+                <span className="text-xs text-slate-400 mt-0.5 block">
+                  Estimated Timeline: <span className="text-white font-semibold">{selectedScope.timeline}</span>
+                </span>
               </div>
 
-              {/* Cadence Metrics Bar */}
+              {/* Delivery Structure Bar */}
               <div className="grid grid-cols-2 gap-3 p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 mb-5 text-center">
                 <div>
-                  <span className="text-[10px] uppercase font-semibold text-slate-400 block">Cadence</span>
+                  <span className="text-[10px] uppercase font-semibold text-slate-400 block">Delivery Pace</span>
                   <span className="text-sm font-bold text-white">{selectedScope.sprints}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase font-semibold text-slate-400 block">Dedicated Pod</span>
-                  <span className="text-sm font-bold text-sky-300">4-5 Engineers</span>
+                  <span className="text-[10px] uppercase font-semibold text-slate-400 block">Dedicated Team</span>
+                  <span className="text-sm font-bold text-sky-300">Designers & Developers</span>
                 </div>
               </div>
 
-              {/* Recommended Stack */}
+              {/* Technologies */}
               <div className="mb-5">
                 <span className="text-xs font-semibold text-slate-300 block mb-2">
-                  Audited Production Stack:
+                  Modern Technologies Used:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {selectedPlatform.stack.map((item) => (
@@ -308,10 +304,10 @@ I would like to schedule an architectural consultation to discuss this scope.`;
                 </div>
               </div>
 
-              {/* Scope Deliverables */}
+              {/* Deliverables */}
               <div className="mb-6">
                 <span className="text-xs font-semibold text-slate-300 block mb-2">
-                  Key Sprint Deliverables:
+                  What You Receive:
                 </span>
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -320,11 +316,13 @@ I would like to schedule an architectural consultation to discuss this scope.`;
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -6 }}
                     transition={{ duration: 0.2 }}
-                    className="space-y-2 text-xs text-slate-300"
+                    className="space-y-2.5 text-xs text-slate-300"
                   >
                     {selectedPlatform.deliverables.map((del, i) => (
-                      <div key={i} className="flex items-start space-x-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0" />
+                      <div key={i} className="flex items-start space-x-2.5">
+                        <svg className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
                         <span className="leading-relaxed font-normal">{del}</span>
                       </div>
                     ))}
@@ -340,11 +338,11 @@ I would like to schedule an architectural consultation to discuss this scope.`;
                   rel="noopener noreferrer"
                   className="btn-primary w-full py-3.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center space-x-2 shadow-lg shadow-sky-500/25"
                 >
-                  <span>Consult Engineering on this Scope</span>
+                  <span>Discuss this Plan on WhatsApp</span>
                   <span className="font-bold">→</span>
                 </a>
                 <p className="text-[11px] text-center text-slate-400">
-                  Includes free 30-minute architectural assessment & technical breakdown.
+                  Includes a free consultation and customized quote for your business.
                 </p>
               </div>
             </div>

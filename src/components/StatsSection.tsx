@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const stats = [
-  { value: 12, suffix: '+', label: 'Enterprise Clients', subtext: 'Global corporate partners' },
-  { value: 20, suffix: '+', label: 'Production Projects', subtext: 'Web, mobile & cloud systems' },
-  { value: 99, suffix: '.9%', label: 'Production Uptime SLA', subtext: 'High-availability infrastructure' },
-  { value: 3, suffix: '+', label: 'Years of Engineering', subtext: 'Continuous delivery track record' },
+  { value: 12, suffix: '+', label: 'Satisfied Companies', subtext: 'Growing businesses & enterprises' },
+  { value: 20, suffix: '+', label: 'Completed Projects', subtext: 'Websites, mobile apps & software' },
+  { value: 99, suffix: '.9%', label: 'Server Reliability', subtext: 'High-availability cloud hosting' },
+  { value: 3, suffix: '+', label: 'Years in Business', subtext: 'Proven development track record' },
 ];
 
 function useCountUp(target: number, duration: number, isVisible: boolean) {
@@ -30,7 +31,11 @@ function useCountUp(target: number, duration: number, isVisible: boolean) {
 const StatCard: React.FC<{ stat: typeof stats[0]; isVisible: boolean }> = ({ stat, isVisible }) => {
   const count = useCountUp(stat.value, 1500, isVisible);
   return (
-    <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-center shadow-sm hover:border-blue-500/40 transition-colors">
+    <motion.div 
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.15 }}
+      className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-center shadow-sm hover:border-sky-400 dark:hover:border-sky-500 transition-colors"
+    >
       <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-2">
         {count.toLocaleString()}{stat.suffix}
       </div>
@@ -40,7 +45,7 @@ const StatCard: React.FC<{ stat: typeof stats[0]; isVisible: boolean }> = ({ sta
       <p className="text-slate-500 dark:text-slate-400 text-xs font-normal">
         {stat.subtext}
       </p>
-    </div>
+    </motion.div>
   );
 };
 
@@ -61,8 +66,8 @@ const StatsSection: React.FC = () => {
     <section ref={ref} className="py-16 md:py-20 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {stats.map((stat, idx) => (
-            <StatCard key={idx} stat={stat} isVisible={isVisible} />
+          {stats.map((stat, i) => (
+            <StatCard key={i} stat={stat} isVisible={isVisible} />
           ))}
         </div>
       </div>

@@ -12,48 +12,43 @@ import { InteractiveProjectEstimator } from '../components/InteractiveProjectEst
 interface ArchitecturalPillar {
   id: string;
   name: string;
-  tag: string;
+  tabLabel: string;
   tech: string[];
   deliverable: string;
-  sla: string;
   link: string;
 }
 
 const architecturePillars: ArchitecturalPillar[] = [
   {
     id: 'web',
-    name: 'Web & SaaS Platforms',
-    tag: 'Practice 01',
-    tech: ['React 19', 'Next.js 15', 'TypeScript', 'Node.js', 'PostgreSQL'],
-    deliverable: 'High-concurrency B2B web portals, sub-second SSR, and role-based access control.',
-    sla: 'Sub-300ms Page Loads • 99.9% Uptime',
-    link: '/services',
-  },
-  {
-    id: 'cloud',
-    name: 'Cloud & DevOps Clusters',
-    tag: 'Practice 02',
-    tech: ['AWS', 'Microsoft Azure', 'Kubernetes', 'Docker', 'Terraform'],
-    deliverable: 'Autoscaling microservices, multi-region failover, and automated CI/CD pipelines.',
-    sla: '99.99% Infrastructure SLA • Zero-Downtime Deploys',
+    name: 'Websites & Online Stores',
+    tabLabel: 'Websites',
+    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Stripe'],
+    deliverable: 'Modern, fast websites, online stores, and customer web portals designed to look great on any screen.',
     link: '/services',
   },
   {
     id: 'mobile',
-    name: 'Mobile Engineering',
-    tag: 'Practice 03',
-    tech: ['React Native', 'Flutter', 'WebSockets', 'SQLite', 'REST APIs'],
-    deliverable: 'Dual iOS and Android apps with live GPS telemetry, push notifications, and offline sync.',
-    sla: '60 FPS Native Performance • App Store Compliance',
+    name: 'Mobile Applications (iOS & Android)',
+    tabLabel: 'Mobile Apps',
+    tech: ['React Native', 'Flutter', 'iOS', 'Android', 'Cloud Sync'],
+    deliverable: 'Custom mobile apps designed for speed, easy navigation, and seamless performance on iPhones and Android phones.',
     link: '/services',
   },
   {
     id: 'erp',
-    name: 'Industrial ERP & IoT',
-    tag: 'Practice 04',
-    tech: ['PostgreSQL', 'Python / Go', 'IoT COM Sync', 'Weighbridges'],
-    deliverable: 'Hardware weighbridge automated logging, multi-branch ledgers, and inventory audit logs.',
-    sla: '100% ACID Audit Trail • Multi-Branch Synchronization',
+    name: 'Business Management Systems',
+    tabLabel: 'Management Software',
+    tech: ['PostgreSQL', 'Node.js', 'Python', 'Automated Billing'],
+    deliverable: 'Tailored software for billing, warehouse inventory, order tracking, and day-to-day business operations.',
+    link: '/services',
+  },
+  {
+    id: 'cloud',
+    name: 'Cloud Hosting & Maintenance',
+    tabLabel: 'Cloud & Hosting',
+    tech: ['AWS', 'Google Cloud', 'Docker', 'Automated Backups'],
+    deliverable: 'Fast, secure cloud setup and round-the-clock maintenance so your software runs smoothly and never goes offline.',
     link: '/services',
   },
 ];
@@ -64,33 +59,22 @@ const Home: React.FC = () => {
   return (
     <div className="relative bg-white dark:bg-dark">
       {/* 1. Cinematic Full-Width Background Photo Hero Section */}
-      <section className="relative min-h-[750px] lg:min-h-[860px] flex items-center justify-center pt-24 pb-36 sm:pb-40 overflow-hidden border-b border-slate-800">
+      <section className="relative min-h-[750px] lg:min-h-[840px] flex items-center justify-center pt-24 pb-36 sm:pb-40 overflow-hidden border-b border-slate-800">
         <HeroBackgroundSlider />
 
         {/* Foreground Content */}
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-4xl mx-auto">
-          {/* Live Status Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-xs font-semibold uppercase tracking-wider text-blue-400 mb-6 shadow-md"
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Q4 2026 / 2027 Engineering Sprints Open</span>
-          </motion.div>
-
           {/* Main Headline */}
           <motion.h1 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.12] mb-6"
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.12] mb-6 pt-6"
           >
-            Engineering Custom Software, <br />
+            We Build Custom Websites, <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-blue-200">
-              Cloud Systems & Intelligent
-            </span> Solutions
+              Mobile Apps & Software
+            </span> for Your Business
           </motion.h1>
 
           {/* Value Proposition */}
@@ -100,7 +84,7 @@ const Home: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-slate-200 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto font-normal mb-8 text-shadow-sm"
           >
-            Mactis designs, builds, and deploys high-availability custom software for organizations. From mission-critical web platforms and mobile apps to industrial ERPs and cloud architecture, we build reliable digital systems tailored to your business.
+            Mactis helps companies automate daily operations, sell online, and build custom digital tools. From modern websites to complete management software, we turn your ideas into fast, dependable tools that help your company grow.
           </motion.p>
 
           {/* Dual Primary Call-to-Actions */}
@@ -111,12 +95,12 @@ const Home: React.FC = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-10"
           >
             <a
-              href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to schedule an architectural consultation with Mactis engineering leadership.')}`}
+              href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to consult with Mactis about building custom software for our business.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary py-3.5 px-7 text-sm font-bold shadow-xl shadow-blue-900/40 w-full sm:w-auto"
             >
-              <span>Schedule Architecture Consultation</span>
+              <span>Schedule Free Consultation</span>
               <span className="ml-2 font-bold">→</span>
             </a>
 
@@ -124,12 +108,12 @@ const Home: React.FC = () => {
               href="#project-estimator"
               className="py-3.5 px-7 text-sm font-bold text-white bg-white/10 hover:bg-white/20 border-2 border-white/50 hover:border-white rounded-md backdrop-blur-md transition-all duration-200 w-full sm:w-auto shadow-lg text-center inline-flex items-center justify-center space-x-1.5"
             >
-              <span>Estimate Your Project Scope</span>
+              <span>Plan Your Project & Estimate Time</span>
               <span className="font-bold">↓</span>
             </a>
           </motion.div>
 
-          {/* Interactive Live Architectural Preview Card (Luminous Cream White Contrast Aesthetic) */}
+          {/* Interactive Live Preview Card (Cream White Contrast Aesthetic) */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -139,7 +123,7 @@ const Home: React.FC = () => {
             {/* Minimalist Segmented Tabs */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-3 mb-4 gap-2">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                Architecture by Practice:
+                What We Build:
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {architecturePillars.map((p) => {
@@ -148,20 +132,27 @@ const Home: React.FC = () => {
                     <button
                       key={p.id}
                       onClick={() => setActivePillar(p)}
-                      className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
+                      className={`relative px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                         isActive
-                          ? 'bg-slate-900 text-white shadow-sm'
-                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/70'
+                          ? 'text-white'
+                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
                       }`}
                     >
-                      {p.name.split(' ')[0]}
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeHeroTab"
+                          className="absolute inset-0 bg-slate-900 rounded-lg shadow-sm"
+                          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                        />
+                      )}
+                      <span className="relative z-10">{p.tabLabel}</span>
                     </button>
                   );
                 })}
               </div>
             </div>
 
-            {/* Active Blueprint Details */}
+            {/* Active Details */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={activePillar.id}
@@ -175,9 +166,6 @@ const Home: React.FC = () => {
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="text-sm sm:text-base font-bold text-slate-950">
                       {activePillar.name}
-                    </span>
-                    <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200 font-semibold">
-                      {activePillar.sla}
                     </span>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -197,11 +185,11 @@ const Home: React.FC = () => {
                     to={activePillar.link}
                     className="inline-flex items-center text-xs font-bold text-sky-600 hover:text-sky-700 group"
                   >
-                    <span>View Full Practice Specs</span>
+                    <span>Explore Our Services</span>
                     <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                   </Link>
                   <span className="text-[11px] text-slate-400 mt-1 font-medium">
-                    Audited Production Delivery
+                    Custom Built for Your Company
                   </span>
                 </div>
               </motion.div>
@@ -221,42 +209,46 @@ const Home: React.FC = () => {
       <section className="py-20 md:py-28 bg-white dark:bg-dark border-b border-slate-200 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-2">
-              Engineering Disciplines
+            <span className="text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2">
+              What We Do Best
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
-              Core Engineering Capabilities
+              Everything Your Business Needs to Grow Online
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed">
-              We build maintainable, high-performance software with clean codebases, automated deployments, and battle-tested architectures.
+              We take care of the entire software process from idea and design to launch and support, so you can focus on running your business.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
             
-            {/* Capability 1: Web & SaaS */}
-            <div className="group relative p-7 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 shadow-sm hover:shadow-lg">
+            {/* Capability 1: Websites & Online Stores */}
+            <motion.div 
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.2 }}
+              className="group relative p-7 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-lg"
+            >
               <div>
                 <div className="flex items-center justify-between mb-5">
-                  <span className="text-xs font-bold text-blue-700 dark:text-blue-400 tracking-wide uppercase">
-                    Practice 01
+                  <span className="text-xs font-bold text-sky-600 dark:text-sky-400 tracking-wide uppercase">
+                    Core Service 01
                   </span>
-                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                    High Performance
+                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    Fast & Responsive
                   </span>
                 </div>
 
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                  Web & SaaS Applications
+                  Websites & Online Stores
                 </h3>
 
                 <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
-                  Fast, responsive, and secure web applications built with modern frameworks including React 19, Next.js, and high-performance backend microservices.
+                  Fast, modern websites and e-commerce stores designed to attract customers, rank on Google, and convert visitors into sales.
                 </p>
 
-                {/* Tech Pills */}
+                {/* Tech Chips */}
                 <div className="flex flex-wrap gap-1.5 mb-6">
-                  {['React 19', 'Next.js 15', 'TypeScript', 'Node.js', 'PostgreSQL'].map((tag) => (
+                  {['React', 'Next.js', 'Online Payments', 'SEO Setup', 'Mobile Ready'].map((tag) => (
                     <span 
                       key={tag}
                       className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
@@ -266,19 +258,25 @@ const Home: React.FC = () => {
                   ))}
                 </div>
 
-                {/* Key Capabilities */}
+                {/* Key Deliverables */}
                 <div className="space-y-2.5 border-t border-slate-100 dark:border-slate-800/80 pt-4 text-xs text-slate-600 dark:text-slate-300">
                   <div className="flex items-start space-x-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
-                    <span>High-concurrency portals and B2B administrative dashboards</span>
+                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Custom responsive design that works smoothly on all smartphones & computers</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
-                    <span>Fast page loads with server-side rendering and edge caching</span>
+                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Search engine optimization (SEO) so local and global customers can find you</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
-                    <span>Type-safe REST and GraphQL APIs with schema validation</span>
+                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Simple administrative dashboard to easily manage your products and pages</span>
                   </div>
                 </div>
               </div>
@@ -286,65 +284,75 @@ const Home: React.FC = () => {
               <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80">
                 <Link
                   to="/services"
-                  className="inline-flex items-center text-xs font-bold text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors"
+                  className="inline-flex items-center text-xs font-bold text-sky-600 dark:text-sky-400 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors"
                 >
-                  <span>Learn more about Web & SaaS</span>
+                  <span>Learn more about Website Services</span>
                   <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Capability 2: AI & Automation */}
-            <div className="group relative p-7 bg-slate-50/90 dark:bg-slate-900 border-2 border-blue-600/70 dark:border-blue-500/70 rounded-xl flex flex-col justify-between shadow-lg transition-all duration-300">
+            {/* Capability 2: AI & Smart Automation */}
+            <motion.div 
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.2 }}
+              className="group relative p-7 bg-sky-50/70 dark:bg-slate-900 border-2 border-sky-500/80 dark:border-sky-500/70 rounded-xl flex flex-col justify-between shadow-lg transition-all duration-300"
+            >
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span className="px-3 py-1 rounded-full bg-blue-700 text-white text-xs font-semibold tracking-wide uppercase shadow-sm">
-                  Featured Discipline
+                <span className="px-3 py-1 rounded-full bg-sky-600 text-white text-xs font-semibold tracking-wide uppercase shadow-sm">
+                  Most Requested
                 </span>
               </div>
 
               <div>
                 <div className="flex items-center justify-between mb-5 pt-1">
-                  <span className="text-xs font-bold text-blue-700 dark:text-blue-400 tracking-wide uppercase">
-                    Practice 02
+                  <span className="text-xs font-bold text-sky-700 dark:text-sky-400 tracking-wide uppercase">
+                    Core Service 02
                   </span>
-                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
-                    Production Ready
+                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-md bg-sky-100 dark:bg-sky-950/80 text-sky-800 dark:text-sky-300 border border-sky-200 dark:border-sky-800">
+                    Saves Time & Cost
                   </span>
                 </div>
 
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                  AI & Intelligent Automation
+                  AI & Smart Automation
                 </h3>
 
                 <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
-                  Practical AI integration that automates repetitive workflows, extracts actionable insights from documents, and provides conversational assistants for your users.
+                  Save hours each week by automating repetitive tasks, customer messaging, and paperwork with smart digital solutions.
                 </p>
 
-                {/* Tech Pills */}
+                {/* Tech Chips */}
                 <div className="flex flex-wrap gap-1.5 mb-6">
-                  {['PyTorch', 'Vector Search', 'Document AI', 'Computer Vision', 'Custom Agents'].map((tag) => (
+                  {['WhatsApp AI Bot', 'Auto-Invoicing', 'Smart Document Scanner', 'Sales Dashboards'].map((tag) => (
                     <span 
                       key={tag}
-                      className="px-2.5 py-1 text-xs font-medium rounded-md bg-blue-100/70 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800/80"
+                      className="px-2.5 py-1 text-xs font-medium rounded-md bg-sky-100/70 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800/80"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* Key Capabilities */}
+                {/* Key Deliverables */}
                 <div className="space-y-2.5 border-t border-slate-200 dark:border-slate-800 pt-4 text-xs text-slate-600 dark:text-slate-300">
                   <div className="flex items-start space-x-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
-                    <span>Custom retrieval-augmented (RAG) knowledge bases and search</span>
+                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Automated WhatsApp and web support assistants answering clients 24/7</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
-                    <span>Automated video analytics, license plate recognition, and detection</span>
+                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Automated invoice creation and digital paperwork sorting without manual typing</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
-                    <span>Customer support chatbots and operational workflow automation</span>
+                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Instant sales dashboards and daily operational notifications directly on your phone</span>
                   </div>
                 </div>
               </div>
@@ -352,37 +360,41 @@ const Home: React.FC = () => {
               <div className="pt-6 mt-6 border-t border-slate-200 dark:border-slate-800">
                 <Link
                   to="/services"
-                  className="inline-flex items-center text-xs font-bold text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors"
+                  className="inline-flex items-center text-xs font-bold text-sky-700 dark:text-sky-400 group-hover:text-sky-800 dark:group-hover:text-sky-300 transition-colors"
                 >
-                  <span>Learn more about AI Solutions</span>
+                  <span>Learn more about Automation</span>
                   <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Capability 3: Cloud & DevOps */}
-            <div className="group relative p-7 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 shadow-sm hover:shadow-lg">
+            {/* Capability 3: Cloud & Maintenance */}
+            <motion.div 
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.2 }}
+              className="group relative p-7 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-lg"
+            >
               <div>
                 <div className="flex items-center justify-between mb-5">
                   <span className="text-xs font-bold text-slate-600 dark:text-slate-400 tracking-wide uppercase">
-                    Practice 03
+                    Core Service 03
                   </span>
-                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
-                    99.9% Uptime
+                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    Always Online
                   </span>
                 </div>
 
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                  Cloud Infrastructure & DevOps
+                  Cloud Hosting & Support
                 </h3>
 
                 <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
-                  Resilient cloud hosting, automated CI/CD pipelines, container orchestration, and multi-region backups designed for high availability and security.
+                  We host, protect, and maintain your software so it runs fast and stays online 24/7 without technical headaches.
                 </p>
 
-                {/* Tech Pills */}
+                {/* Tech Chips */}
                 <div className="flex flex-wrap gap-1.5 mb-6">
-                  {['AWS', 'Azure', 'Docker', 'Kubernetes', 'Terraform'].map((tag) => (
+                  {['Cloud Servers', 'Daily Backups', 'SSL Security', 'Speed Optimization'].map((tag) => (
                     <span 
                       key={tag}
                       className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
@@ -392,19 +404,25 @@ const Home: React.FC = () => {
                   ))}
                 </div>
 
-                {/* Key Capabilities */}
+                {/* Key Deliverables */}
                 <div className="space-y-2.5 border-t border-slate-100 dark:border-slate-800/80 pt-4 text-xs text-slate-600 dark:text-slate-300">
                   <div className="flex items-start space-x-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
-                    <span>Kubernetes cluster auto-scaling on AWS and Microsoft Azure</span>
+                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>High-speed cloud servers with 99.9% uptime guarantee</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
-                    <span>High-availability PostgreSQL and Redis caching layers</span>
+                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Automatic daily data backups to protect your records safely</span>
                   </div>
                   <div className="flex items-start space-x-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-1.5" />
-                    <span>Automated zero-downtime deployment pipelines with test suites</span>
+                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Ongoing security updates and direct, friendly technical help whenever you need it</span>
                   </div>
                 </div>
               </div>
@@ -412,13 +430,13 @@ const Home: React.FC = () => {
               <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80">
                 <Link
                   to="/services"
-                  className="inline-flex items-center text-xs font-bold text-blue-700 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors"
+                  className="inline-flex items-center text-xs font-bold text-sky-600 dark:text-sky-400 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors"
                 >
-                  <span>Learn more about Cloud & DevOps</span>
+                  <span>Learn more about Hosting & Support</span>
                   <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>
