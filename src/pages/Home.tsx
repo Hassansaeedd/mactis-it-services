@@ -5,6 +5,7 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import ServicesSection from '../components/ServicesSection';
 import StatsSection from '../components/StatsSection';
 import SoftwareShowcase from '../components/SoftwareShowcase';
+import { ImageWithSkeleton } from '../components/SkeletonLoader';
 import { HeroBackgroundSlider } from '../components/HeroBackgroundSlider';
 import { TechEcosystemMarquee } from '../components/TechEcosystemMarquee';
 import { InteractiveProjectEstimator } from '../components/InteractiveProjectEstimator';
@@ -220,68 +221,84 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
             
             {/* Capability 1: Websites & Online Stores */}
             <motion.div 
               whileHover={{ y: -6 }}
               transition={{ duration: 0.2 }}
-              className="group relative p-7 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-lg"
+              className="group relative rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between overflow-hidden hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
               <div>
-                <div className="flex items-center justify-between mb-5">
-                  <span className="text-xs font-bold text-sky-600 dark:text-sky-400 tracking-wide uppercase">
-                    Core Service 01
-                  </span>
-                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                    Fast & Responsive
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                  Websites & Online Stores
-                </h3>
-
-                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
-                  Fast, modern websites and e-commerce stores designed to attract customers, rank on Google, and convert visitors into sales.
-                </p>
-
-                {/* Tech Chips */}
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {['React', 'Next.js', 'Online Payments', 'SEO Setup', 'Mobile Ready'].map((tag) => (
-                    <span 
-                      key={tag}
-                      className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
-                    >
-                      {tag}
+                {/* Real Photography Header */}
+                <div className="relative overflow-hidden aspect-[16/10] bg-slate-900">
+                  <ImageWithSkeleton
+                    src="/images/service_web.jpg"
+                    alt="Websites and Web Applications"
+                    aspectRatio="aspect-[16/10]"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+                  
+                  <div className="absolute top-3 left-3 z-10">
+                    <span className="px-3 py-1 rounded-md bg-slate-900/90 text-white text-xs font-bold backdrop-blur-md border border-slate-800">
+                      Core Service 01
                     </span>
-                  ))}
+                  </div>
+
+                  <div className="absolute top-3 right-3 z-10">
+                    <span className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-900/80 text-slate-200 backdrop-blur-md border border-slate-700">
+                      Fast & Responsive
+                    </span>
+                  </div>
                 </div>
 
-                {/* Key Deliverables */}
-                <div className="space-y-2.5 border-t border-slate-100 dark:border-slate-800/80 pt-4 text-xs text-slate-600 dark:text-slate-300">
-                  <div className="flex items-start space-x-2.5">
-                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Custom responsive design that works smoothly on all smartphones & computers</span>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2.5">
+                    Websites & Online Stores
+                  </h3>
+
+                  <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                    Fast, modern websites and e-commerce stores designed to attract customers, rank on Google, and convert visitors into sales.
+                  </p>
+
+                  {/* Tech Chips */}
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {['React', 'Next.js', 'Online Payments', 'SEO Setup', 'Mobile Ready'].map((tag) => (
+                      <span 
+                        key={tag}
+                        className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                  <div className="flex items-start space-x-2.5">
-                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Search engine optimization (SEO) so local and global customers can find you</span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Simple administrative dashboard to easily manage your products and pages</span>
+
+                  {/* Key Deliverables */}
+                  <div className="space-y-2 border-t border-slate-100 dark:border-slate-800/80 pt-3.5 text-xs text-slate-600 dark:text-slate-300">
+                    <div className="flex items-start space-x-2.5">
+                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Custom responsive design that works smoothly on all smartphones & computers</span>
+                    </div>
+                    <div className="flex items-start space-x-2.5">
+                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Search engine optimization (SEO) so local and global customers can find you</span>
+                    </div>
+                    <div className="flex items-start space-x-2.5">
+                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Simple administrative dashboard to easily manage your products and pages</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80">
+              <div className="p-5 bg-slate-50/70 dark:bg-slate-950/40 border-t border-slate-100 dark:border-slate-800">
                 <Link
                   to="/services"
                   className="inline-flex items-center text-xs font-bold text-sky-600 dark:text-sky-400 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors"
@@ -296,68 +313,78 @@ const Home: React.FC = () => {
             <motion.div 
               whileHover={{ y: -6 }}
               transition={{ duration: 0.2 }}
-              className="group relative p-7 bg-sky-50/70 dark:bg-slate-900 border-2 border-sky-500/80 dark:border-sky-500/70 rounded-xl flex flex-col justify-between shadow-lg transition-all duration-300"
+              className="group relative rounded-2xl bg-sky-50/70 dark:bg-slate-900 border-2 border-sky-500/80 dark:border-sky-500/70 flex flex-col justify-between overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span className="px-3 py-1 rounded-full bg-sky-600 text-white text-xs font-semibold tracking-wide uppercase shadow-sm">
-                  Most Requested
-                </span>
-              </div>
-
               <div>
-                <div className="flex items-center justify-between mb-5 pt-1">
-                  <span className="text-xs font-bold text-sky-700 dark:text-sky-400 tracking-wide uppercase">
-                    Core Service 02
-                  </span>
-                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-md bg-sky-100 dark:bg-sky-950/80 text-sky-800 dark:text-sky-300 border border-sky-200 dark:border-sky-800">
-                    Saves Time & Cost
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                  AI & Smart Automation
-                </h3>
-
-                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
-                  Save hours each week by automating repetitive tasks, customer messaging, and paperwork with smart digital solutions.
-                </p>
-
-                {/* Tech Chips */}
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {['WhatsApp AI Bot', 'Auto-Invoicing', 'Smart Document Scanner', 'Sales Dashboards'].map((tag) => (
-                    <span 
-                      key={tag}
-                      className="px-2.5 py-1 text-xs font-medium rounded-md bg-sky-100/70 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800/80"
-                    >
-                      {tag}
+                {/* Real Photography Header */}
+                <div className="relative overflow-hidden aspect-[16/10] bg-slate-900">
+                  <ImageWithSkeleton
+                    src="/images/service_ai.jpg"
+                    alt="AI and Smart Automation"
+                    aspectRatio="aspect-[16/10]"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+                  
+                  <div className="absolute top-3 left-3 z-10">
+                    <span className="px-3 py-1 rounded-md bg-slate-900/90 text-white text-xs font-bold backdrop-blur-md border border-slate-800">
+                      Core Service 02
                     </span>
-                  ))}
+                  </div>
+
+                  <div className="absolute top-3 right-3 z-10">
+                    <span className="px-2.5 py-1 text-xs font-semibold rounded-md bg-sky-600 text-white shadow-sm">
+                      Most Requested
+                    </span>
+                  </div>
                 </div>
 
-                {/* Key Deliverables */}
-                <div className="space-y-2.5 border-t border-slate-200 dark:border-slate-800 pt-4 text-xs text-slate-600 dark:text-slate-300">
-                  <div className="flex items-start space-x-2.5">
-                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Automated WhatsApp and web support assistants answering clients 24/7</span>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2.5">
+                    AI & Smart Automation
+                  </h3>
+
+                  <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                    Save hours each week by automating repetitive tasks, customer messaging, and paperwork with smart digital solutions.
+                  </p>
+
+                  {/* Tech Chips */}
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {['WhatsApp AI Bot', 'Auto-Invoicing', 'Smart Document Scanner', 'Sales Dashboards'].map((tag) => (
+                      <span 
+                        key={tag}
+                        className="px-2.5 py-1 text-xs font-medium rounded-md bg-sky-100/70 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800/80"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                  <div className="flex items-start space-x-2.5">
-                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Automated invoice creation and digital paperwork sorting without manual typing</span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Instant sales dashboards and daily operational notifications directly on your phone</span>
+
+                  {/* Key Deliverables */}
+                  <div className="space-y-2 border-t border-slate-200 dark:border-slate-800 pt-3.5 text-xs text-slate-600 dark:text-slate-300">
+                    <div className="flex items-start space-x-2.5">
+                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Automated WhatsApp and web support assistants answering clients 24/7</span>
+                    </div>
+                    <div className="flex items-start space-x-2.5">
+                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Automated invoice creation and digital paperwork sorting without manual typing</span>
+                    </div>
+                    <div className="flex items-start space-x-2.5">
+                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Instant sales dashboards and daily operational notifications directly on your phone</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-slate-200 dark:border-slate-800">
+              <div className="p-5 bg-slate-50/70 dark:bg-slate-950/40 border-t border-slate-200 dark:border-slate-800">
                 <Link
                   to="/services"
                   className="inline-flex items-center text-xs font-bold text-sky-700 dark:text-sky-400 group-hover:text-sky-800 dark:group-hover:text-sky-300 transition-colors"
@@ -372,62 +399,78 @@ const Home: React.FC = () => {
             <motion.div 
               whileHover={{ y: -6 }}
               transition={{ duration: 0.2 }}
-              className="group relative p-7 bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col justify-between hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-lg"
+              className="group relative rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between overflow-hidden hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-xl"
             >
               <div>
-                <div className="flex items-center justify-between mb-5">
-                  <span className="text-xs font-bold text-slate-600 dark:text-slate-400 tracking-wide uppercase">
-                    Core Service 03
-                  </span>
-                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-                    Always Online
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
-                  Cloud Hosting & Support
-                </h3>
-
-                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
-                  We host, protect, and maintain your software so it runs fast and stays online 24/7 without technical headaches.
-                </p>
-
-                {/* Tech Chips */}
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {['Cloud Servers', 'Daily Backups', 'SSL Security', 'Speed Optimization'].map((tag) => (
-                    <span 
-                      key={tag}
-                      className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
-                    >
-                      {tag}
+                {/* Real Photography Header */}
+                <div className="relative overflow-hidden aspect-[16/10] bg-slate-900">
+                  <ImageWithSkeleton
+                    src="/images/service_cloud.jpg"
+                    alt="Cloud Hosting and Infrastructure"
+                    aspectRatio="aspect-[16/10]"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+                  
+                  <div className="absolute top-3 left-3 z-10">
+                    <span className="px-3 py-1 rounded-md bg-slate-900/90 text-white text-xs font-bold backdrop-blur-md border border-slate-800">
+                      Core Service 03
                     </span>
-                  ))}
+                  </div>
+
+                  <div className="absolute top-3 right-3 z-10">
+                    <span className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                      Always Online
+                    </span>
+                  </div>
                 </div>
 
-                {/* Key Deliverables */}
-                <div className="space-y-2.5 border-t border-slate-100 dark:border-slate-800/80 pt-4 text-xs text-slate-600 dark:text-slate-300">
-                  <div className="flex items-start space-x-2.5">
-                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>High-speed cloud servers with 99.9% uptime guarantee</span>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2.5">
+                    Cloud Hosting & Support
+                  </h3>
+
+                  <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                    We host, protect, and maintain your software so it runs fast and stays online 24/7 without technical headaches.
+                  </p>
+
+                  {/* Tech Chips */}
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {['Cloud Servers', 'Daily Backups', 'SSL Security', 'Speed Optimization'].map((tag) => (
+                      <span 
+                        key={tag}
+                        className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                  <div className="flex items-start space-x-2.5">
-                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Automatic daily data backups to protect your records safely</span>
-                  </div>
-                  <div className="flex items-start space-x-2.5">
-                    <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Ongoing security updates and direct, friendly technical help whenever you need it</span>
+
+                  {/* Key Deliverables */}
+                  <div className="space-y-2 border-t border-slate-100 dark:border-slate-800/80 pt-3.5 text-xs text-slate-600 dark:text-slate-300">
+                    <div className="flex items-start space-x-2.5">
+                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>High-speed cloud servers with 99.9% uptime guarantee</span>
+                    </div>
+                    <div className="flex items-start space-x-2.5">
+                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Automatic daily data backups to protect your records safely</span>
+                    </div>
+                    <div className="flex items-start space-x-2.5">
+                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Ongoing security updates and direct, friendly technical help whenever you need it</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/80">
+              <div className="p-5 bg-slate-50/70 dark:bg-slate-950/40 border-t border-slate-100 dark:border-slate-800">
                 <Link
                   to="/services"
                   className="inline-flex items-center text-xs font-bold text-sky-600 dark:text-sky-400 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors"
