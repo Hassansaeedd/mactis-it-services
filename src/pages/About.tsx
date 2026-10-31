@@ -1,24 +1,48 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { ImageWithSkeleton } from '../components/SkeletonLoader';
 
-const teamMembers = [
+interface TeamMember {
+  name: string;
+  role: string;
+  initials: string;
+  code: string;
+  focus: string;
+  gradient: string;
+  badgeBg: string;
+  bio: string;
+}
+
+const teamMembers: TeamMember[] = [
   { 
     name: 'Ali Raza', 
     role: 'Chief Technology Officer', 
-    image: '/images/client_1.jpg', 
+    initials: 'AR',
+    code: 'SYS-ARCH',
+    focus: 'Cloud Architecture & Systems',
+    gradient: 'from-sky-500 via-sky-600 to-blue-700',
+    badgeBg: 'bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800',
     bio: 'Distributed systems architect with 10+ years designing fault-tolerant cloud engines, microservices, and high-concurrency database layers.' 
   },
   { 
     name: 'Sara Khan', 
     role: 'Head of Client Engineering', 
-    image: '/images/client_4.jpg', 
+    initials: 'SK',
+    code: 'LEAD-DELIV',
+    focus: 'Project Roadmaps & Delivery',
+    gradient: 'from-cyan-400 via-sky-500 to-blue-600',
+    badgeBg: 'bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800',
     bio: 'Technical advisor coordinating enterprise project deliveries, architectural discovery, and sprint roadmaps.' 
   },
   { 
     name: 'Usman Tariq', 
     role: 'Principal Software Architect', 
-    image: '/images/client_3.jpg', 
+    initials: 'UT',
+    code: 'APP-DEV',
+    focus: 'Full-Stack & Web Ecosystems',
+    gradient: 'from-blue-500 via-indigo-600 to-sky-600',
+    badgeBg: 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800',
     bio: 'Senior full-stack engineering lead specializing in modern React ecosystems, Next.js, and practical AI workflow integration.' 
   },
 ];
@@ -216,20 +240,64 @@ const About: React.FC = () => {
             <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">Seasoned software architects bringing real-world production experience to your project.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member) => (
-              <div key={member.name} className="p-6 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl space-y-4 shadow-sm">
-                <div className="w-16 h-16 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800">
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
-                </div>
+              <motion.div 
+                key={member.name}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.2 }}
+                className="p-7 bg-slate-50/80 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 group"
+              >
                 <div>
-                  <h3 className="text-base font-bold text-slate-900 dark:text-white">{member.name}</h3>
-                  <p className="text-xs font-semibold text-blue-700 dark:text-blue-400">{member.role}</p>
+                  {/* Custom DP Header */}
+                  <div className="flex items-center space-x-4 mb-5">
+                    {/* Bespoke Geometric Monogram DP */}
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${member.gradient} p-0.5 shadow-md flex-shrink-0 group-hover:scale-105 transition-transform duration-300`}>
+                      <div className="w-full h-full bg-slate-900 rounded-[14px] flex flex-col items-center justify-center p-1.5 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
+                        <span className="text-xl font-black tracking-wider text-white">
+                          {member.initials}
+                        </span>
+                        <span className="text-[9px] font-bold text-sky-400 uppercase tracking-widest mt-0.5">
+                          {member.code}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-tight">
+                        {member.name}
+                      </h3>
+                      <p className="text-xs font-semibold text-sky-600 dark:text-sky-400 mt-0.5">
+                        {member.role}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Focus Badge */}
+                  <div className="mb-4">
+                    <span className={`inline-block text-[11px] font-semibold px-2.5 py-1 rounded-md border ${member.badgeBg}`}>
+                      {member.focus}
+                    </span>
+                  </div>
+
+                  <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                    {member.bio}
+                  </p>
                 </div>
-                <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-                  {member.bio}
-                </p>
-              </div>
+
+                <div className="pt-4 border-t border-slate-200/80 dark:border-slate-800">
+                  <a
+                    href={`https://wa.me/923154327855?text=${encodeURIComponent(`Hello! I would like to consult with ${member.name} (${member.role}) at Mactis.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-xs font-semibold text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 group-hover:translate-x-0.5 transition-all"
+                  >
+                    <span>Consult with {member.name.split(' ')[0]}</span>
+                    <span className="ml-1 font-bold">→</span>
+                  </a>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
