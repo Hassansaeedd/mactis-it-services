@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { ImageWithSkeleton } from './SkeletonLoader';
+import { Tilt3DCard } from './Tilt3DCard';
 
 interface Service {
   id: number;
@@ -75,19 +75,23 @@ const ServicesSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 2x2 Grid with Real Photos & Smooth Hover Lift */}
+        {/* 2x2 Grid with Real Photos & 3D Interactive Tilt */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {services.map((service) => (
-            <motion.div 
-              key={service.id} 
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.2 }}
-              className={`group relative rounded-2xl flex flex-col justify-between overflow-hidden transition-all duration-300 shadow-sm hover:shadow-xl ${
-                service.featured
-                  ? 'bg-sky-50/60 dark:bg-slate-900 border-2 border-sky-500/80 dark:border-sky-500/70'
-                  : 'bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-sky-400 dark:hover:border-sky-500'
-              }`}
+            <Tilt3DCard
+              key={service.id}
+              maxTilt={8}
+              scale={1.02}
+              glare={true}
+              className="h-full"
             >
+              <div 
+                className={`group relative h-full rounded-2xl flex flex-col justify-between overflow-hidden transition-all duration-300 shadow-sm hover:shadow-2xl ${
+                  service.featured
+                    ? 'bg-sky-50/60 dark:bg-slate-900 border-2 border-sky-500/80 dark:border-sky-500/70'
+                    : 'bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-sky-400 dark:hover:border-sky-500'
+                }`}
+              >
               <div>
                 {/* Real Service Photography */}
                 <div className="relative overflow-hidden aspect-[16/9] bg-slate-900">
@@ -161,7 +165,8 @@ const ServicesSection: React.FC = () => {
                   Quick Inquiry
                 </a>
               </div>
-            </motion.div>
+            </div>
+          </Tilt3DCard>
           ))}
         </div>
         

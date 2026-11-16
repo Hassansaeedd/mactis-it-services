@@ -9,6 +9,9 @@ import { ImageWithSkeleton } from '../components/SkeletonLoader';
 import { HeroBackgroundSlider } from '../components/HeroBackgroundSlider';
 import { TechEcosystemMarquee } from '../components/TechEcosystemMarquee';
 import { InteractiveProjectEstimator } from '../components/InteractiveProjectEstimator';
+import { Architecture3DVisualizer } from '../components/Architecture3DVisualizer';
+import { GlobalNetwork3D } from '../components/GlobalNetwork3D';
+import { Tilt3DCard } from '../components/Tilt3DCard';
 
 interface ArchitecturalPillar {
   id: string;
@@ -114,13 +117,14 @@ const Home: React.FC = () => {
             </a>
           </motion.div>
 
-          {/* Interactive Live Preview Card (Cream White Contrast Aesthetic) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="max-w-3xl mx-auto rounded-2xl bg-[#FAF9F5] text-slate-900 border border-amber-200/60 p-5 sm:p-6 shadow-2xl shadow-black/40 text-left"
-          >
+          {/* Interactive Live Preview Card (3D Tilt & Cream White Contrast Aesthetic) */}
+          <Tilt3DCard maxTilt={5} scale={1.01} glare={false} className="max-w-3xl mx-auto">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="rounded-2xl bg-[#FAF9F5] text-slate-900 border border-amber-200/60 p-5 sm:p-6 shadow-2xl shadow-black/40 text-left"
+            >
             {/* Minimalist Segmented Tabs */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-3 mb-4 gap-2">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
@@ -195,7 +199,8 @@ const Home: React.FC = () => {
                 </div>
               </motion.div>
             </AnimatePresence>
-          </motion.div>
+            </motion.div>
+          </Tilt3DCard>
 
         </div>
       </section>
@@ -205,6 +210,9 @@ const Home: React.FC = () => {
 
       {/* 2. Interactive Enterprise Project Scope & Estimator */}
       <InteractiveProjectEstimator />
+
+      {/* 3. Interactive 3D System Architecture Visualizer */}
+      <Architecture3DVisualizer />
 
       {/* 3. Core Capabilities Matrix */}
       <section className="py-20 md:py-28 bg-white dark:bg-dark border-b border-slate-200 dark:border-slate-800">
@@ -224,11 +232,10 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
             
             {/* Capability 1: Websites & Online Stores */}
-            <motion.div 
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.2 }}
-              className="group relative rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between overflow-hidden hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-xl"
-            >
+            <Tilt3DCard maxTilt={8} scale={1.02} glare={true} className="h-full">
+              <div 
+                className="group relative h-full rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between overflow-hidden hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-2xl"
+              >
               <div>
                 {/* Real Photography Header */}
                 <div className="relative overflow-hidden aspect-[16/10] bg-slate-900">
@@ -307,14 +314,14 @@ const Home: React.FC = () => {
                   <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                 </Link>
               </div>
-            </motion.div>
+            </div>
+          </Tilt3DCard>
 
             {/* Capability 2: AI & Smart Automation */}
-            <motion.div 
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.2 }}
-              className="group relative rounded-2xl bg-sky-50/70 dark:bg-slate-900 border-2 border-sky-500/80 dark:border-sky-500/70 flex flex-col justify-between overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
-            >
+            <Tilt3DCard maxTilt={8} scale={1.02} glare={true} className="h-full">
+              <div 
+                className="group relative h-full rounded-2xl bg-sky-50/70 dark:bg-slate-900 border-2 border-sky-500/80 dark:border-sky-500/70 flex flex-col justify-between overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              >
               <div>
                 {/* Real Photography Header */}
                 <div className="relative overflow-hidden aspect-[16/10] bg-slate-900">
@@ -393,14 +400,14 @@ const Home: React.FC = () => {
                   <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                 </Link>
               </div>
-            </motion.div>
+            </div>
+          </Tilt3DCard>
 
             {/* Capability 3: Cloud & Maintenance */}
-            <motion.div 
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.2 }}
-              className="group relative rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between overflow-hidden hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-xl"
-            >
+            <Tilt3DCard maxTilt={8} scale={1.02} glare={true} className="h-full">
+              <div 
+                className="group relative h-full rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between overflow-hidden hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-2xl"
+              >
               <div>
                 {/* Real Photography Header */}
                 <div className="relative overflow-hidden aspect-[16/10] bg-slate-900">
@@ -479,7 +486,8 @@ const Home: React.FC = () => {
                   <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                 </Link>
               </div>
-            </motion.div>
+            </div>
+          </Tilt3DCard>
 
           </div>
         </div>
@@ -497,7 +505,14 @@ const Home: React.FC = () => {
       {/* 7. Why Teams Choose Mactis */}
       <TestimonialsSection />
 
-      {/* 8. Conversion CTA Banner with Light Blue Brand Theme */}
+      {/* 8. Interactive 3D Global Cloud Infrastructure & Edge Network */}
+      <section className="py-20 md:py-28 bg-[#0B1120] border-b border-slate-800">
+        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+          <GlobalNetwork3D />
+        </div>
+      </section>
+
+      {/* 9. Conversion CTA Banner with Light Blue Brand Theme */}
       <section className="py-20 md:py-24 bg-gradient-to-br from-sky-500 via-sky-600 to-blue-600 text-white text-center relative overflow-hidden">
         <div className="container mx-auto px-4 md:px-6 max-w-3xl relative z-10">
           <h2 className="text-2xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">

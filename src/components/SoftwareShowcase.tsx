@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ImageWithSkeleton } from './SkeletonLoader';
+import { Tilt3DCard } from './Tilt3DCard';
 
 interface Product {
   id: number;
@@ -135,16 +136,21 @@ const SoftwareShowcase: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch">
           <AnimatePresence mode="popLayout">
             {filteredProducts.map((product) => (
-              <motion.div 
-                layout
-                whileHover={{ y: -6 }}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.25 }}
+              <Tilt3DCard
                 key={product.id}
-                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden flex flex-col justify-between hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-xl group"
+                maxTilt={7}
+                scale={1.02}
+                glare={true}
+                className="h-full"
               >
+                <motion.div 
+                  layout
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.25 }}
+                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-2xl group h-full"
+                >
                 <div>
                   {/* Real-World Image */}
                   <div className="relative overflow-hidden">
@@ -232,16 +238,16 @@ const SoftwareShowcase: React.FC = () => {
                   </a>
                 </div>
               </motion.div>
+            </Tilt3DCard>
             ))}
           </AnimatePresence>
 
           {/* Custom Project Box */}
-          <motion.div 
-            whileHover={{ y: -6 }}
-            transition={{ duration: 0.2 }}
-            className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-8 flex flex-col justify-center items-center text-center shadow-sm"
-          >
-            <span className="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 mb-2">
+          <Tilt3DCard maxTilt={6} scale={1.015} glare={true} className="h-full">
+            <div 
+              className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 flex flex-col justify-center items-center text-center shadow-sm hover:shadow-2xl h-full transition-all duration-300"
+            >
+              <span className="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 mb-2">
               Custom Requirements
             </span>
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2.5">
@@ -269,7 +275,8 @@ const SoftwareShowcase: React.FC = () => {
                 Chat on WhatsApp
               </a>
             </div>
-          </motion.div>
+          </div>
+        </Tilt3DCard>
         </div>
 
       </div>

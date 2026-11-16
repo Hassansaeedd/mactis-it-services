@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { ImageWithSkeleton } from '../components/SkeletonLoader';
+import { Tilt3DCard } from '../components/Tilt3DCard';
 
 interface TeamMember {
   name: string;
@@ -242,62 +242,67 @@ const About: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member) => (
-              <motion.div 
+              <Tilt3DCard
                 key={member.name}
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.2 }}
-                className="p-7 bg-slate-50/80 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 group"
+                maxTilt={8}
+                scale={1.02}
+                glare={true}
+                className="h-full"
               >
-                <div>
-                  {/* Custom DP Header */}
-                  <div className="flex items-center space-x-4 mb-5">
-                    {/* Bespoke Geometric Monogram DP */}
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${member.gradient} p-0.5 shadow-md flex-shrink-0 group-hover:scale-105 transition-transform duration-300`}>
-                      <div className="w-full h-full bg-slate-900 rounded-[14px] flex flex-col items-center justify-center p-1.5 relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-                        <span className="text-xl font-black tracking-wider text-white">
-                          {member.initials}
-                        </span>
-                        <span className="text-[9px] font-bold text-sky-400 uppercase tracking-widest mt-0.5">
-                          {member.code}
-                        </span>
+                <div 
+                  className="h-full p-7 bg-slate-50/80 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl flex flex-col justify-between shadow-sm hover:shadow-2xl hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 group"
+                >
+                  <div>
+                    {/* Custom DP Header */}
+                    <div className="flex items-center space-x-4 mb-5">
+                      {/* Bespoke Geometric Monogram DP */}
+                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${member.gradient} p-0.5 shadow-md flex-shrink-0 group-hover:scale-105 transition-transform duration-300`}>
+                        <div className="w-full h-full bg-slate-900 rounded-[14px] flex flex-col items-center justify-center p-1.5 relative overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
+                          <span className="text-xl font-black tracking-wider text-white">
+                            {member.initials}
+                          </span>
+                          <span className="text-[9px] font-bold text-sky-400 uppercase tracking-widest mt-0.5">
+                            {member.code}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div>
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-tight">
+                          {member.name}
+                        </h3>
+                        <p className="text-xs font-semibold text-sky-600 dark:text-sky-400 mt-0.5">
+                          {member.role}
+                        </p>
                       </div>
                     </div>
 
-                    <div>
-                      <h3 className="text-lg font-bold text-slate-900 dark:text-white leading-tight">
-                        {member.name}
-                      </h3>
-                      <p className="text-xs font-semibold text-sky-600 dark:text-sky-400 mt-0.5">
-                        {member.role}
-                      </p>
+                    {/* Focus Badge */}
+                    <div className="mb-4">
+                      <span className={`inline-block text-[11px] font-semibold px-2.5 py-1 rounded-md border ${member.badgeBg}`}>
+                        {member.focus}
+                      </span>
                     </div>
+
+                    <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                      {member.bio}
+                    </p>
                   </div>
 
-                  {/* Focus Badge */}
-                  <div className="mb-4">
-                    <span className={`inline-block text-[11px] font-semibold px-2.5 py-1 rounded-md border ${member.badgeBg}`}>
-                      {member.focus}
-                    </span>
+                  <div className="pt-4 border-t border-slate-200/80 dark:border-slate-800">
+                    <a
+                      href={`https://wa.me/923154327855?text=${encodeURIComponent(`Hello! I would like to consult with ${member.name} (${member.role}) at Mactis.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-xs font-semibold text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 group-hover:translate-x-0.5 transition-all"
+                    >
+                      <span>Consult with {member.name.split(' ')[0]}</span>
+                      <span className="ml-1 font-bold">→</span>
+                    </a>
                   </div>
-
-                  <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-                    {member.bio}
-                  </p>
                 </div>
-
-                <div className="pt-4 border-t border-slate-200/80 dark:border-slate-800">
-                  <a
-                    href={`https://wa.me/923154327855?text=${encodeURIComponent(`Hello! I would like to consult with ${member.name} (${member.role}) at Mactis.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-xs font-semibold text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 group-hover:translate-x-0.5 transition-all"
-                  >
-                    <span>Consult with {member.name.split(' ')[0]}</span>
-                    <span className="ml-1 font-bold">→</span>
-                  </a>
-                </div>
-              </motion.div>
+              </Tilt3DCard>
             ))}
           </div>
         </div>
