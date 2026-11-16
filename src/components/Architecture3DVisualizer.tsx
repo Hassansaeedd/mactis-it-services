@@ -126,10 +126,9 @@ export const Architecture3DVisualizer: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-6xl">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-sky-950/80 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-wider mb-4 shadow-inner">
-            <span className="w-2 h-2 rounded-full bg-sky-400 shadow-sm shadow-sky-400" />
-            <span>Interactive 3D System Architecture</span>
-          </div>
+          <span className="text-xs font-bold uppercase tracking-wider text-sky-400 block mb-2">
+            System Architecture
+          </span>
           <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
             How We Architect Your Software in 3D
           </h2>
@@ -150,7 +149,7 @@ export const Architecture3DVisualizer: React.FC = () => {
             style={{ perspective: '1200px' }}
           >
             {/* View Mode Controls Toolbar */}
-            <div className="absolute top-2 left-2 right-2 flex items-center justify-between z-20">
+            <div className="absolute top-2 left-2 z-20">
               <div className="flex items-center space-x-2 bg-slate-900/90 backdrop-blur-md border border-slate-700/80 p-1.5 rounded-xl shadow-lg">
                 <button
                   onClick={() => setIsExploded(true)}
@@ -173,10 +172,6 @@ export const Architecture3DVisualizer: React.FC = () => {
                   Unified Stack
                 </button>
               </div>
-
-              <span className="text-[11px] text-slate-400 font-medium hidden sm:inline-block bg-slate-900/60 px-3 py-1 rounded-lg border border-slate-800">
-                Move cursor to rotate 3D
-              </span>
             </div>
 
             {/* Main 3D Rotating Isometric Stage */}
@@ -219,12 +214,7 @@ export const Architecture3DVisualizer: React.FC = () => {
               >
                 {/* 3D Glass Header */}
                 <div className="flex items-center justify-between pb-2 border-b border-white/10 mb-2">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                    <span className="text-[11px] font-bold text-sky-400 ml-1">LAYER 01</span>
-                  </div>
+                  <span className="text-[11px] font-bold text-sky-400">LAYER 01</span>
                   <span className="text-[10px] uppercase font-semibold text-sky-300 bg-sky-900/50 px-2 py-0.5 rounded border border-sky-500/30">
                     UI & Mobile
                   </span>
@@ -266,10 +256,7 @@ export const Architecture3DVisualizer: React.FC = () => {
                 }`}
               >
                 <div className="flex items-center justify-between pb-2 border-b border-white/10 mb-2">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-indigo-400" />
-                    <span className="text-[11px] font-bold text-indigo-400">LAYER 02</span>
-                  </div>
+                  <span className="text-[11px] font-bold text-indigo-400">LAYER 02</span>
                   <span className="text-[10px] uppercase font-semibold text-indigo-300 bg-indigo-900/50 px-2 py-0.5 rounded border border-indigo-500/30">
                     Smart AI Core
                   </span>
@@ -288,10 +275,7 @@ export const Architecture3DVisualizer: React.FC = () => {
 
                 {/* Simulated Neural Data Points */}
                 <div className="flex items-center justify-between mt-2.5 pt-1 text-[10px] text-slate-400">
-                  <span className="flex items-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1" />
-                    Auto-Invoicing
-                  </span>
+                  <span>Auto-Invoicing</span>
                   <span>WhatsApp 24/7</span>
                   <span>OCR Scanner</span>
                 </div>
@@ -314,12 +298,9 @@ export const Architecture3DVisualizer: React.FC = () => {
                 }`}
               >
                 <div className="flex items-center justify-between pb-2 border-b border-white/10 mb-2">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-sky-400" />
-                    <span className="text-[11px] font-bold text-sky-400">LAYER 03</span>
-                  </div>
-                  <span className="text-[10px] uppercase font-semibold text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30">
-                    99.9% Uptime
+                  <span className="text-[11px] font-bold text-sky-400">LAYER 03</span>
+                  <span className="text-[10px] uppercase font-semibold text-sky-300 bg-sky-900/50 px-2 py-0.5 rounded border border-sky-500/30">
+                    Cloud Core
                   </span>
                 </div>
 

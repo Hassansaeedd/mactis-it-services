@@ -252,27 +252,16 @@ export const GlobalNetwork3D: React.FC = () => {
   return (
     <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 relative overflow-hidden backdrop-blur-md shadow-2xl">
       {/* Top Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-800 gap-4">
-        <div>
-          <div className="flex items-center space-x-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-            <span className="text-xs font-bold uppercase tracking-wider text-sky-400">
-              Live Global Cloud Infrastructure
-            </span>
-          </div>
-          <h3 className="text-xl sm:text-2xl font-bold text-white mt-1">
-            Worldwide Edge Network & Cloud Clusters
-          </h3>
-          <p className="text-xs text-slate-400 mt-1">
-            Drag to rotate the 3D globe. Inspect our sub-second latency across international cloud hubs.
-          </p>
-        </div>
-
-        {/* Global SLA Pill */}
-        <div className="px-4 py-2 rounded-xl bg-slate-850 border border-slate-700/80 text-left sm:text-right shrink-0">
-          <span className="text-[10px] text-slate-400 block uppercase font-semibold">Global Network SLA</span>
-          <span className="text-sm font-extrabold text-emerald-400">99.9% Uptime Guaranteed</span>
-        </div>
+      <div className="pb-6 border-b border-slate-800">
+        <span className="text-xs font-bold uppercase tracking-wider text-sky-400 block mb-1">
+          Global Cloud Infrastructure
+        </span>
+        <h3 className="text-xl sm:text-2xl font-bold text-white mt-1">
+          Worldwide Edge Network & Cloud Clusters
+        </h3>
+        <p className="text-xs text-slate-400 mt-1">
+          Explore our low-latency international cloud clusters connecting our global clients.
+        </p>
       </div>
 
       {/* Grid: 3D Interactive Canvas + Node Selector */}
@@ -287,9 +276,6 @@ export const GlobalNetwork3D: React.FC = () => {
           onMouseLeave={handleMouseUp}
         >
           <canvas ref={canvasRef} className="w-full h-full" />
-          <div className="absolute bottom-2 left-2 text-[10px] text-slate-500 bg-slate-950/70 px-2.5 py-1 rounded-md border border-slate-800/80 pointer-events-none">
-            3D WebGL Spherical Projection • Drag to spin
-          </div>
         </div>
 
         {/* City Nodes List Column (5 cols) */}
@@ -311,12 +297,9 @@ export const GlobalNetwork3D: React.FC = () => {
                       : 'bg-slate-850/60 border-slate-800 hover:border-slate-700 text-slate-300'
                   }`}
                 >
-                  <div className="flex items-center space-x-3">
-                    <span className={`w-2 h-2 rounded-full ${isSelected ? 'bg-sky-400' : 'bg-slate-600'}`} />
-                    <div>
-                      <span className="text-sm font-bold block leading-tight">{city.name}</span>
-                      <span className="text-[11px] text-slate-400 font-normal">{city.region}</span>
-                    </div>
+                  <div>
+                    <span className="text-sm font-bold block leading-tight">{city.name}</span>
+                    <span className="text-[11px] text-slate-400 font-normal">{city.region}</span>
                   </div>
 
                   <div className="text-right">
