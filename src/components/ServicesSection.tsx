@@ -101,22 +101,7 @@ const ServicesSection: React.FC = () => {
                     aspectRatio="aspect-[16/9]"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Service Code Badge */}
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="px-3 py-1 rounded-md bg-slate-900/90 text-white text-xs font-bold backdrop-blur-md border border-slate-800">
-                      Service {service.code}
-                    </span>
-                  </div>
-
-                  {service.featured && (
-                    <div className="absolute top-3 right-3 z-10">
-                      <span className="px-3 py-1 rounded-md bg-sky-600 text-white text-xs font-semibold shadow-md">
-                        Most Requested
-                      </span>
-                    </div>
-                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 <div className="p-7">
@@ -124,35 +109,18 @@ const ServicesSection: React.FC = () => {
                     {service.title}
                   </h3>
                   
-                  <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                     {service.description}
                   </p>
-
-                  {/* Tech Chips */}
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {service.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="text-xs text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800/80 pt-3.5 mb-2">
-                    <span className="font-semibold text-slate-700 dark:text-slate-300">Deliverables: </span>
-                    {service.deliverables}
-                  </div>
                 </div>
               </div>
               
               <div className="px-7 py-4 bg-slate-50/70 dark:bg-slate-950/40 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                 <Link 
                   to={service.link} 
-                  className="inline-flex items-center text-xs font-semibold text-sky-600 dark:text-sky-400 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors"
+                  className="inline-flex items-center text-xs font-bold text-sky-600 dark:text-sky-400 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors"
                 >
-                  <span>Explore this Service</span>
+                  <span>Explore Service</span>
                   <span className="ml-1 transition-transform group-hover:translate-x-1 font-bold">→</span>
                 </Link>
 
@@ -160,9 +128,9 @@ const ServicesSection: React.FC = () => {
                   href={`https://wa.me/923154327855?text=${encodeURIComponent(`Hello! I would like to consult with Mactis about ${service.title}.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-medium text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+                  className="text-xs font-semibold text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
                 >
-                  Quick Inquiry
+                  Discuss Project
                 </a>
               </div>
             </div>

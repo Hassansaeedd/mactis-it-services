@@ -1,508 +1,217 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import TestimonialsSection from '../components/TestimonialsSection';
+import { motion } from 'framer-motion';
 import ServicesSection from '../components/ServicesSection';
-import StatsSection from '../components/StatsSection';
 import SoftwareShowcase from '../components/SoftwareShowcase';
-import { ImageWithSkeleton } from '../components/SkeletonLoader';
-import { HeroBackgroundSlider } from '../components/HeroBackgroundSlider';
+import TestimonialsSection from '../components/TestimonialsSection';
 import { TechEcosystemMarquee } from '../components/TechEcosystemMarquee';
-import { InteractiveProjectEstimator } from '../components/InteractiveProjectEstimator';
 import { Architecture3DVisualizer } from '../components/Architecture3DVisualizer';
 import { GlobalNetwork3D } from '../components/GlobalNetwork3D';
 import { Tilt3DCard } from '../components/Tilt3DCard';
+import { ImageWithSkeleton } from '../components/SkeletonLoader';
 
-interface ArchitecturalPillar {
+interface Industry {
   id: string;
-  name: string;
-  tabLabel: string;
-  tech: string[];
-  deliverable: string;
+  title: string;
+  image: string;
+  description: string;
   link: string;
 }
 
-const architecturePillars: ArchitecturalPillar[] = [
+const industries: Industry[] = [
   {
-    id: 'web',
-    name: 'Websites & Online Stores',
-    tabLabel: 'Websites',
-    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Stripe'],
-    deliverable: 'Modern, fast websites, online stores, and customer web portals designed to look great on any screen.',
+    id: 'agro',
+    title: 'Agro-Industry & Manufacturing',
+    image: '/images/project_ricemill.jpg',
+    description: 'Weighbridge IoT automation, multi-site mill operations, automated batching, and real-time grain inventory tracking.',
     link: '/services',
   },
   {
-    id: 'mobile',
-    name: 'Mobile Applications (iOS & Android)',
-    tabLabel: 'Mobile Apps',
-    tech: ['React Native', 'Flutter', 'iOS', 'Android', 'Cloud Sync'],
-    deliverable: 'Custom mobile apps designed for speed, easy navigation, and seamless performance on iPhones and Android phones.',
+    id: 'retail',
+    title: 'Retail & Digital Commerce',
+    image: '/images/project_fashion.jpg',
+    description: 'High-conversion e-commerce storefronts, synchronized branch stock, and unified online checkout architectures.',
     link: '/services',
   },
   {
-    id: 'erp',
-    name: 'Business Management Systems',
-    tabLabel: 'Management Software',
-    tech: ['PostgreSQL', 'Node.js', 'Python', 'Automated Billing'],
-    deliverable: 'Tailored software for billing, warehouse inventory, order tracking, and day-to-day business operations.',
+    id: 'logistics',
+    title: 'Supply Chain & Logistics',
+    image: '/images/project_traffic.jpg',
+    description: 'Real-time vehicle tracking, route dispatch coordination, warehouse loading, and delivery status verification.',
     link: '/services',
   },
   {
-    id: 'cloud',
-    name: 'Cloud Hosting & Maintenance',
-    tabLabel: 'Cloud & Hosting',
-    tech: ['AWS', 'Google Cloud', 'Docker', 'Automated Backups'],
-    deliverable: 'Fast, secure cloud setup and round-the-clock maintenance so your software runs smoothly and never goes offline.',
+    id: 'finance',
+    title: 'Corporate & Financial Systems',
+    image: '/images/hero_dashboard.jpg',
+    description: 'Double-entry ledgers, automated billing pipelines, taxation reports, and executive business analytics.',
     link: '/services',
   },
 ];
 
 const Home: React.FC = () => {
-  const [activePillar, setActivePillar] = useState<ArchitecturalPillar>(architecturePillars[0]);
-
   return (
     <div className="relative bg-white dark:bg-dark">
-      {/* 1. Cinematic Full-Width Background Photo Hero Section */}
-      <section className="relative min-h-[750px] lg:min-h-[840px] flex items-center justify-center pt-24 pb-36 sm:pb-40 overflow-hidden border-b border-slate-800">
-        <HeroBackgroundSlider />
+      {/* 1. Systems Limited Style Cinematic Video Hero */}
+      <section className="relative min-h-[720px] lg:min-h-[820px] flex flex-col justify-between overflow-hidden border-b border-slate-800 bg-slate-950">
+        {/* Looping Enterprise Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-45 sm:opacity-50"
+        >
+          <source src="/images/hero_video.mp4" type="video/mp4" />
+        </video>
 
-        {/* Foreground Content */}
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center max-w-4xl mx-auto">
-          {/* Main Headline */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 15 }}
+        {/* Cinematic Multi-Gradient Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/40 pointer-events-none" />
+
+        {/* Hero Foreground Content */}
+        <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-5xl pt-32 pb-20 sm:pt-40 sm:pb-24 flex-1 flex flex-col justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.12] mb-6 pt-6"
+            transition={{ duration: 0.6 }}
           >
-            We Build Custom Websites, <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-blue-200">
-              Mobile Apps & Software
-            </span> for Your Business
-          </motion.h1>
+            <span className="text-xs font-bold uppercase tracking-wider text-sky-400 block mb-4">
+              Enterprise Software & AI Solutions
+            </span>
 
-          {/* Value Proposition */}
-          <motion.p 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-slate-200 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto font-normal mb-8 text-shadow-sm"
-          >
-            Mactis helps companies automate daily operations, sell online, and build custom digital tools. From modern websites to complete management software, we turn your ideas into fast, dependable tools that help your company grow.
-          </motion.p>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+              Engineering Digital Excellence <br />
+              through <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-300 to-sky-200">Modern Technology</span>
+            </h1>
 
-          {/* Dual Primary Call-to-Actions */}
-          <motion.div 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-10"
-          >
-            <a
-              href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to consult with Mactis about building custom software for our business.')}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary py-3.5 px-7 text-sm font-bold shadow-xl shadow-blue-900/40 w-full sm:w-auto"
-            >
-              <span>Schedule Free Consultation</span>
-              <span className="ml-2 font-bold">→</span>
-            </a>
+            <p className="text-slate-300 text-sm sm:text-base lg:text-lg max-w-2xl font-normal leading-relaxed mb-8">
+              Strategy, custom software engineering, and high-availability cloud platforms built for the next era of enterprise growth.
+            </p>
 
-            <a
-              href="#project-estimator"
-              className="py-3.5 px-7 text-sm font-bold text-white bg-white/10 hover:bg-white/20 border-2 border-white/50 hover:border-white rounded-md backdrop-blur-md transition-all duration-200 w-full sm:w-auto shadow-lg text-center inline-flex items-center justify-center space-x-1.5"
-            >
-              <span>Plan Your Project & Estimate Time</span>
-              <span className="font-bold">↓</span>
-            </a>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <a
+                href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to consult with Mactis about enterprise software development.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary py-3.5 px-8 text-sm font-bold shadow-2xl w-full sm:w-auto text-center"
+              >
+                <span>Schedule Consultation</span>
+                <span className="ml-2 font-bold">→</span>
+              </a>
+
+              <a
+                href="#services"
+                className="py-3.5 px-8 text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/30 hover:border-white rounded-md backdrop-blur-md transition-all duration-200 w-full sm:w-auto text-center"
+              >
+                Explore Solutions
+              </a>
+            </div>
           </motion.div>
+        </div>
 
-          {/* Interactive Live Preview Card (3D Tilt & Cream White Contrast Aesthetic) */}
-          <Tilt3DCard maxTilt={5} scale={1.01} glare={false} className="max-w-3xl mx-auto">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="rounded-2xl bg-[#FAF9F5] text-slate-900 border border-amber-200/60 p-5 sm:p-6 shadow-2xl shadow-black/40 text-left"
-            >
-            {/* Minimalist Segmented Tabs */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-3 mb-4 gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                What We Build:
-              </span>
-              <div className="flex flex-wrap gap-1.5">
-                {architecturePillars.map((p) => {
-                  const isActive = p.id === activePillar.id;
-                  return (
-                    <button
-                      key={p.id}
-                      onClick={() => setActivePillar(p)}
-                      className={`relative px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
-                        isActive
-                          ? 'text-white'
-                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
-                      }`}
-                    >
-                      {isActive && (
-                        <motion.div
-                          layoutId="activeHeroTab"
-                          className="absolute inset-0 bg-slate-900 rounded-lg shadow-sm"
-                          transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                        />
-                      )}
-                      <span className="relative z-10">{p.tabLabel}</span>
-                    </button>
-                  );
-                })}
+        {/* Integrated Executive Stats Ribbon */}
+        <div className="relative z-10 border-t border-white/10 bg-slate-950/80 backdrop-blur-md py-6">
+          <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-white">12+</div>
+                <div className="text-xs text-slate-400 uppercase tracking-wider mt-1">Enterprise Clients</div>
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-white">20+</div>
+                <div className="text-xs text-slate-400 uppercase tracking-wider mt-1">Production Deliveries</div>
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-sky-400">99.9%</div>
+                <div className="text-xs text-slate-400 uppercase tracking-wider mt-1">Server Reliability</div>
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-white">3+ Years</div>
+                <div className="text-xs text-slate-400 uppercase tracking-wider mt-1">Engineering Track Record</div>
               </div>
             </div>
-
-            {/* Active Details */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activePillar.id}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={{ duration: 0.2 }}
-                className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center"
-              >
-                <div className="sm:col-span-8 space-y-2.5">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-sm sm:text-base font-bold text-slate-950">
-                      {activePillar.name}
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                    {activePillar.deliverable}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 pt-0.5">
-                    {activePillar.tech.map((t) => (
-                      <span key={t} className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-white text-slate-800 border border-slate-200 shadow-xs">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="sm:col-span-4 sm:border-l sm:border-slate-200 sm:pl-5 flex flex-col justify-center">
-                  <Link
-                    to={activePillar.link}
-                    className="inline-flex items-center text-xs font-bold text-sky-600 hover:text-sky-700 group"
-                  >
-                    <span>Explore Our Services</span>
-                    <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
-                  </Link>
-                  <span className="text-[11px] text-slate-400 mt-1 font-medium">
-                    Custom Built for Your Company
-                  </span>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-            </motion.div>
-          </Tilt3DCard>
-
+          </div>
         </div>
       </section>
 
-      {/* Technology Ecosystem Running Marquee */}
+      {/* 2. Technology Alliances & Platform Ecosystem Marquee */}
       <TechEcosystemMarquee />
 
-      {/* 2. Interactive Enterprise Project Scope & Estimator */}
-      <InteractiveProjectEstimator />
+      {/* 3. Core Services Section (Clean, Decent Cards) */}
+      <div id="services">
+        <ServicesSection />
+      </div>
 
-      {/* 3. Interactive 3D System Architecture Visualizer */}
-      <Architecture3DVisualizer />
-
-      {/* 3. Core Capabilities Matrix */}
-      <section className="py-20 md:py-28 bg-white dark:bg-dark border-b border-slate-200 dark:border-slate-800">
+      {/* 4. Industries We Transform (Systems Limited Signature Section) */}
+      <section className="py-20 md:py-28 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
           <div className="text-center mb-16 max-w-2xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2">
-              What We Do Best
+            <span className="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2">
+              Sector Expertise
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3">
-              Everything Your Business Needs to Grow Online
+              Industries We Transform
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed">
-              We take care of the entire software process from idea and design to launch and support, so you can focus on running your business.
+              Purpose-built software platforms engineered for the operational realities of modern industries.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-            
-            {/* Capability 1: Websites & Online Stores */}
-            <Tilt3DCard maxTilt={8} scale={1.02} glare={true} className="h-full">
-              <div 
-                className="group relative h-full rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between overflow-hidden hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-2xl"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+            {industries.map((ind) => (
+              <Tilt3DCard
+                key={ind.id}
+                maxTilt={6}
+                scale={1.02}
+                glare={true}
+                className="h-full"
               >
-              <div>
-                {/* Real Photography Header */}
-                <div className="relative overflow-hidden aspect-[16/10] bg-slate-900">
-                  <ImageWithSkeleton
-                    src="/images/service_web.jpg"
-                    alt="Websites and Web Applications"
-                    aspectRatio="aspect-[16/10]"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-                  
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="px-3 py-1 rounded-md bg-slate-900/90 text-white text-xs font-bold backdrop-blur-md border border-slate-800">
-                      Core Service 01
-                    </span>
+                <div className="group h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-xl">
+                  <div>
+                    <div className="relative overflow-hidden aspect-[16/10] bg-slate-900">
+                      <ImageWithSkeleton
+                        src={ind.image}
+                        alt={ind.title}
+                        aspectRatio="aspect-[16/10]"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                    </div>
+
+                    <div className="p-6">
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug">
+                        {ind.title}
+                      </h3>
+                      <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        {ind.description}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="absolute top-3 right-3 z-10">
-                    <span className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-900/80 text-slate-200 backdrop-blur-md border border-slate-700">
-                      Fast & Responsive
-                    </span>
+                  <div className="px-6 py-3.5 bg-slate-50/70 dark:bg-slate-950/40 border-t border-slate-100 dark:border-slate-800">
+                    <Link
+                      to={ind.link}
+                      className="inline-flex items-center text-xs font-bold text-sky-600 dark:text-sky-400 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors"
+                    >
+                      <span>Explore Sector Solutions</span>
+                      <span className="ml-1 transition-transform group-hover:translate-x-1 font-bold">→</span>
+                    </Link>
                   </div>
                 </div>
-
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2.5">
-                    Websites & Online Stores
-                  </h3>
-
-                  <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
-                    Fast, modern websites and e-commerce stores designed to attract customers, rank on Google, and convert visitors into sales.
-                  </p>
-
-                  {/* Tech Chips */}
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {['React', 'Next.js', 'Online Payments', 'SEO Setup', 'Mobile Ready'].map((tag) => (
-                      <span 
-                        key={tag}
-                        className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Key Deliverables */}
-                  <div className="space-y-2 border-t border-slate-100 dark:border-slate-800/80 pt-3.5 text-xs text-slate-600 dark:text-slate-300">
-                    <div className="flex items-start space-x-2.5">
-                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Custom responsive design that works smoothly on all smartphones & computers</span>
-                    </div>
-                    <div className="flex items-start space-x-2.5">
-                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Search engine optimization (SEO) so local and global customers can find you</span>
-                    </div>
-                    <div className="flex items-start space-x-2.5">
-                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Simple administrative dashboard to easily manage your products and pages</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-5 bg-slate-50/70 dark:bg-slate-950/40 border-t border-slate-100 dark:border-slate-800">
-                <Link
-                  to="/services"
-                  className="inline-flex items-center text-xs font-bold text-sky-600 dark:text-sky-400 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors"
-                >
-                  <span>Learn more about Website Services</span>
-                  <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
-                </Link>
-              </div>
-            </div>
-          </Tilt3DCard>
-
-            {/* Capability 2: AI & Smart Automation */}
-            <Tilt3DCard maxTilt={8} scale={1.02} glare={true} className="h-full">
-              <div 
-                className="group relative h-full rounded-2xl bg-sky-50/70 dark:bg-slate-900 border-2 border-sky-500/80 dark:border-sky-500/70 flex flex-col justify-between overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
-              >
-              <div>
-                {/* Real Photography Header */}
-                <div className="relative overflow-hidden aspect-[16/10] bg-slate-900">
-                  <ImageWithSkeleton
-                    src="/images/service_ai.jpg"
-                    alt="AI and Smart Automation"
-                    aspectRatio="aspect-[16/10]"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-                  
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="px-3 py-1 rounded-md bg-slate-900/90 text-white text-xs font-bold backdrop-blur-md border border-slate-800">
-                      Core Service 02
-                    </span>
-                  </div>
-
-                  <div className="absolute top-3 right-3 z-10">
-                    <span className="px-2.5 py-1 text-xs font-semibold rounded-md bg-sky-600 text-white shadow-sm">
-                      Most Requested
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2.5">
-                    AI & Smart Automation
-                  </h3>
-
-                  <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
-                    Save hours each week by automating repetitive tasks, customer messaging, and paperwork with smart digital solutions.
-                  </p>
-
-                  {/* Tech Chips */}
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {['WhatsApp AI Bot', 'Auto-Invoicing', 'Smart Document Scanner', 'Sales Dashboards'].map((tag) => (
-                      <span 
-                        key={tag}
-                        className="px-2.5 py-1 text-xs font-medium rounded-md bg-sky-100/70 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800/80"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Key Deliverables */}
-                  <div className="space-y-2 border-t border-slate-200 dark:border-slate-800 pt-3.5 text-xs text-slate-600 dark:text-slate-300">
-                    <div className="flex items-start space-x-2.5">
-                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Automated WhatsApp and web support assistants answering clients 24/7</span>
-                    </div>
-                    <div className="flex items-start space-x-2.5">
-                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Automated invoice creation and digital paperwork sorting without manual typing</span>
-                    </div>
-                    <div className="flex items-start space-x-2.5">
-                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Instant sales dashboards and daily operational notifications directly on your phone</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-5 bg-slate-50/70 dark:bg-slate-950/40 border-t border-slate-200 dark:border-slate-800">
-                <Link
-                  to="/services"
-                  className="inline-flex items-center text-xs font-bold text-sky-700 dark:text-sky-400 group-hover:text-sky-800 dark:group-hover:text-sky-300 transition-colors"
-                >
-                  <span>Learn more about Automation</span>
-                  <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
-                </Link>
-              </div>
-            </div>
-          </Tilt3DCard>
-
-            {/* Capability 3: Cloud & Maintenance */}
-            <Tilt3DCard maxTilt={8} scale={1.02} glare={true} className="h-full">
-              <div 
-                className="group relative h-full rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between overflow-hidden hover:border-sky-400 dark:hover:border-sky-500 transition-all duration-300 shadow-sm hover:shadow-2xl"
-              >
-              <div>
-                {/* Real Photography Header */}
-                <div className="relative overflow-hidden aspect-[16/10] bg-slate-900">
-                  <ImageWithSkeleton
-                    src="/images/service_cloud.jpg"
-                    alt="Cloud Hosting and Infrastructure"
-                    aspectRatio="aspect-[16/10]"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
-                  
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="px-3 py-1 rounded-md bg-slate-900/90 text-white text-xs font-bold backdrop-blur-md border border-slate-800">
-                      Core Service 03
-                    </span>
-                  </div>
-
-                  <div className="absolute top-3 right-3 z-10">
-                    <span className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-                      Always Online
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2.5">
-                    Cloud Hosting & Support
-                  </h3>
-
-                  <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed mb-4">
-                    We host, protect, and maintain your software so it runs fast and stays online 24/7 without technical headaches.
-                  </p>
-
-                  {/* Tech Chips */}
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {['Cloud Servers', 'Daily Backups', 'SSL Security', 'Speed Optimization'].map((tag) => (
-                      <span 
-                        key={tag}
-                        className="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Key Deliverables */}
-                  <div className="space-y-2 border-t border-slate-100 dark:border-slate-800/80 pt-3.5 text-xs text-slate-600 dark:text-slate-300">
-                    <div className="flex items-start space-x-2.5">
-                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>High-speed cloud servers with 99.9% uptime guarantee</span>
-                    </div>
-                    <div className="flex items-start space-x-2.5">
-                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Automatic daily data backups to protect your records safely</span>
-                    </div>
-                    <div className="flex items-start space-x-2.5">
-                      <svg className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>Ongoing security updates and direct, friendly technical help whenever you need it</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-5 bg-slate-50/70 dark:bg-slate-950/40 border-t border-slate-100 dark:border-slate-800">
-                <Link
-                  to="/services"
-                  className="inline-flex items-center text-xs font-bold text-sky-600 dark:text-sky-400 group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors"
-                >
-                  <span>Learn more about Hosting & Support</span>
-                  <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
-                </Link>
-              </div>
-            </div>
-          </Tilt3DCard>
-
+              </Tilt3DCard>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Core Services Section */}
-      <ServicesSection />
-
-      {/* 5. Stats Counters (12+ Enterprise Clients, 20+ Production Projects, 3+ Years Track Record, 99.9% Uptime) */}
-      <StatsSection />
-
-      {/* 6. Software Products & Projects Showcase with Interactive Architecture Inspection */}
+      {/* 5. Proven Real-World Work Showcase */}
       <SoftwareShowcase />
 
-      {/* 7. Why Teams Choose Mactis */}
+      {/* 6. Interactive 3D System Architecture Visualizer */}
+      <Architecture3DVisualizer />
+
+      {/* 7. Client Trust & Testimonials */}
       <TestimonialsSection />
 
       {/* 8. Interactive 3D Global Cloud Infrastructure & Edge Network */}
@@ -512,30 +221,33 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 9. Conversion CTA Banner with Light Blue Brand Theme */}
-      <section className="py-20 md:py-24 bg-gradient-to-br from-sky-500 via-sky-600 to-blue-600 text-white text-center relative overflow-hidden">
+      {/* 9. Systems Limited Style Closing Call to Action */}
+      <section className="py-20 md:py-28 bg-gradient-to-br from-sky-600 via-sky-700 to-blue-800 text-white text-center relative overflow-hidden">
         <div className="container mx-auto px-4 md:px-6 max-w-3xl relative z-10">
-          <h2 className="text-2xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">
-            Ready to Build or Scale Your Software?
+          <span className="text-xs font-bold uppercase tracking-wider text-sky-200 block mb-3">
+            Partner with Mactis
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight leading-tight">
+            Let’s build what’s next, together.
           </h2>
-          <p className="text-sky-100 text-sm md:text-base mb-8 leading-relaxed font-normal">
-            Discuss your project requirements, timeline, and architecture with our engineering leadership. We will evaluate your specs and provide a realistic, phased roadmap.
+          <p className="text-sky-100 text-sm sm:text-base mb-8 max-w-xl mx-auto leading-relaxed font-normal">
+            Discuss your technical roadmap, platform architecture, and timeline directly with our engineering leadership.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to consult with Mactis regarding our software project.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="py-3.5 px-8 font-bold bg-white text-sky-700 hover:bg-sky-50 rounded-lg shadow-xl transition-all duration-200 inline-flex items-center justify-center"
+              className="py-3.5 px-8 font-bold bg-white text-sky-700 hover:bg-sky-50 rounded-lg shadow-xl transition-all duration-200 inline-flex items-center justify-center w-full sm:w-auto"
             >
-              <span>Schedule WhatsApp Consultation</span>
+              <span>Connect on WhatsApp</span>
               <span className="ml-2 font-bold">→</span>
             </a>
             <Link 
               to="/contact" 
-              className="py-3.5 px-7 text-white font-semibold border-2 border-white/60 hover:bg-white/15 rounded-lg backdrop-blur-sm transition-all duration-200"
+              className="py-3.5 px-8 text-white font-semibold border-2 border-white/60 hover:bg-white/15 rounded-lg backdrop-blur-sm transition-all duration-200 w-full sm:w-auto text-center"
             >
-              Send Project Inquiry Form
+              Send Project Inquiry
             </Link>
           </div>
         </div>

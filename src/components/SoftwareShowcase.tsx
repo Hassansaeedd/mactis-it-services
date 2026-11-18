@@ -183,38 +183,9 @@ const SoftwareShowcase: React.FC = () => {
                       {product.title}
                     </h3>
 
-                    {/* Tech stack tags */}
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {product.tags.map((tag, idx) => (
-                        <span 
-                          key={idx}
-                          className="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">
+                    <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
                       {product.description}
                     </p>
-
-                    {/* Key Features List */}
-                    <div className="bg-slate-50 dark:bg-slate-950/60 p-4 rounded-lg border border-slate-200/70 dark:border-slate-800/80 mb-2">
-                      <p className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-2.5">
-                        Key Features Included
-                      </p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {product.features.map((feature, i) => (
-                          <div key={i} className="flex items-start text-xs text-slate-600 dark:text-slate-400">
-                            <svg className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
                   </div>
                 </div>
 
