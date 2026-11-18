@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import ServicesSection from '../components/ServicesSection';
 import SoftwareShowcase from '../components/SoftwareShowcase';
 import TestimonialsSection from '../components/TestimonialsSection';
@@ -9,6 +8,7 @@ import { Architecture3DVisualizer } from '../components/Architecture3DVisualizer
 import { GlobalNetwork3D } from '../components/GlobalNetwork3D';
 import { Tilt3DCard } from '../components/Tilt3DCard';
 import { ImageWithSkeleton } from '../components/SkeletonLoader';
+import { HeroSlider } from '../components/HeroSlider';
 
 interface Industry {
   id: string;
@@ -52,88 +52,8 @@ const industries: Industry[] = [
 const Home: React.FC = () => {
   return (
     <div className="relative bg-white dark:bg-dark">
-      {/* 1. Systems Limited Style Cinematic Video Hero */}
-      <section className="relative min-h-[720px] lg:min-h-[820px] flex flex-col justify-between overflow-hidden border-b border-slate-800 bg-slate-950">
-        {/* Looping Enterprise Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-45 sm:opacity-50"
-        >
-          <source src="/images/hero_video.mp4" type="video/mp4" />
-        </video>
-
-        {/* Cinematic Multi-Gradient Dark Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/40 pointer-events-none" />
-
-        {/* Hero Foreground Content */}
-        <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-5xl pt-32 pb-20 sm:pt-40 sm:pb-24 flex-1 flex flex-col justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-bold uppercase tracking-wider text-sky-400 block mb-4">
-              Enterprise Software & AI Solutions
-            </span>
-
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
-              Engineering Digital Excellence <br />
-              through <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-300 to-sky-200">Modern Technology</span>
-            </h1>
-
-            <p className="text-slate-300 text-sm sm:text-base lg:text-lg max-w-2xl font-normal leading-relaxed mb-8">
-              Strategy, custom software engineering, and high-availability cloud platforms built for the next era of enterprise growth.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a
-                href={`https://wa.me/923154327855?text=${encodeURIComponent('Hello! I would like to consult with Mactis about enterprise software development.')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary py-3.5 px-8 text-sm font-bold shadow-2xl w-full sm:w-auto text-center"
-              >
-                <span>Schedule Consultation</span>
-                <span className="ml-2 font-bold">→</span>
-              </a>
-
-              <a
-                href="#services"
-                className="py-3.5 px-8 text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/30 hover:border-white rounded-md backdrop-blur-md transition-all duration-200 w-full sm:w-auto text-center"
-              >
-                Explore Solutions
-              </a>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Integrated Executive Stats Ribbon */}
-        <div className="relative z-10 border-t border-white/10 bg-slate-950/80 backdrop-blur-md py-6">
-          <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white">12+</div>
-                <div className="text-xs text-slate-400 uppercase tracking-wider mt-1">Enterprise Clients</div>
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white">20+</div>
-                <div className="text-xs text-slate-400 uppercase tracking-wider mt-1">Production Deliveries</div>
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-sky-400">99.9%</div>
-                <div className="text-xs text-slate-400 uppercase tracking-wider mt-1">Server Reliability</div>
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white">3+ Years</div>
-                <div className="text-xs text-slate-400 uppercase tracking-wider mt-1">Engineering Track Record</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 1. Systems Limited Style Video & Multi-Slide Hero */}
+      <HeroSlider />
 
       {/* 2. Technology Alliances & Platform Ecosystem Marquee */}
       <TechEcosystemMarquee />
